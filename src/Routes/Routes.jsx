@@ -3,6 +3,8 @@ import MainLayout from "../Layout/MainLayout/MainLayout";
 import Home from "../Pages/Home/Home";
 import Register from "../Pages/Authentication/Register";
 import Login from "../Pages/Authentication/Login";
+import HrRegister from "../Pages/Authentication/HrRegister";
+
 
 
 export const routes = createBrowserRouter([
@@ -22,6 +24,11 @@ export const routes = createBrowserRouter([
                 path:'/login',
                 element:<Login></Login>
             },
+            {
+                path:'/hrRegister',
+                element:<HrRegister></HrRegister>
+            },
+
        
 
        

@@ -5,11 +5,15 @@ import { FaUserCircle } from "react-icons/fa";
 import { FaUser } from "react-icons/fa";
 import { LuLogIn } from "react-icons/lu";
 import { AuthContext } from "../Provider/AuthProvider";
+import useRole from "../Hooks/useRole";
 
 
 const Navbar = () => {
   const { user, signOutUser, loading, setLoading } = useContext(AuthContext);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+ const [role, isLoading] = useRole();
+
+ console.log(user)
 
   const handleSignOut = () => {
     signOutUser()
@@ -35,21 +39,40 @@ const Navbar = () => {
           Home
         </NavLink>
       </li>
-      <li>
-        <NavLink
-          to="/employee"
-          className={({ isActive }) =>
-            isActive
-              ? "text-[#FF3600] font-semibold underline"
-              : "text-base-200  hover:text-[#FF3600] font-semibold transition-all duration-200"
-          }
-        >
-          Join as Employee
-        </NavLink>
-      </li>
+
+      {!user || !(role === "employee" || role === "hr")? (
+<>
+<li>
+      <NavLink
+        to="/register"
+        className={({ isActive }) =>
+          isActive
+            ? "text-[#FF3600] font-semibold underline"
+            : "text-base-200  hover:text-[#FF3600] font-semibold transition-all duration-200"
+        }
+      >
+        Join as Employee
+      </NavLink>
+    </li>
+    <li>
+      <NavLink
+        to="/hrRegister"
+        className={({ isActive }) =>
+          isActive
+            ? "text-[#FF3600] font-semibold underline"
+            : "text-base-200  hover:text-[#FF3600] font-semibold transition-all duration-200"
+        }
+      >
+        Join as HR Manager
+      </NavLink>
+    </li>
+
+</>
+    
+  ) : null}
 
 
-      {user && (
+      {user && role ==="employee" &&(
         <>
           <li>
             <NavLink
@@ -63,22 +86,131 @@ const Navbar = () => {
               My Assets
             </NavLink>
           </li>
-
+          <li>
+            <NavLink
+              to="/myTeam"
+              className={({ isActive }) =>
+                isActive
+                  ? "text-[#FF3600] font-semibold underline"
+                  : "text-base-200  hover:text-[#FF3600] font-semibold transition-all duration-200"
+              }
+            >
+              My Team
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/assetRequest"
+              className={({ isActive }) =>
+                isActive
+                  ? "text-[#FF3600] font-semibold underline"
+                  : "text-base-200  hover:text-[#FF3600] font-semibold transition-all duration-200"
+              }
+            >
+              Request for an Asset
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/profile"
+              className={({ isActive }) =>
+                isActive
+                  ? "text-[#FF3600] font-semibold underline"
+                  : "text-base-200  hover:text-[#FF3600] font-semibold transition-all duration-200"
+              }
+            >
+              Profile
+            </NavLink>
+          </li>
 
         </>
       )}
-            <li>
-        <NavLink
-          to="/contact"
-          className={({ isActive }) =>
-            isActive
-              ? "text-[#FF3600] font-semibold underline"
-              : "text-base-200  hover:text-[#FF3600] font-semibold transition-all duration-200"
-          }
-        >
-          Contact Us
-        </NavLink>
-      </li>
+
+
+
+{user && role ==="hr" &&(
+        <>
+          <li>
+            <NavLink
+              to="/assetList"
+              className={({ isActive }) =>
+                isActive
+                  ? "text-[#FF3600] font-semibold underline"
+                  : "text-base-200  hover:text-[#FF3600] font-semibold transition-all duration-200"
+              }
+            >
+              Asset List
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/addAsset"
+              className={({ isActive }) =>
+                isActive
+                  ? "text-[#FF3600] font-semibold underline"
+                  : "text-base-200  hover:text-[#FF3600] font-semibold transition-all duration-200"
+              }
+            >
+             Add Asset
+            </NavLink>
+          </li>
+
+          <li>
+            <NavLink
+              to="/allRequest"
+              className={({ isActive }) =>
+                isActive
+                  ? "text-[#FF3600] font-semibold underline"
+                  : "text-base-200  hover:text-[#FF3600] font-semibold transition-all duration-200"
+              }
+            >
+              All Requests
+            </NavLink>
+          </li>
+
+          <li>
+            <NavLink
+              to="/myEmployeeList"
+              className={({ isActive }) =>
+                isActive
+                  ? "text-[#FF3600] font-semibold underline"
+                  : "text-base-200  hover:text-[#FF3600] font-semibold transition-all duration-200"
+              }
+            >
+              My Employees
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/addEmployee"
+              className={({ isActive }) =>
+                isActive
+                  ? "text-[#FF3600] font-semibold underline"
+                  : "text-base-200  hover:text-[#FF3600] font-semibold transition-all duration-200"
+              }
+            >
+              Add Employee
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/profile"
+              className={({ isActive }) =>
+                isActive
+                  ? "text-[#FF3600] font-semibold underline"
+                  : "text-base-200  hover:text-[#FF3600] font-semibold transition-all duration-200"
+              }
+            >
+              Profile
+            </NavLink>
+          </li>
+
+        </>
+      )}
+
+
+
+
     </>
   );
 

@@ -4,77 +4,151 @@ import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import toast from "react-hot-toast";
+import axios from "axios";
+import Swal from "sweetalert2";
+import { Button } from "@mui/material";
 
 const Register = () => {
-  const { createUser, updateUserProfile,signOutUser} = useContext(AuthContext);
+  const {
+    createUser,
+    signInWithGoogle,
+    updateUserProfile,
+    signOutUser,
+    setLoading,
+  } = useContext(AuthContext);
   const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
+
+  const handleGoogleSignIn = () => {
+    setLoading(true);
+
+    signInWithGoogle()
+      .then((result) => {
+        if (!result.user) {
+          toast.error("Google sign-in failed.");
+          return;
+        }
+
+        const userInfo = {
+          name: result.user.displayName,
+          email: result.user.email,
+        };
+
+        
+        Promise.all([
+          axios.post("http://localhost:5000/employee", userInfo),
+          axios.post("http://localhost:5000/employee-register", userInfo),
+        ])
+          .then(([res1, res2]) => {
+            if (res1.data.insertedId && res2.data.insertedId) {
+              Swal.fire({
+                position: "center",
+                icon: "success",
+                title: "Google sign-in successful and user registered.",
+                showConfirmButton: false,
+                timer: 1500,
+              });
+              navigate("/");
+            } else {
+              toast.error("Failed to save user data.");
+            }
+          })
+          .catch((err) => {
+            console.error("Error sending data to server:", err);
+            toast.error("Failed to save user data to the server.");
+          });
+      })
+      .catch((error) => {
+        console.error("Google sign-in error:", error);
+        toast.error("Unable to sign in with Google. Please try again.");
+      })
+      .finally(() => setLoading(false));
+  };
 
   const handleRegister = (e) => {
     e.preventDefault();
     const name = e.target.name.value;
-    const photo = e.target.photo.value;
     const email = e.target.email.value;
     const password = e.target.password.value;
+    const dob = e.target.dob.value;
+    const photoURL = e.target.photoURL.value; 
 
-    const terms = event.target.terms.checked;
     const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{6,}$/;
 
     if (password.length < 6) {
-      toast.error("Password should be 6 Characters");
+      toast.error("Password should be at least 6 characters long.");
       return;
     }
 
     if (!passwordRegex.test(password)) {
       toast.error(
-        "Password should contain at least one uppercase letter, one lowercase letter, and one number. It must be at least 6 characters long."
+        "Password should contain at least one uppercase letter, one lowercase letter, and one number."
       );
       return;
     }
 
-    if (!terms) {
-      toast.error("Please Accept Our Terms and Condition");
-      return;
-    }
-
-    createUser(email, password, name)
-      .then((result) => {
-        updateUserProfile({ displayName: name, photoURL: photo })
+    createUser(email, password)
+      .then(() => {
+        updateUserProfile({ displayName: name , photoURL:photoURL })
           .then(() => {
-            e.target.reset();
-            signOutUser()
+            const employeeInfo = { name, email, dob, photoURL }; 
+
+        
+            Promise.all([
+              axios.post("http://localhost:5000/employee", employeeInfo),
+              axios.post("http://localhost:5000/employee-register", employeeInfo),
+            ])
+              .then(([res1, res2]) => {
+                if (res1.data.insertedId && res2.data.insertedId) {
+                  Swal.fire({
+                    position: "center",
+                    icon: "success",
+                    title: "Employee registered successfully.",
+                    showConfirmButton: false,
+                    timer: 1500,
+                  });
+                } else {
+                  toast.error("Failed to save user data to one or more servers.");
+                }
+              })
+              .catch((err) => {
+                console.error("Error saving employee data:", err);
+                toast.error("Failed to register employee on one or more servers.");
+              });
+
+            signOutUser();
             navigate("/login");
           })
-          .catch((error) => {
-            toast.error("Update Failed");
+          .catch(() => {
+            toast.error("Failed to update profile.");
           });
       })
-      .catch((error) => {});
+      .catch((error) => {
+        toast.error(error.message || "Registration failed.");
+      });
   };
 
   return (
     <div className="hero min-h-screen bg-[#191919] max-w-screen-2xl mx-auto">
-
       <div className="hero-content flex-col lg:flex-row-reverse w-full mt-32">
         <div className="card bg-gradient-to-r from-gray-950 via-gray-900 to-black w-full max-w-lg shrink-0 shadow-xl mb-16 mt-4">
           <form onSubmit={handleRegister} className="card-body">
-            {/* <img className="w-12 h-12 mx-auto" src={register} alt="" /> */}
             <h1 className="text-3xl font-bold text-center text-[#ff3700d7] mt-3">
-              Create an account
+              Register Employee
             </h1>
             <p className="text-center text-base-300 font-medium">
-              Please fill in your details to create an account
+              Fill in the details to register a new employee.
             </p>
             <div className="form-control mt-4">
               <label className="label">
                 <span className="label-text text-lg font-semibold text-base-300">
-                  Name
+                  Full Name
                 </span>
               </label>
               <input
                 type="text"
                 name="name"
-                placeholder="Name"
+                placeholder="Full Name"
                 className="input input-bordered focus:outline-none focus:ring-2 focus:ring-gray-700 bg-gray-800 text-white"
                 required
               />
@@ -82,13 +156,12 @@ const Register = () => {
             <div className="form-control mt-4">
               <label className="label">
                 <span className="label-text text-lg font-semibold text-base-300">
-                  Photo
+                  Date of Birth
                 </span>
               </label>
               <input
-                type="text"
-                name="photo"
-                placeholder="Photo URL"
+                type="date"
+                name="dob"
                 className="input input-bordered focus:outline-none focus:ring-2 focus:ring-gray-700 bg-gray-800 text-white"
                 required
               />
@@ -118,6 +191,7 @@ const Register = () => {
                 name="password"
                 placeholder="Password"
                 className="input input-bordered focus:outline-none focus:ring-2 focus:ring-gray-700 bg-gray-800 text-white"
+                required
               />
               <button
                 type="button"
@@ -127,29 +201,46 @@ const Register = () => {
                 {showPassword ? <FaEyeSlash /> : <FaEye />}
               </button>
             </div>
-            <div className="form-control mt-4 flex flex-row gap-2 items-center">
+
+            {/* Photo URL Input */}
+            <div className="form-control mt-4">
+              <label className="label">
+                <span className="label-text text-lg font-semibold text-base-300">
+                  Photo URL
+                </span>
+              </label>
               <input
-                type="checkbox"
-                name="terms"
-                className="checkbox bg-gray-300"
+                type="text"
+                name="photoURL"
+                placeholder="Enter Photo URL"
+                className="input input-bordered focus:outline-none focus:ring-2 focus:ring-gray-700 bg-gray-800 text-white"
                 required
               />
-              <span className="label-text font-semibold text-base-300">
-                Accept Our Terms and Conditions
-              </span>
             </div>
+
             <div className="form-control mt-6">
-              <button className="btn border-none  bg-gradient-to-r from-[#FF3600] to-[#ff3700d7] text-white hover:bg-gradient-to-l  transition-all duration-300 font-semibold ">
+              <button className="btn border-none bg-gradient-to-r from-[#FF3600] to-[#ff3700d7] text-white hover:bg-gradient-to-l transition-all duration-300 font-semibold">
                 Register
               </button>
             </div>
             <p className="text-center mt-4 font-medium text-base-300">
-              Already have an account? {""}
+              Already have an account?{" "}
               <Link to="/login" className="text-[#ff3700d7] underline">
                 Login
               </Link>
             </p>
           </form>
+          <div className="mb-5 text-center">
+            <button
+              onClick={handleGoogleSignIn}
+              className="btn btn-ghost text-gray-300 border-gray-300 hover:border-gray-600"
+            >
+              <div className="flex justify-center items-center space-x-2">
+                <p className="font-bold">Sign In with Google</p>
+              </div>
+            </button>
+            <Button className="text-[#1753c2]">Login</Button>
+          </div>
         </div>
       </div>
     </div>
