@@ -9,6 +9,11 @@ import MyTeam from "../Pages/EmployeePages/MyTeam/MyTeam";
 import RequestAnAsset from "../Pages/EmployeePages/RequestAnAsset/RequestAnAsset";
 import Profile from "../Pages/Profile/Profile";
 import PrivateRoute from "../Routes/PrivateRoute";
+import AssetList from "../Pages/HrPages/AssetList/AssetList";
+import AddAsset from "../Pages/HrPages/AddAsset/AddAsset";
+import AllRequests from "../Pages/HrPages/AllRequests/AllRequests";
+import MyEmployees from "../Pages/HrPages/MyEmployees/MyEmployees"
+import AddEmployee from "../Pages/HrPages/AddEmployee/AddEmployee"
 
 
 
@@ -48,6 +53,26 @@ export const routes = createBrowserRouter([
             {
                 path:'/profile',
                 element:<PrivateRoute><Profile></Profile></PrivateRoute>
+            },
+            {
+                path:'/assetList',
+                element:<PrivateRoute><AssetList></AssetList></PrivateRoute>
+            },
+            {
+                path:'/addAsset',
+                element:<PrivateRoute><AddAsset></AddAsset></PrivateRoute>
+            },
+            {
+                path:'/AllRequest',
+                element:<PrivateRoute><AllRequests></AllRequests></PrivateRoute>
+            },
+            {
+                path:'/myEmployeeList',
+                element:<PrivateRoute><MyEmployees></MyEmployees></PrivateRoute>
+            },
+            {
+                path:'/addEmployee',
+                element:<PrivateRoute><AddEmployee></AddEmployee></PrivateRoute>
             }
 
        
