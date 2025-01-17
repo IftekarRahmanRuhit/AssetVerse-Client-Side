@@ -6,14 +6,17 @@ import { FaUser } from "react-icons/fa";
 import { LuLogIn } from "react-icons/lu";
 import { AuthContext } from "../Provider/AuthProvider";
 import useRole from "../Hooks/useRole";
-
+import useCompanyInfo from "../Hooks/useCompanyInfo";
+import logo from "../../public/logo.png";
 
 const Navbar = () => {
   const { user, signOutUser, loading, setLoading } = useContext(AuthContext);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
- const [role, isLoading] = useRole();
+  const [role, isLoading] = useRole();
+  const { companyInfo } = useCompanyInfo();
 
- console.log(user)
+  console.log(user);
+  console.log(companyInfo);
 
   const handleSignOut = () => {
     signOutUser()
@@ -40,39 +43,36 @@ const Navbar = () => {
         </NavLink>
       </li>
 
-      {!user || !(role === "employee" || role === "hr")? (
-<>
-<li>
-      <NavLink
-        to="/register"
-        className={({ isActive }) =>
-          isActive
-            ? "text-[#FF3600] font-semibold underline"
-            : "text-base-200  hover:text-[#FF3600] font-semibold transition-all duration-200"
-        }
-      >
-        Join as Employee
-      </NavLink>
-    </li>
-    <li>
-      <NavLink
-        to="/hrRegister"
-        className={({ isActive }) =>
-          isActive
-            ? "text-[#FF3600] font-semibold underline"
-            : "text-base-200  hover:text-[#FF3600] font-semibold transition-all duration-200"
-        }
-      >
-        Join as HR Manager
-      </NavLink>
-    </li>
+      {!user || !(role === "employee" || role === "hr") ? (
+        <>
+          <li>
+            <NavLink
+              to="/register"
+              className={({ isActive }) =>
+                isActive
+                  ? "text-[#FF3600] font-semibold underline"
+                  : "text-base-200  hover:text-[#FF3600] font-semibold transition-all duration-200"
+              }
+            >
+              Join as Employee
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/hrRegister"
+              className={({ isActive }) =>
+                isActive
+                  ? "text-[#FF3600] font-semibold underline"
+                  : "text-base-200  hover:text-[#FF3600] font-semibold transition-all duration-200"
+              }
+            >
+              Join as HR Manager
+            </NavLink>
+          </li>
+        </>
+      ) : null}
 
-</>
-    
-  ) : null}
-
-
-      {user && role ==="employee" &&(
+      {user && role === "employee" && (
         <>
           <li>
             <NavLink
@@ -122,13 +122,10 @@ const Navbar = () => {
               Profile
             </NavLink>
           </li>
-
         </>
       )}
 
-
-
-{user && role ==="hr" &&(
+      {user && role === "hr" && (
         <>
           <li>
             <NavLink
@@ -151,7 +148,7 @@ const Navbar = () => {
                   : "text-base-200  hover:text-[#FF3600] font-semibold transition-all duration-200"
               }
             >
-             Add Asset
+              Add Asset
             </NavLink>
           </li>
 
@@ -204,13 +201,8 @@ const Navbar = () => {
               Profile
             </NavLink>
           </li>
-
         </>
       )}
-
-
-
-
     </>
   );
 
@@ -219,7 +211,7 @@ const Navbar = () => {
       <div className="w-full h-screen flex items-center justify-center">
         <div className="bg-base-100 w-full">
           <div className="text-center text-[#FF3600]">
-          <span className="loading loading-bars loading-lg "></span>
+            <span className="loading loading-bars loading-lg "></span>
           </div>
         </div>
       </div>
@@ -228,9 +220,7 @@ const Navbar = () => {
 
   return (
     <div className="max-w-screen-2xl mx-auto">
-      <div
-        className={`w-full mx-auto bg-black md:p-2 max-w-screen-2xl `}
-      >
+      <div className={`w-full mx-auto bg-gray-900 md:p-2 max-w-screen-2xl `}>
         <div className="navbar w-full md:w-11/12 mx-auto pt-4 pb-4 ">
           <div className="navbar-start">
             <div className="dropdown lg:hidden">
@@ -259,13 +249,27 @@ const Navbar = () => {
                 </ul>
               )}
             </div>
+
             <Link
               to="/"
               className="btn btn-ghost text-2xl text-[#FF3600] font-bold flex justify-center items-center"
             >
-              <p className="text-lg md:text-2xl">
-                ASSET<span className="text-base-200">VERSE</span>{" "}
-              </p>
+              <div className="flex justify-center items-center">
+                {/* Display company logo if available, otherwise fallback to default logo */}
+                <img
+                  className="h-10 w-10 mr-2 object-cover rounded-full"
+                  src={companyInfo?.companyLogo || logo}
+                  alt={companyInfo?.companyName || "Default Logo"}
+                />
+                <p className="text-lg md:text-2xl">
+                  {/* Display company name if available, otherwise fallback to default branding */}
+                  {companyInfo?.companyName || (
+                    <>
+                      ASSET<span className="text-base-200">VERSE</span>
+                    </>
+                  )}
+                </p>
+              </div>
             </Link>
           </div>
           <div className="navbar-center hidden lg:flex">
@@ -318,7 +322,6 @@ const Navbar = () => {
               </div>
             ) : (
               <>
-
                 <Link
                   className="btn btn-sm md:btn-md font-bold bg-gradient-to-r from-[#FF3600] to-[#ff3700d7] text-white hover:bg-gradient-to-l  transition-all duration-300 border-none"
                   to="/login"
