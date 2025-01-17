@@ -6,13 +6,14 @@ import toast from "react-hot-toast";
 import Swal from "sweetalert2";
 import axios from "axios";
 import { AuthContext } from "../../Provider/AuthProvider";
+import useAxiosPublic from "../../Hooks/useAxiosPublic";
 
 const HrRegister = () => {
   const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
   const [selectedPackage, setSelectedPackage] = useState("");
-  const { createUser, signInWithGoogle, updateUserProfile, setLoading } =
-    useContext(AuthContext);
+  const { createUser, signInWithGoogle, updateUserProfile, setLoading } = useContext(AuthContext);
+  const axiosPublic =useAxiosPublic()
 
   const handleRegister = async (e) => {
     e.preventDefault();
@@ -62,8 +63,8 @@ const HrRegister = () => {
 
  
       const [res1, res2] = await Promise.all([
-        axios.post("http://localhost:5000/hr", hrInfo),
-        axios.post("http://localhost:5000/hr-register", hrInfo),
+        axiosPublic.post("/hr", hrInfo),
+        axiosPublic.post("/hr-register", hrInfo),
       ]);
 
       if (res1.data.insertedId && res2.data.insertedId) {

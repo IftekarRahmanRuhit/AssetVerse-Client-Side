@@ -31,6 +31,7 @@ const Login = () => {
         toast.success("Welcome Back!");
         e.target.reset();
         navigate(from, { replace: true })
+      
       })
       .catch(() => {
         toast.error("Incorrect email or password. Please try again.");

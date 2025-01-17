@@ -7,6 +7,7 @@ import toast from "react-hot-toast";
 import axios from "axios";
 import Swal from "sweetalert2";
 import { Button } from "@mui/material";
+import useAxiosPublic from "../../Hooks/useAxiosPublic";
 
 const Register = () => {
   const {
@@ -18,6 +19,7 @@ const Register = () => {
   } = useContext(AuthContext);
   const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
+  const axiosPublic =useAxiosPublic()
 
   const handleGoogleSignIn = () => {
     setLoading(true);
@@ -32,12 +34,13 @@ const Register = () => {
         const userInfo = {
           name: result.user.displayName,
           email: result.user.email,
+          photoURL:result.user.photoURL
         };
 
         
         Promise.all([
-          axios.post("http://localhost:5000/employee", userInfo),
-          axios.post("http://localhost:5000/employee-register", userInfo),
+          axiosPublic.post("/employee", userInfo),
+          axiosPublic.post("/employee-register", userInfo),
         ])
           .then(([res1, res2]) => {
             if (res1.data.insertedId && res2.data.insertedId) {
@@ -95,8 +98,8 @@ const Register = () => {
 
         
             Promise.all([
-              axios.post("http://localhost:5000/employee", employeeInfo),
-              axios.post("http://localhost:5000/employee-register", employeeInfo),
+              axiosPublic.post("/employee", employeeInfo),
+              axiosPublic.post("/employee-register", employeeInfo),
             ])
               .then(([res1, res2]) => {
                 if (res1.data.insertedId && res2.data.insertedId) {
