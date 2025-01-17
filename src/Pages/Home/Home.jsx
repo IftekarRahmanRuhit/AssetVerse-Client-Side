@@ -12,7 +12,7 @@ const Home = () => {
   const { user } = useContext(AuthContext);
 
   if (isLoading) {
-    return <div>Loading...</div>; // Show a loading state while the role is being determined
+    return <div>Loading...</div>
   }
 
   return (
