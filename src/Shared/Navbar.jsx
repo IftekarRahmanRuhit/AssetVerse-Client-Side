@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import { FaUserCircle } from "react-icons/fa";
 import { FaUser } from "react-icons/fa";
@@ -14,6 +14,7 @@ const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [role, isLoading] = useRole();
   const { companyInfo } = useCompanyInfo();
+  const navigate = useNavigate()
 
   console.log(user);
   console.log(companyInfo);
@@ -22,6 +23,7 @@ const Navbar = () => {
     signOutUser()
       .then(() => {
         toast.success("Sign out successful");
+        navigate('/')
       })
       .catch((error) => {
         toast.error(error.message);
