@@ -59,7 +59,6 @@ const AssetList = () => {
     });
   };
 
-
   const handleDrop = async (acceptedFiles) => {
     setUploading(true);
     try {
