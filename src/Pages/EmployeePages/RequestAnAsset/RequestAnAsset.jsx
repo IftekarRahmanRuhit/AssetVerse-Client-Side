@@ -32,7 +32,6 @@ const RequestAnAsset = () => {
       assetName: selectedAsset.productName,
       assetType: selectedAsset.productType,
       requestDate: new Date(),
-      requestStatus: 'pending',
       requesterEmail: user?.email,
       requesterName: user?.displayName,
       additionalNotes: additionalNotes
@@ -44,7 +43,7 @@ const RequestAnAsset = () => {
       setSelectedAsset(null);
       setAdditionalNotes('');
     } catch (error) {
-      toast.error('Failed to submit request');
+      toast.error(error?.response?.data);
     }
   };
 
