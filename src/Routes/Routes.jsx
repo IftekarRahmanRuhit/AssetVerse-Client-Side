@@ -14,6 +14,7 @@ import AddAsset from "../Pages/HrPages/AddAsset/AddAsset";
 import AllRequests from "../Pages/HrPages/AllRequests/AllRequests";
 import MyEmployees from "../Pages/HrPages/MyEmployees/MyEmployees"
 import AddEmployee from "../Pages/HrPages/AddEmployee/AddEmployee"
+import HrRoute from "./HrRoute";
 
 
 
@@ -54,25 +55,27 @@ export const routes = createBrowserRouter([
                 path:'/profile',
                 element:<PrivateRoute><Profile></Profile></PrivateRoute>
             },
+
+            // hr routes 
             {
                 path:'/assetList',
-                element:<PrivateRoute><AssetList></AssetList></PrivateRoute>
+                element:<HrRoute><AssetList></AssetList></HrRoute>
             },
             {
                 path:'/addAsset',
-                element:<PrivateRoute><AddAsset></AddAsset></PrivateRoute>
+                element:<HrRoute><PrivateRoute><AddAsset></AddAsset></PrivateRoute></HrRoute>
             },
             {
                 path:'/AllRequest',
-                element:<PrivateRoute><AllRequests></AllRequests></PrivateRoute>
+                element:<HrRoute><PrivateRoute><AllRequests></AllRequests></PrivateRoute></HrRoute>
             },
             {
                 path:'/myEmployeeList',
-                element:<PrivateRoute><MyEmployees></MyEmployees></PrivateRoute>
+                element:<HrRoute><PrivateRoute><MyEmployees></MyEmployees></PrivateRoute></HrRoute>
             },
             {
                 path:'/addEmployee',
-                element:<PrivateRoute><AddEmployee></AddEmployee></PrivateRoute>
+                element:<HrRoute><PrivateRoute><AddEmployee></AddEmployee></PrivateRoute></HrRoute>
             }
 
        

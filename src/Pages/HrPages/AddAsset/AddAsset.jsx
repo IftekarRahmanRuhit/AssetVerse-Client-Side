@@ -7,6 +7,7 @@ import "animate.css";
 import useAuth from "../../../Hooks/useAuth";
 import useCompanyInfo from "../../../Hooks/useCompanyInfo";
 import useAxiosPublic from "../../../Hooks/useAxiosPublic";
+import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 
 const AddAsset = () => {
   const [image, setImage] = useState(null);
@@ -14,6 +15,7 @@ const AddAsset = () => {
   const { user } = useAuth();
   const { companyInfo } = useCompanyInfo();
   const axiosPublic = useAxiosPublic();
+  const axiosSecure = useAxiosSecure();
 
 
   const onDrop = (acceptedFiles) => {
@@ -88,7 +90,7 @@ const AddAsset = () => {
       };
 
       // Send asset data to backend
-      const response = await axiosPublic.post("/addAsset", assetData);
+      const response = await axiosSecure.post("/addAsset", assetData);
 
       if (response.data.insertedId) {
         Swal.fire({

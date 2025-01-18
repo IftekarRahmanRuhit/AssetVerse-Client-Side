@@ -8,10 +8,12 @@ import useAxiosPublic from "../../../Hooks/useAxiosPublic";
 import { AuthContext } from "../../../Provider/AuthProvider";
 import { useDropzone } from "react-dropzone";
 import axios from "axios";
+import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 
 const AssetList = () => {
   const { user } = useContext(AuthContext);
   const axiosPublic = useAxiosPublic();
+  const axiosSecure = useAxiosSecure()
 
   const [searchTerm, setSearchTerm] = useState("");
   const [stockFilter, setStockFilter] = useState("");
@@ -23,7 +25,7 @@ const AssetList = () => {
   const { data: assets = [], isLoading, refetch } = useQuery({
     queryKey: ["assets", user?.email, searchTerm, stockFilter, typeFilter, sortOption],
     queryFn: async () => {
-      const { data } = await axiosPublic.get(
+      const { data } = await axiosSecure.get(
         `/assets/${user?.email}?search=${searchTerm}&stock=${stockFilter}&type=${typeFilter}&sort=${sortOption}`
       );
       return data;
@@ -103,7 +105,7 @@ const AssetList = () => {
 
     try {
       
-      const response = await axiosPublic.put(`/update-asset/${selectedProduct._id}`, updatedProduct);
+      const response = await axiosSecure.put(`/update-asset/${selectedProduct._id}`, updatedProduct);
       
       
       if (response.data.modifiedCount > 0) {
