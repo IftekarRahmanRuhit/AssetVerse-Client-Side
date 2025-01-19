@@ -1,19 +1,25 @@
-import { useState } from 'react';
+import {  useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { format } from 'date-fns';
 import toast from 'react-hot-toast';
 import useAxiosSecure from '../../../Hooks/useAxiosSecure';
+import useAuth from '../../../Hooks/useAuth';
+
 
 const AllRequests = () => {
   const axiosSecure = useAxiosSecure();
+ 
   const [searchTerm, setSearchTerm] = useState('');
 
+  const { user } = useAuth(); 
+
   const { data: requests = [], refetch } = useQuery({
-    queryKey: ['assetRequests', searchTerm],
+    queryKey: ['assetRequests', searchTerm, user?.email],
     queryFn: async () => {
-      const response = await axiosSecure.get(`/allAssetRequest?search=${searchTerm}`);
+      const response = await axiosSecure.get(`/allAssetRequest/${user?.email}?search=${searchTerm}`);
       return response.data;
-    }
+    },
+    enabled: !!user?.email // Only run query if email exists
   });
 
   const handleStatusChange = async (id, status) => {

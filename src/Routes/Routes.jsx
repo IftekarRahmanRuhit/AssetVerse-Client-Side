@@ -15,6 +15,7 @@ import AllRequests from "../Pages/HrPages/AllRequests/AllRequests";
 import MyEmployees from "../Pages/HrPages/MyEmployees/MyEmployees"
 import AddEmployee from "../Pages/HrPages/AddEmployee/AddEmployee"
 import HrRoute from "./HrRoute";
+import PaymentPage from "../Pages/Payment/PaymentPage";
 
 
 
@@ -76,6 +77,10 @@ export const routes = createBrowserRouter([
             {
                 path:'/addEmployee',
                 element:<HrRoute><PrivateRoute><AddEmployee></AddEmployee></PrivateRoute></HrRoute>
+            },
+            {
+                path:'/payment',
+                element:<PaymentPage></PaymentPage>
             }
 
        

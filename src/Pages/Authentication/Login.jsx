@@ -30,7 +30,7 @@ const Login = () => {
       .then(() => {
         toast.success("Welcome Back!");
         e.target.reset();
-        navigate(from, { replace: true })
+        navigate('/')
       
       })
       .catch(() => {

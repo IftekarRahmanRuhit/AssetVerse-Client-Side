@@ -52,6 +52,7 @@ const HrRegister = () => {
       dob,
       packageType: selectedPackage,
       photoURL,
+      memberLimit:0
     };
 
     try {
@@ -75,7 +76,7 @@ const HrRegister = () => {
           showConfirmButton: false,
           timer: 1500,
         });
-        navigate("/login");
+        navigate("/payment");
       } else {
         toast.error("Failed to save HR data to one or more servers.");
       }

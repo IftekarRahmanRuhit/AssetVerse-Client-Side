@@ -24,6 +24,8 @@ const RequestAnAsset = () => {
     }
   });
 
+  
+
   const handleRequest = async () => {
     if (!selectedAsset) return;
 
@@ -34,7 +36,8 @@ const RequestAnAsset = () => {
       requestDate: new Date(),
       requesterEmail: user?.email,
       requesterName: user?.displayName,
-      additionalNotes: additionalNotes
+      additionalNotes: additionalNotes,
+      HrEmail: selectedAsset.email
     };
 
     try {
@@ -46,6 +49,7 @@ const RequestAnAsset = () => {
       toast.error(error?.response?.data);
     }
   };
+  console.log(assets.map((asset)=> asset.email))
 
   return (
     <div className="bg-[#191919] min-h-screen pb-28">

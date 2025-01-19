@@ -8,6 +8,8 @@ import useAuth from "../../../Hooks/useAuth";
 import useCompanyInfo from "../../../Hooks/useCompanyInfo";
 import useAxiosPublic from "../../../Hooks/useAxiosPublic";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
+import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
 const AddAsset = () => {
   const [image, setImage] = useState(null);
@@ -16,6 +18,7 @@ const AddAsset = () => {
   const { companyInfo } = useCompanyInfo();
   const axiosPublic = useAxiosPublic();
   const axiosSecure = useAxiosSecure();
+  const navigate = useNavigate()
 
 
   const onDrop = (acceptedFiles) => {
@@ -89,6 +92,17 @@ const AddAsset = () => {
         status: true,
       };
 
+
+
+      if (companyInfo.memberLimit === 0) {
+    
+        return (toast.error("Please purchase a package"), navigate('/payment'));
+    
+      }
+      
+        
+
+
       // Send asset data to backend
       const response = await axiosSecure.post("/addAsset", assetData);
 
@@ -103,7 +117,7 @@ const AddAsset = () => {
 
         form.reset();
         setImage(null);
-        setAssetType("Returnable"); // Reset the product type to default
+        setAssetType("Returnable"); 
       }
     } catch (err) {
       Swal.fire({
@@ -152,7 +166,7 @@ const AddAsset = () => {
             <select
               name="productType"
               value={assetType}
-              onChange={(e) => setAssetType(e.target.value)} // Update the state when selection changes
+              onChange={(e) => setAssetType(e.target.value)} 
               className="w-full px-3 py-2 focus:outline-none focus:ring-2 focus:ring-gray-700 bg-gray-800 text-white rounded-md"
               required
             >
