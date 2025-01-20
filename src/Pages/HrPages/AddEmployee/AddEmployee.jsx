@@ -1,3 +1,4 @@
+
 import { useState } from 'react';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import toast from 'react-hot-toast';
@@ -10,7 +11,7 @@ const AddEmployee = () => {
   const queryClient = useQueryClient();
   const { companyInfo } = useCompanyInfo();
 
-  const { data: employees = [] } = useQuery({
+  const { data: employees = [], refetch } = useQuery({
     queryKey: ['employeesWithoutCompany'],
     queryFn: async () => {
       const res = await axiosSecure.get('/employees-without-company');
@@ -18,7 +19,7 @@ const AddEmployee = () => {
     }
   });
 
-  //  employees mutation
+  // Mutation for adding employees
   const { mutate: addEmployees } = useMutation({
     mutationFn: async (selectedEmployees) => {
       const employeeData = selectedEmployees.map(employee => ({
@@ -28,16 +29,21 @@ const AddEmployee = () => {
         companyHrEmail: companyInfo.email,
         companyHrName: companyInfo.name,
         companyName: companyInfo.companyName,
-        companyLogo: companyInfo.companyLogo
+        companyLogo: companyInfo.companyLogo,
+        memberType: "employee"
       }));
 
-      return await axiosSecure.post('/add-employees', { employees: employeeData });
+      const response = await axiosSecure.post('/add-employees', { employees: employeeData });
+      return response.data;
     },
     onSuccess: () => {
       toast.success('Employees added successfully!');
       setSelectedEmployees([]);
+     
       queryClient.invalidateQueries(['employeesWithoutCompany']);
-      queryClient.invalidateQueries(['companyInfo']); 
+      queryClient.invalidateQueries(['companyInfo']);
+   
+      refetch();
     },
     onError: (error) => {
       toast.error(error.response?.data?.message || 'Failed to add employees');
@@ -81,22 +87,25 @@ const AddEmployee = () => {
     addEmployees([employee]);
   };
 
+  // Filtering any employees that have already been added to a team
+  const availableEmployees = employees.filter(employee => 
+    !employee.companyName && !employee.CompanyName
+  );
+
   return (
     <div className="container mx-auto px-4 py-8">
       <div className="flex justify-between items-center mb-6">
         <h2 className="text-2xl font-semibold">Add Employees</h2>
-        <div className="text-right">
+        <div className="text-right flex items-center gap-4">
           <p className="text-sm text-gray-600">
             Member Limit: {companyInfo.currentMembers}/{companyInfo.memberLimit}
           </p>
-          {companyInfo.currentMembers >= companyInfo.memberLimit && (
-            <a
-              href="/payment"
-              className="text-blue-600 hover:underline text-sm"
-            >
-              Upgrade Plan
-            </a>
-          )}
+          <a
+            href="/payment"
+            className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded text-sm transition-colors duration-200"
+          >
+            Increase Limit
+          </a>
         </div>
       </div>
 
@@ -109,60 +118,66 @@ const AddEmployee = () => {
         </button>
       )}
 
-      <div className="overflow-x-auto">
-        <table className="min-w-full bg-white border border-gray-200">
-          <thead className="bg-gray-50">
-            <tr>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                Select
-              </th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                Image
-              </th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                Name
-              </th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                Email
-              </th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                Action
-              </th>
-            </tr>
-          </thead>
-          <tbody className="divide-y divide-gray-200">
-            {employees.map((employee) => (
-              <tr key={employee._id}>
-                <td className="px-6 py-4">
-                  <input
-                    type="checkbox"
-                    checked={selectedEmployees.some(e => e._id === employee._id)}
-                    onChange={() => handleSelectEmployee(employee)}
-                    className="h-4 w-4 text-blue-600 rounded"
-                  />
-                </td>
-                <td className="px-6 py-4">
-                  <img
-                    src={employee.photoURL}
-                    alt={employee.name}
-                    className="h-10 w-10 rounded-full"
-                  />
-                </td>
-                <td className="px-6 py-4">{employee.name}</td>
-                <td className="px-6 py-4">{employee.email}</td>
-                <td className="px-6 py-4">
-                  <button
-                    onClick={() => handleSingleAdd(employee)}
-                    className="text-blue-600 hover:text-blue-800"
-                  >
-                    Add to Team
-                  </button>
-                </td>
+      {availableEmployees.length === 0 ? (
+        <div className="text-center py-8 text-gray-500">
+          No employees available to add
+        </div>
+      ) : (
+        <div className="overflow-x-auto">
+          <table className="min-w-full bg-white border border-gray-200">
+            <thead className="bg-gray-50">
+              <tr>
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  Select
+                </th>
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  Image
+                </th>
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  Name
+                </th>
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  Email
+                </th>
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  Action
+                </th>
               </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
+            </thead>
+            <tbody className="divide-y divide-gray-200">
+              {availableEmployees.map((employee) => (
+                <tr key={employee._id}>
+                  <td className="px-6 py-4">
+                    <input
+                      type="checkbox"
+                      checked={selectedEmployees.some(e => e._id === employee._id)}
+                      onChange={() => handleSelectEmployee(employee)}
+                      className="h-4 w-4 text-blue-600 rounded"
+                    />
+                  </td>
+                  <td className="px-6 py-4">
+                    <img
+                      src={employee.photoURL}
+                      alt={employee.name}
+                      className="h-10 w-10 rounded-full"
+                    />
+                  </td>
+                  <td className="px-6 py-4">{employee.name}</td>
+                  <td className="px-6 py-4">{employee.email}</td>
+                  <td className="px-6 py-4">
+                    <button
+                      onClick={() => handleSingleAdd(employee)}
+                      className="text-blue-600 hover:text-blue-800"
+                    >
+                      Add to Team
+                    </button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      )}
     </div>
   );
 };

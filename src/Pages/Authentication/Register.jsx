@@ -35,7 +35,7 @@ const Register = () => {
           name: result.user.displayName,
           email: result.user.email,
           photoURL:result.user.photoURL,
-          CompanyName: null
+          companyName: null
         };
 
         
@@ -95,7 +95,7 @@ const Register = () => {
       .then(() => {
         updateUserProfile({ displayName: name , photoURL:photoURL })
           .then(() => {
-            const employeeInfo = { name, email, dob, photoURL, CompanyName: null }; 
+            const employeeInfo = { name, email, dob, photoURL, companyName: null }; 
 
         
             Promise.all([
