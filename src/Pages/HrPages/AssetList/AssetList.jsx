@@ -13,7 +13,8 @@ import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 const AssetList = () => {
   const { user } = useContext(AuthContext);
   const axiosPublic = useAxiosPublic();
-  const axiosSecure = useAxiosSecure()
+  const axiosSecure = useAxiosSecure();
+
 
   const [searchTerm, setSearchTerm] = useState("");
   const [stockFilter, setStockFilter] = useState("");
@@ -21,6 +22,10 @@ const AssetList = () => {
   const [sortOption, setSortOption] = useState("");
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [uploading, setUploading] = useState(false);
+
+  // Pagination states
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 6;
 
   const { data: assets = [], isLoading, refetch } = useQuery({
     queryKey: ["assets", user?.email, searchTerm, stockFilter, typeFilter, sortOption],
@@ -33,7 +38,50 @@ const AssetList = () => {
     enabled: !!user?.email,
   });
 
-  // function for delete an asset 
+  // Pagination calculations
+  const totalPages = Math.ceil(assets.length / itemsPerPage);
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+  const currentAssets = assets.slice(startIndex, endIndex);
+
+  // Pagination handlers
+  const handlePrevious = () => {
+    if (currentPage > 1) {
+      setCurrentPage(currentPage - 1);
+    }
+  };
+
+  const handleNext = () => {
+    if (currentPage < totalPages) {
+      setCurrentPage(currentPage + 1);
+    }
+  };
+
+  const handlePageClick = (pageNumber) => {
+    setCurrentPage(pageNumber);
+  };
+
+  const renderPageNumbers = () => {
+    const pageNumbers = [];
+    for (let i = 1; i <= totalPages; i++) {
+      pageNumbers.push(
+        <button
+          key={i}
+          onClick={() => handlePageClick(i)}
+          className={`mx-1 px-3 py-1 rounded ${
+            currentPage === i 
+              ? "bg-gradient-to-r from-[#FF3600] to-[#ff3700d7] text-white" 
+              : "bg-gray-800 text-gray-300 hover:bg-gray-700"
+          }`}
+        >
+          {i}
+        </button>
+      );
+    }
+    return pageNumbers;
+  };
+
+
   const handleDelete = async (id) => {
     try {
       await axiosPublic.delete(`/assets/${id}`);
@@ -83,7 +131,6 @@ const AssetList = () => {
     }
   };
 
-  // function for update data 
   const handleUpdate = async (e) => {
     e.preventDefault();
     if (!selectedProduct) return;
@@ -92,21 +139,18 @@ const AssetList = () => {
     const productName = form.productName.value;
     const productType = form.productType.value;
     const productQuantity = form.productQuantity.value;
-    const image = selectedProduct.image; 
+    const image = selectedProduct.image;
 
-    // Create the updated product object
     const updatedProduct = {
-      ...selectedProduct, // Existing data
+      ...selectedProduct,
       productName,
       productType,
       productQuantity,
-      image, 
+      image,
     };
 
     try {
-      
       const response = await axiosSecure.put(`/update-asset/${selectedProduct._id}`, updatedProduct);
-      
       
       if (response.data.modifiedCount > 0) {
         toast.success("Asset updated successfully!");
@@ -173,53 +217,76 @@ const AssetList = () => {
         ) : assets.length === 0 ? (
           <p className="text-gray-100 text-center">No assets found.</p>
         ) : (
-          <div className="overflow-x-auto">
-            <table className="table-auto w-full bg-black border border-gray-700 rounded-lg">
-              <thead className="bg-black">
-                <tr>
-                  <th className="px-4 py-4 text-white text-center">Image</th>
-                  <th className="px-4 py-4 text-white text-center">Product Name</th>
-                  <th className="px-4 py-4 text-white text-center">Product Type</th>
-                  <th className="px-4 py-4 text-white text-center">Quantity</th>
-                  <th className="px-4 py-4 text-white text-center">Date Added</th>
-                  <th className="px-4 py-4 text-white text-center">Actions</th>
-                </tr>
-              </thead>
-              <tbody>
-                {assets.map((asset) => (
-                  <tr key={asset._id} className="border-t border-gray-700 hover:bg-[#2C2C2C]">
-                    <td className="px-4 py-2 text-center">
-                      <img
-                        src={asset.image}
-                        alt={asset.productName}
-                        className="w-16 h-16 object-cover rounded"
-                      />
-                    </td>
-                    <td className="px-4 py-2 text-gray-300 text-center">{asset.productName}</td>
-                    <td className="px-4 py-2 text-gray-300 text-center">{asset.productType}</td>
-                    <td className="px-4 py-2 text-gray-300 text-center">{asset.productQuantity}</td>
-                    <td className="px-4 py-2 text-gray-300 text-center">
-                      {new Date(asset.dateAdded).toLocaleDateString()}
-                    </td>
-                    <td className="px-4 py-2 text-center">
-                      <button
-                        className="text-blue-400 hover:text-blue-600"
-                        onClick={() => setSelectedProduct(asset)}
-                      >
-                        <FaEdit />
-                      </button>
-                      <button
-                        className="text-red-400 hover:text-red-600 ml-4"
-                        onClick={() => confirmDelete(asset._id)}
-                      >
-                        <FaTrash />
-                      </button>
-                    </td>
+          <>
+            <div className="overflow-x-auto">
+              <table className="table-auto w-full bg-black border border-gray-700 rounded-lg">
+                <thead className="bg-black">
+                  <tr>
+                    <th className="px-4 py-4 text-white text-center">Image</th>
+                    <th className="px-4 py-4 text-white text-center">Product Name</th>
+                    <th className="px-4 py-4 text-white text-center">Product Type</th>
+                    <th className="px-4 py-4 text-white text-center">Quantity</th>
+                    <th className="px-4 py-4 text-white text-center">Date Added</th>
+                    <th className="px-4 py-4 text-white text-center">Actions</th>
                   </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+                </thead>
+                <tbody>
+                  {currentAssets.map((asset) => (
+                    <tr key={asset._id} className="border-t border-gray-700 hover:bg-[#2C2C2C]">
+                      <td className="px-4 py-2 text-center">
+                        <img
+                          src={asset.image}
+                          alt={asset.productName}
+                          className="w-16 h-16 object-cover rounded"
+                        />
+                      </td>
+                      <td className="px-4 py-2 text-gray-300 text-center">{asset.productName}</td>
+                      <td className="px-4 py-2 text-gray-300 text-center">{asset.productType}</td>
+                      <td className="px-4 py-2 text-gray-300 text-center">{asset.productQuantity}</td>
+                      <td className="px-4 py-2 text-gray-300 text-center">
+                        {new Date(asset.dateAdded).toLocaleDateString()}
+                      </td>
+                      <td className="px-4 py-2 text-center">
+                        <button
+                          className="text-blue-400 hover:text-blue-600"
+                          onClick={() => setSelectedProduct(asset)}
+                        >
+                          <FaEdit />
+                        </button>
+                        <button
+                          className="text-red-400 hover:text-red-600 ml-4"
+                          onClick={() => confirmDelete(asset._id)}
+                        >
+                          <FaTrash />
+                        </button>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+
+            {/* Pagination Controls */}
+            {totalPages > 1 && (
+              <div className="flex items-center justify-center mt-6 gap-2">
+                <button
+                  onClick={handlePrevious}
+                  disabled={currentPage === 1}
+                  className="px-4 py-2 rounded bg-gray-800 text-gray-300 disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-700"
+                >
+                  Previous
+                </button>
+                {renderPageNumbers()}
+                <button
+                  onClick={handleNext}
+                  disabled={currentPage === totalPages}
+                  className="px-4 py-2 rounded bg-gray-800 text-gray-300 disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-700"
+                >
+                  Next
+                </button>
+              </div>
+            )}
+          </>
         )}
 
         {/* Modal for editing product */}
@@ -230,7 +297,6 @@ const AssetList = () => {
                 Update Asset Details
               </h2>
               <form onSubmit={handleUpdate} className="space-y-6">
-                {/* Product Name */}
                 <div>
                   <label className="block text-lg font-medium text-gray-300 mb-2">Product Name</label>
                   <input
@@ -240,8 +306,6 @@ const AssetList = () => {
                     className="w-full p-2 rounded-md bg-gray-800 text-white"
                   />
                 </div>
-
-                {/* Product Type */}
                 <div>
                   <label className="block text-lg font-medium text-gray-300 mb-2">Product Type</label>
                   <input
@@ -251,8 +315,6 @@ const AssetList = () => {
                     className="w-full p-2 rounded-md bg-gray-800 text-white"
                   />
                 </div>
-
-                {/* Product Quantity */}
                 <div>
                   <label className="block text-lg font-medium text-gray-300 mb-2">Product Quantity</label>
                   <input
@@ -262,8 +324,6 @@ const AssetList = () => {
                     className="w-full p-2 rounded-md bg-gray-800 text-white"
                   />
                 </div>
-
-                {/* Image Upload */}
                 <div>
                   <label className="block text-lg font-medium text-gray-300 mb-2">Image</label>
                   <div {...getRootProps()} className="border-dashed border-2 px-4 py-8 text-center rounded-md">
@@ -282,8 +342,6 @@ const AssetList = () => {
                     </div>
                   )}
                 </div>
-
-                {/* Submit and Cancel buttons */}
                 <button
                   type="submit"
                   className="w-full bg-gradient-to-r from-[#FF3600] to-[#ff3700d7] text-white hover:bg-gradient-to-l py-2 rounded-md"

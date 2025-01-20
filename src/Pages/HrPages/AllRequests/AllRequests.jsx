@@ -1,17 +1,19 @@
-import {  useState } from 'react';
+
+import { useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { format } from 'date-fns';
 import toast from 'react-hot-toast';
 import useAxiosSecure from '../../../Hooks/useAxiosSecure';
 import useAuth from '../../../Hooks/useAuth';
 
-
 const AllRequests = () => {
   const axiosSecure = useAxiosSecure();
- 
   const [searchTerm, setSearchTerm] = useState('');
+  const { user } = useAuth();
 
-  const { user } = useAuth(); 
+  // Pagination states
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 5;
 
   const { data: requests = [], refetch } = useQuery({
     queryKey: ['assetRequests', searchTerm, user?.email],
@@ -19,8 +21,51 @@ const AllRequests = () => {
       const response = await axiosSecure.get(`/allAssetRequest/${user?.email}?search=${searchTerm}`);
       return response.data;
     },
-    enabled: !!user?.email // Only run query if email exists
+    enabled: !!user?.email
   });
+
+  // Pagination calculations
+  const totalPages = Math.ceil(requests.length / itemsPerPage);
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+  const currentRequests = requests.slice(startIndex, endIndex);
+
+  // Pagination handlers
+  const handlePrevious = () => {
+    if (currentPage > 1) {
+      setCurrentPage(currentPage - 1);
+    }
+  };
+
+  const handleNext = () => {
+    if (currentPage < totalPages) {
+      setCurrentPage(currentPage + 1);
+    }
+  };
+
+  const handlePageClick = (pageNumber) => {
+    setCurrentPage(pageNumber);
+  };
+
+  const renderPageNumbers = () => {
+    const pageNumbers = [];
+    for (let i = 1; i <= totalPages; i++) {
+      pageNumbers.push(
+        <button
+          key={i}
+          onClick={() => handlePageClick(i)}
+          className={`mx-1 px-3 py-1 rounded ${
+            currentPage === i 
+              ? 'bg-blue-500 text-white' 
+              : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+          }`}
+        >
+          {i}
+        </button>
+      );
+    }
+    return pageNumbers;
+  };
 
   const handleStatusChange = async (id, status) => {
     try {
@@ -82,7 +127,7 @@ const AllRequests = () => {
                   </tr>
                 </thead>
                 <tbody className='bg-white divide-y divide-gray-200'>
-                  {requests.map((request) => (
+                  {currentRequests.map((request) => (
                     <tr key={request._id}>
                       <td className='px-4 py-4 text-sm text-gray-500 whitespace-nowrap'>
                         {request.assetName}
@@ -118,7 +163,6 @@ const AllRequests = () => {
                       </td>
                       <td className='px-4 py-4 text-sm whitespace-nowrap'>
                         <div className='flex items-center gap-x-4'>
-                          {/* Approve Button */}
                           <button
                             disabled={request.status !== 'pending'}
                             onClick={() => handleStatusChange(request._id, 'approved')}
@@ -140,7 +184,6 @@ const AllRequests = () => {
                             </svg>
                           </button>
 
-                          {/* Reject Button */}
                           <button
                             disabled={request.status !== 'pending'}
                             onClick={() => handleStatusChange(request._id, 'rejected')}
@@ -171,6 +214,27 @@ const AllRequests = () => {
           </div>
         </div>
       </div>
+
+      {/* Pagination Controls */}
+      {totalPages > 1 && (
+        <div className='flex items-center justify-center mt-6 gap-2'>
+          <button
+            onClick={handlePrevious}
+            disabled={currentPage === 1}
+            className='px-4 py-2 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 disabled:opacity-50 disabled:cursor-not-allowed'
+          >
+            Previous
+          </button>
+          {renderPageNumbers()}
+          <button
+            onClick={handleNext}
+            disabled={currentPage === totalPages}
+            className='px-4 py-2 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 disabled:opacity-50 disabled:cursor-not-allowed'
+          >
+            Next
+          </button>
+        </div>
+      )}
     </section>
   );
 };

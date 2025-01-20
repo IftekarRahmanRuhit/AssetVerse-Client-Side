@@ -60,7 +60,7 @@ const AddAsset = () => {
         confirmButtonText: "Close",
         confirmButtonColor: "#d33",
       });
-      throw error; // Propagate the error
+      throw error; 
     }
   };
 

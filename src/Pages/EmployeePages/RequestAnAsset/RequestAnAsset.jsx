@@ -1,4 +1,5 @@
 
+
 import React, { useState, useContext } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import toast from 'react-hot-toast';
@@ -15,6 +16,10 @@ const RequestAnAsset = () => {
   const [selectedAsset, setSelectedAsset] = useState(null);
   const [additionalNotes, setAdditionalNotes] = useState('');
   const { companyInfo } = useCompanyInfo();
+  
+  // Pagination states
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 9;
 
   const { data: assets = [], isLoading } = useQuery({
     queryKey: ['assets', searchTerm, stockFilter, typeFilter],
@@ -26,7 +31,45 @@ const RequestAnAsset = () => {
     }
   });
 
-  
+  // Pagination calculations
+  const totalPages = Math.ceil(assets.length / itemsPerPage);
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+  const currentAssets = assets.slice(startIndex, endIndex);
+
+  const handlePrevious = () => {
+    if (currentPage > 1) {
+      setCurrentPage(currentPage - 1);
+    }
+  };
+
+  const handleNext = () => {
+    if (currentPage < totalPages) {
+      setCurrentPage(currentPage + 1);
+    }
+  };
+
+  const handlePageClick = (pageNumber) => {
+    setCurrentPage(pageNumber);
+  };
+
+  const renderPageNumbers = () => {
+    const pageNumbers = [];
+    for (let i = 1; i <= totalPages; i++) {
+      pageNumbers.push(
+        <button
+          key={i}
+          onClick={() => handlePageClick(i)}
+          className={`mx-1 px-3 py-1 rounded ${
+            currentPage === i ? "bg-blue-600 text-white" : "bg-gray-700 text-gray-300"
+          }`}
+        >
+          {i}
+        </button>
+      );
+    }
+    return pageNumbers;
+  };
 
   const handleRequest = async () => {
     if (!selectedAsset) return;
@@ -42,7 +85,6 @@ const RequestAnAsset = () => {
       HrEmail: selectedAsset.email
     };
 
-
     if (!companyInfo?.companyName) {
       return toast.error('Company information is missing. Please reach out to your HR for assistance.');
     }
@@ -56,7 +98,6 @@ const RequestAnAsset = () => {
       toast.error(error?.response?.data);
     }
   };
-  
 
   return (
     <div className="bg-[#191919] min-h-screen pb-28">
@@ -96,46 +137,69 @@ const RequestAnAsset = () => {
         {isLoading ? (
           <p className="text-center text-gray-300">Loading assets...</p>
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {assets.map((asset) => (
-              <div key={asset._id} className="flex justify-center">
-                <div className="w-full h-[280px] relative overflow-hidden group cursor-pointer rounded-md">
-                  {/* Asset Image */}
-                  <img
-                    src={asset.image}
-                    alt={asset.productName}
-                    className="w-full h-full object-cover group-hover:scale-[1.1] transition-all duration-700"
-                  />
-                  
-                  {/* Content Overlay */}
-                  <div className="absolute top-[50%] transform group-hover:translate-y-[-50%] transition-all duration-500 w-full h-full left-0 z-20 right-0 flex items-center justify-center flex-col px-4">
-                    <h1 className="text-[1.5rem] font-bold text-white text-center capitalize mb-2">
-                      {asset.productName}
-                    </h1>
-                    <p className="text-center z-[1-] opacity-0 group-hover:z-20 group-hover:opacity-100 transition-all duration-700 text-white text-[0.9rem] mb-2">
-                      Type: {asset.productType}
-                      <br />
-                      Status: {asset.status ? 'Available' : 'Out of Stock'}
-                    </p>
-                    <button
-                      onClick={() => asset.status && setSelectedAsset(asset)}
-                      disabled={!asset.status}
-                      className={`z-[1-] opacity-0 group-hover:z-20 group-hover:opacity-100 px-6 py-2 mt-3 rounded-md text-[0.9rem] transition-all duration-1000 ${
-                        asset.status
-                          ? 'bg-blue-600 hover:bg-blue-700 text-white'
-                          : 'bg-gray-600 text-gray-300 cursor-not-allowed'
-                      }`}
-                    >
-                      {asset.status ? 'Request Asset' : 'Out of Stock'}
-                    </button>
-                  </div>
+          <>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {currentAssets.map((asset) => (
+                <div key={asset._id} className="flex justify-center">
+                  <div className="w-full h-[280px] relative overflow-hidden group cursor-pointer rounded-md">
+                    {/* Asset Image */}
+                    <img
+                      src={asset.image}
+                      alt={asset.productName}
+                      className="w-full h-full object-cover group-hover:scale-[1.1] transition-all duration-700"
+                    />
+                    
+                    {/* Content Overlay */}
+                    <div className="absolute top-[50%] transform group-hover:translate-y-[-50%] transition-all duration-500 w-full h-full left-0 z-20 right-0 flex items-center justify-center flex-col px-4">
+                      <h1 className="text-[1.5rem] font-bold text-white text-center capitalize mb-2">
+                        {asset.productName}
+                      </h1>
+                      <p className="text-center z-[1-] opacity-0 group-hover:z-20 group-hover:opacity-100 transition-all duration-700 text-white text-[0.9rem] mb-2">
+                        Type: {asset.productType}
+                        <br />
+                        Status: {asset.status ? 'Available' : 'Out of Stock'}
+                      </p>
+                      <button
+                        onClick={() => asset.status && setSelectedAsset(asset)}
+                        disabled={!asset.status}
+                        className={`z-[1-] opacity-0 group-hover:z-20 group-hover:opacity-100 px-6 py-2 mt-3 rounded-md text-[0.9rem] transition-all duration-1000 ${
+                          asset.status
+                            ? 'bg-blue-600 hover:bg-blue-700 text-white'
+                            : 'bg-gray-600 text-gray-300 cursor-not-allowed'
+                        }`}
+                      >
+                        {asset.status ? 'Request Asset' : 'Out of Stock'}
+                      </button>
+                    </div>
 
-                  {/* Bottom Shadow Gradient */}
-                  <div className="w-full opacity-0 z-[-1] group-hover:opacity-100 group-hover:z-10 transition-all duration-500 bg-gradient-to-b from-[rgb(0,0,0,0.001)] to-[rgb(0,0,0,0.8)] h-[100%] absolute bottom-0 left-0 right-0"></div>
+                    {/* Bottom Shadow Gradient */}
+                    <div className="w-full opacity-0 z-[-1] group-hover:opacity-100 group-hover:z-10 transition-all duration-500 bg-gradient-to-b from-[rgb(0,0,0,0.001)] to-[rgb(0,0,0,0.8)] h-[100%] absolute bottom-0 left-0 right-0"></div>
+                  </div>
                 </div>
+              ))}
+            </div>
+
+            {/* Pagination */}
+            {totalPages > 1 && (
+              <div className="flex items-center justify-center mt-8">
+                <button
+                  onClick={handlePrevious}
+                  disabled={currentPage === 1}
+                  className="mx-1 px-4 py-2 rounded bg-gray-700 text-gray-300 disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  Previous
+                </button>
+                {renderPageNumbers()}
+                <button
+                  onClick={handleNext}
+                  disabled={currentPage === totalPages}
+                  className="mx-1 px-4 py-2 rounded bg-gray-700 text-gray-300 disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  Next
+                </button>
               </div>
-            ))}
-          </div>
+            )}
+          </>
         )}
 
         {/* Request Modal */}
