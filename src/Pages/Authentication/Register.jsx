@@ -6,7 +6,7 @@ import { FaEye, FaEyeSlash } from "react-icons/fa";
 import toast from "react-hot-toast";
 import axios from "axios";
 import Swal from "sweetalert2";
-import { Button } from "@mui/material";
+
 import useAxiosPublic from "../../Hooks/useAxiosPublic";
 
 const Register = () => {
@@ -243,7 +243,7 @@ const Register = () => {
                 <p className="font-bold">Sign In with Google</p>
               </div>
             </button>
-            <Button className="text-[#1753c2]">Login</Button>
+            
           </div>
         </div>
       </div>

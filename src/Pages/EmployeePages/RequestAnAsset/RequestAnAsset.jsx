@@ -4,6 +4,7 @@ import { useQuery } from '@tanstack/react-query';
 import toast from 'react-hot-toast';
 import { AuthContext } from '../../../Provider/AuthProvider';
 import useAxiosSecure from '../../../Hooks/useAxiosSecure';
+import useCompanyInfo from '../../../Hooks/useCompanyInfo';
 
 const RequestAnAsset = () => {
   const { user } = useContext(AuthContext);
@@ -13,6 +14,7 @@ const RequestAnAsset = () => {
   const [typeFilter, setTypeFilter] = useState('');
   const [selectedAsset, setSelectedAsset] = useState(null);
   const [additionalNotes, setAdditionalNotes] = useState('');
+  const { companyInfo } = useCompanyInfo();
 
   const { data: assets = [], isLoading } = useQuery({
     queryKey: ['assets', searchTerm, stockFilter, typeFilter],
@@ -40,6 +42,11 @@ const RequestAnAsset = () => {
       HrEmail: selectedAsset.email
     };
 
+
+    if (!companyInfo?.companyName) {
+      return toast.error('Company information is missing. Please reach out to your HR for assistance.');
+    }
+
     try {
       await axiosSecure.post('/asset-requests', requestData);
       toast.success('Asset request submitted successfully!');
@@ -49,7 +56,7 @@ const RequestAnAsset = () => {
       toast.error(error?.response?.data);
     }
   };
-  console.log(assets.map((asset)=> asset.email))
+  
 
   return (
     <div className="bg-[#191919] min-h-screen pb-28">

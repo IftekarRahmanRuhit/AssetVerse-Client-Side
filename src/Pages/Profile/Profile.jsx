@@ -1,5 +1,4 @@
 
-import React, { useState } from 'react';
 import useAuth from "../../Hooks/useAuth";
 import toast from 'react-hot-toast';
 
@@ -12,8 +11,6 @@ const Profile = () => {
         toast.success('Update feature coming soon')
         
     };
-
-
 
     return (
         <div className="min-h-screen bg-base-200 py-8">

@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import { useDropzone } from "react-dropzone";
 import Swal from "sweetalert2";
-import axios from "axios";
+
 import "animate.css";
 import useAuth from "../../../Hooks/useAuth";
 import useCompanyInfo from "../../../Hooks/useCompanyInfo";
@@ -48,7 +48,7 @@ const AddAsset = () => {
 
       const data = await response.json();
       if (data.success) {
-        return data.data.url; // Return the image URL if successful
+        return data.data.url; 
       } else {
         throw new Error("Image upload failed");
       }

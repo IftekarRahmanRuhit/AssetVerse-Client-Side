@@ -52,7 +52,8 @@ const HrRegister = () => {
       dob,
       packageType: selectedPackage,
       photoURL,
-      memberLimit:0
+      memberLimit:0,
+      currentMembers:0
     };
 
     try {
