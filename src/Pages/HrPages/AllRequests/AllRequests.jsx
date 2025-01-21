@@ -5,6 +5,7 @@ import { format } from 'date-fns';
 import toast from 'react-hot-toast';
 import useAxiosSecure from '../../../Hooks/useAxiosSecure';
 import useAuth from '../../../Hooks/useAuth';
+import {Helmet} from "react-helmet-async"
 
 const AllRequests = () => {
   const axiosSecure = useAxiosSecure();
@@ -79,6 +80,7 @@ const AllRequests = () => {
 
   return (
     <section className='container px-4 mx-auto my-12'>
+       <Helmet> <title>AssetVerse | All Requests</title> </Helmet>
       <div className='flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6'>
         <div className='flex items-center gap-x-3'>
           <h2 className='text-lg font-medium text-gray-800'>Asset Requests</h2>

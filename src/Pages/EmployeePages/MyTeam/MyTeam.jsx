@@ -3,7 +3,7 @@
 import { useQuery } from '@tanstack/react-query';
 import useCompanyInfo from '../../../Hooks/useCompanyInfo';
 import useAxiosSecure from '../../../Hooks/useAxiosSecure';
-
+import {Helmet} from "react-helmet-async"
 
 const MyTeam = () => {
     const { companyInfo } = useCompanyInfo();
@@ -25,6 +25,7 @@ const MyTeam = () => {
 
     return (
         <div className="max-w-7xl mx-auto p-8">
+             <Helmet> <title>AssetVerse | My Team</title> </Helmet>
             <h2 className="text-3xl font-bold mb-8">My Team Members</h2>
             
             <div className="overflow-x-auto">

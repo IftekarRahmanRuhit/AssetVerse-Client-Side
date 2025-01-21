@@ -9,6 +9,7 @@ import { AuthContext } from "../../../Provider/AuthProvider";
 import { useDropzone } from "react-dropzone";
 import axios from "axios";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
+import {Helmet} from "react-helmet-async"
 
 const AssetList = () => {
   const { user } = useContext(AuthContext);
@@ -172,6 +173,7 @@ const AssetList = () => {
 
   return (
     <div className="bg-[#191919] pb-28 max-w-screen-2xl mx-auto">
+       <Helmet> <title>AssetVerse | AssetList</title> </Helmet>
       <section className="container mx-auto pt-12 px-4">
         <h2 className="text-3xl font-bold text-gray-100 mb-6">Asset List</h2>
 

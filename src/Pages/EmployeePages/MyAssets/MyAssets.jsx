@@ -7,6 +7,7 @@ import { PDFDownloadLink } from '@react-pdf/renderer';
 import useAxiosSecure from '../../../Hooks/useAxiosSecure';
 import useAuth from '../../../Hooks/useAuth';
 import AssetPDF from "../../../Components/AssetPDF/AssetPDF";
+import {Helmet} from "react-helmet-async"
 
 const MyAssets = () => {
   const axiosSecure = useAxiosSecure();
@@ -94,6 +95,7 @@ const MyAssets = () => {
 
   return (
     <section className='container px-4 mx-auto my-12'>
+       <Helmet> <title>AssetVerse | My Assets</title> </Helmet>
       <div className='flex flex-col space-y-4 md:space-y-0 md:flex-row md:items-center justify-between gap-4 mb-6'>
         {/* Search and Filters */}
         <div className='flex flex-col md:flex-row gap-4'>

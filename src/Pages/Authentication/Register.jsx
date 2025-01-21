@@ -6,6 +6,7 @@ import { FaEye, FaEyeSlash } from "react-icons/fa";
 import toast from "react-hot-toast";
 import axios from "axios";
 import Swal from "sweetalert2";
+import {Helmet} from "react-helmet-async"
 
 import useAxiosPublic from "../../Hooks/useAxiosPublic";
 
@@ -134,6 +135,7 @@ const Register = () => {
 
   return (
     <div className="hero min-h-screen bg-[#191919] max-w-screen-2xl mx-auto">
+       <Helmet> <title>AssetVerse | Join As Employee</title> </Helmet>
       <div className="hero-content flex-col lg:flex-row-reverse w-full mt-32">
         <div className="card bg-gradient-to-r from-gray-950 via-gray-900 to-black w-full max-w-lg shrink-0 shadow-xl mb-16 mt-4">
           <form onSubmit={handleRegister} className="card-body">

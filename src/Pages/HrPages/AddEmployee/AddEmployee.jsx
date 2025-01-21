@@ -4,6 +4,7 @@ import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import toast from 'react-hot-toast';
 import useAxiosSecure from '../../../Hooks/useAxiosSecure';
 import useCompanyInfo from '../../../Hooks/useCompanyInfo';
+import {Helmet} from "react-helmet-async"
 
 const AddEmployee = () => {
   const [selectedEmployees, setSelectedEmployees] = useState([]);
@@ -94,6 +95,7 @@ const AddEmployee = () => {
 
   return (
     <div className="container mx-auto px-4 py-8">
+       <Helmet> <title>AssetVerse | Add Employee</title> </Helmet>
       <div className="flex justify-between items-center mb-6">
         <h2 className="text-2xl font-semibold">Add Employees</h2>
         <div className="text-right flex items-center gap-4">

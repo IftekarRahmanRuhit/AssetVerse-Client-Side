@@ -6,6 +6,9 @@ import MyPendingRequest from "../../Components/My Pending Request/MyPendingReque
 import PendingRequest from "../../Components/Pending Request/PendingRequest";
 import useRole from "../../Hooks/useRole";
 import { AuthContext } from "../../Provider/AuthProvider";
+import {Helmet} from "react-helmet-async"
+import PricingPackages from "../../Components/PricingPackages/PricingPackages";
+import ClientFeedback from "../../Components/ClientFeedback/ClientFeedback";
 
 const Home = () => {
   const [role, isLoading] = useRole();
@@ -17,6 +20,7 @@ const Home = () => {
 
   return (
     <div>
+      <Helmet> <title>AssetVerse | Home</title> </Helmet>
       {user && role === "employee" && (
         <>
           <MyPendingRequest />
@@ -28,6 +32,8 @@ const Home = () => {
         <>
           <Banner />
           <About />
+          <PricingPackages></PricingPackages>
+          <ClientFeedback></ClientFeedback>
         </>
       )}
     </div>

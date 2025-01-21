@@ -2,7 +2,6 @@
 import React, { useState } from "react";
 import { useDropzone } from "react-dropzone";
 import Swal from "sweetalert2";
-
 import "animate.css";
 import useAuth from "../../../Hooks/useAuth";
 import useCompanyInfo from "../../../Hooks/useCompanyInfo";
@@ -10,6 +9,7 @@ import useAxiosPublic from "../../../Hooks/useAxiosPublic";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
+import {Helmet} from "react-helmet-async"
 
 const AddAsset = () => {
   const [image, setImage] = useState(null);
@@ -132,6 +132,7 @@ const AddAsset = () => {
 
   return (
     <div className="bg-[#191919] pb-20 max-w-screen-2xl mx-auto">
+       <Helmet> <title>AssetVerse | AddAsset</title> </Helmet>
       <div>
         <div className="p-10">
           <p className="mt-28 text-4xl font-bold text-center mb-4 text-[#ff3700d7] animate__animated animate__backInDown">

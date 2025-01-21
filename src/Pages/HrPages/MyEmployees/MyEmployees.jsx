@@ -3,7 +3,7 @@ import { useQuery } from '@tanstack/react-query';
 import Swal from 'sweetalert2';
 import useAxiosSecure from '../../../Hooks/useAxiosSecure';
 import { AuthContext } from '../../../Provider/AuthProvider';
-
+import {Helmet} from "react-helmet-async"
 
 const MyEmployees = () => {
     const { user } = useContext(AuthContext);
@@ -47,6 +47,7 @@ const MyEmployees = () => {
 
     return (
         <div className="max-w-7xl mx-auto p-8">
+             <Helmet> <title>AssetVerse | My Employees</title> </Helmet>
             <h2 className="text-3xl font-bold mb-8">My Team Members</h2>
             
             <div className="overflow-x-auto">

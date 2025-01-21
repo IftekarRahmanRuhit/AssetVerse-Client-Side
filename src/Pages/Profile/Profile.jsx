@@ -1,10 +1,9 @@
 
 import useAuth from "../../Hooks/useAuth";
 import toast from 'react-hot-toast';
-
+import {Helmet} from "react-helmet-async"
 const Profile = () => {
     const { user } = useAuth();
-
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -14,6 +13,7 @@ const Profile = () => {
 
     return (
         <div className="min-h-screen bg-base-200 py-8">
+             <Helmet> <title>AssetVerse | Profile</title> </Helmet>
             <div className="max-w-md mx-auto bg-base-100 rounded-lg shadow-xl">
                 <div className="card">
                     <div className="card-body">

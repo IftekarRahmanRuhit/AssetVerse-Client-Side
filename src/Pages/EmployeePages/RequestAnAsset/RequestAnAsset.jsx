@@ -6,6 +6,7 @@ import toast from 'react-hot-toast';
 import { AuthContext } from '../../../Provider/AuthProvider';
 import useAxiosSecure from '../../../Hooks/useAxiosSecure';
 import useCompanyInfo from '../../../Hooks/useCompanyInfo';
+import {Helmet} from "react-helmet-async"
 
 const RequestAnAsset = () => {
   const { user } = useContext(AuthContext);
@@ -101,6 +102,7 @@ const RequestAnAsset = () => {
 
   return (
     <div className="bg-[#191919] min-h-screen pb-28">
+       <Helmet> <title>AssetVerse | Request for an asset</title> </Helmet>
       <div className="container mx-auto pt-12 px-4">
         <h2 className="text-3xl font-bold text-gray-100 mb-6">Request an Asset</h2>
 
