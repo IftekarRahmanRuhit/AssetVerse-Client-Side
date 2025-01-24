@@ -12,6 +12,7 @@ import ClientFeedback from "../../Components/ClientFeedback/ClientFeedback";
 import Events from "../../Components/Events/Events";
 import MostRequestedItems from "../../Components/MostRequestedItems/MostRequestedItems";
 import LimitedItems from "../../Components/LimitedItems/LimitedItems";
+import Chart from "../../Components/Chart/Chart";
 
 const Home = () => {
   const [role, isLoading] = useRole();
@@ -37,6 +38,8 @@ const Home = () => {
         <PendingRequest />
         <MostRequestedItems></MostRequestedItems>
         <LimitedItems></LimitedItems>
+        <Chart></Chart>
+        <Events></Events>
         
         </>
       )
