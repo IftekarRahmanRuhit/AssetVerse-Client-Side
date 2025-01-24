@@ -11,7 +11,7 @@ const MyMonthlyRequest = () => {
   const { user } = useAuth();
   const { companyInfo } = useCompanyInfo();
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 2;
+  const itemsPerPage = 5;
 
   const { data: monthlyRequests = [], isLoading } = useQuery({
     queryKey: ['employeeMonthlyRequests', user?.email],

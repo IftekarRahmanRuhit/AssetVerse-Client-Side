@@ -9,6 +9,7 @@ import { AuthContext } from "../../Provider/AuthProvider";
 import {Helmet} from "react-helmet-async"
 import PricingPackages from "../../Components/PricingPackages/PricingPackages";
 import ClientFeedback from "../../Components/ClientFeedback/ClientFeedback";
+import Events from "../../Components/Events/Events";
 
 const Home = () => {
   const [role, isLoading] = useRole();
@@ -25,6 +26,7 @@ const Home = () => {
         <>
           <MyPendingRequest />
           <MyMonthlyRequest />
+          <Events></Events>
         </>
       )}
       {user && role === "hr" && <PendingRequest />}
