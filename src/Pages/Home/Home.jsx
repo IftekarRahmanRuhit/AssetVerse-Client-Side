@@ -11,6 +11,7 @@ import PricingPackages from "../../Components/PricingPackages/PricingPackages";
 import ClientFeedback from "../../Components/ClientFeedback/ClientFeedback";
 import Events from "../../Components/Events/Events";
 import MostRequestedItems from "../../Components/MostRequestedItems/MostRequestedItems";
+import LimitedItems from "../../Components/LimitedItems/LimitedItems";
 
 const Home = () => {
   const [role, isLoading] = useRole();
@@ -35,6 +36,7 @@ const Home = () => {
         <>
         <PendingRequest />
         <MostRequestedItems></MostRequestedItems>
+        <LimitedItems></LimitedItems>
         
         </>
       )
