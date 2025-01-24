@@ -82,7 +82,7 @@ const Navbar = () => {
               to="/myAssets"
               className={({ isActive }) =>
                 isActive
-                  ? "text-[#9538E2#9538E2] font-semibold underline"
+                  ? "text-[#9538E2] font-semibold underline"
                   : "text-gray-800 font-semibold before:w-0 hover:before:w-full before:bg-[#9538E2] before:h-[2px] before:transition-all before:duration-300 before:absolute relative before:rounded-full before:bottom-[-2px] hover:text-[#9538E2] transition-all duration-300 before:left-0 cursor-pointer capitalize"
               }
             >
@@ -94,7 +94,7 @@ const Navbar = () => {
               to="/myTeam"
               className={({ isActive }) =>
                 isActive
-                  ? "text-[#9538E2#9538E2] font-semibold underline"
+                  ? "text-[#9538E2] font-semibold underline"
                   : "text-gray-800 font-semibold before:w-0 hover:before:w-full before:bg-[#9538E2] before:h-[2px] before:transition-all before:duration-300 before:absolute relative before:rounded-full before:bottom-[-2px] hover:text-[#9538E2] transition-all duration-300 before:left-0 cursor-pointer capitalize"
               }
             >
@@ -213,7 +213,7 @@ const Navbar = () => {
     return (
       <div className="w-full h-screen flex items-center justify-center">
         <div className="bg-base-100 w-full">
-          <div className="text-center text-[#9538E2#9538E2]">
+          <div className="text-center text-[#9538E2]">
             <span className="loading loading-bars loading-lg "></span>
           </div>
         </div>

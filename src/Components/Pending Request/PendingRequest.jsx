@@ -19,7 +19,11 @@ const PendingRequest = () => {
   });
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return (
+        <div className=" flex items-center justify-center min-h-screen text-center text-[#9538E2]">
+          <span className="loading loading-bars loading-lg"></span>
+        </div>
+      );
   }
 
   return (

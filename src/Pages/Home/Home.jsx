@@ -10,6 +10,7 @@ import {Helmet} from "react-helmet-async"
 import PricingPackages from "../../Components/PricingPackages/PricingPackages";
 import ClientFeedback from "../../Components/ClientFeedback/ClientFeedback";
 import Events from "../../Components/Events/Events";
+import MostRequestedItems from "../../Components/MostRequestedItems/MostRequestedItems";
 
 const Home = () => {
   const [role, isLoading] = useRole();
@@ -27,15 +28,24 @@ const Home = () => {
           <MyPendingRequest />
           <MyMonthlyRequest />
           <Events></Events>
+          
         </>
       )}
-      {user && role === "hr" && <PendingRequest />}
+      {user && role === "hr" && (
+        <>
+        <PendingRequest />
+        <MostRequestedItems></MostRequestedItems>
+        
+        </>
+      )
+       }
       {!user && (
         <>
           <Banner />
           <About />
           <PricingPackages></PricingPackages>
           <ClientFeedback></ClientFeedback>
+         
         </>
       )}
     </div>

@@ -9,7 +9,9 @@ const HrRoute = ({ children }) => {
     const location = useLocation();
     
     if (loading || isHrLoading) {
-        return <progress className="progress w-56"></progress>
+        return  (      <div className=" flex items-center justify-center min-h-screen text-center text-[#9538E2]">
+            <span className="loading loading-bars loading-lg"></span>
+          </div>)
     }
     
     if (user && isHr) {
