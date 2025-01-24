@@ -6,10 +6,12 @@ import { format } from 'date-fns';
 import img1 from '../../../public/NoDataImg-2.png';
 import useAxiosSecure from '../../Hooks/useAxiosSecure';
 import useAuth from '../../Hooks/useAuth';
+import useCompanyInfo from '../../Hooks/useCompanyInfo';
 
 const MyPendingRequest = () => {
   const axiosSecure = useAxiosSecure();
   const { user } = useAuth();
+  const { companyInfo } = useCompanyInfo();
 
   const { data: pendingRequests = [], isLoading } = useQuery({
     queryKey: ['employeePendingRequests', user?.email],
@@ -28,7 +30,25 @@ const MyPendingRequest = () => {
     <div className="container mx-auto px-4 py-8">
       <h2 className="text-2xl font-bold text-center mb-6">My Pending Requests</h2>
 
-      {pendingRequests.length === 0 ? (
+      {companyInfo?.companyName === null ? (
+        <div className="flex items-center justify-center bg-yellow-50 rounded-lg p-8">
+          <div className="w-1/2 mr-8">
+            <img 
+              src={img1} 
+              alt="No Company Affiliation" 
+              className="max-w-full h-auto object-contain"
+            />
+          </div>
+          <div className="w-1/2">
+            <h3 className="text-xl font-semibold mb-4">Company Affiliation Needed</h3>
+            <p className="text-gray-600">
+              You are currently not affiliated with any company. 
+              Please contact your HR department to get registered 
+              and start submitting asset requests.
+            </p>
+          </div>
+        </div>
+      ) : pendingRequests.length === 0 ? (
         <div className="flex items-center justify-center bg-gray-50 rounded-lg p-8">
           <div className="w-1/2 mr-8">
             <img 
@@ -95,4 +115,4 @@ const MyPendingRequest = () => {
   );
 };
 
-export default MyPendingRequest;
+export default MyPendingRequest
