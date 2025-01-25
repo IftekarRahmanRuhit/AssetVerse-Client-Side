@@ -137,7 +137,7 @@ const MyAssets = () => {
       </div>
 
       {/* Table */}
-      <div className='overflow-x-auto'>
+      <div className='overflow-x-auto animate__animated animate__fadeInUp'>
         <table className='min-w-full divide-y divide-gray-200 border border-gray-300'>
           <thead className='bg-gray-300 '>
             <tr>
