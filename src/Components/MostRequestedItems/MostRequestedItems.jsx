@@ -61,7 +61,7 @@ const MostRequestedItems = () => {
                   <h1 className="text-[1.5rem] font-bold text-white text-center capitalize mb-2">
                     {item.productName}
                   </h1>
-                  <p className="text-center z-[1-] opacity-0 group-hover:z-20 group-hover:opacity-100 transition-all duration-700 text-white text-[0.9rem] mb-2">
+                  <p className="text-center z-[1-] opacity-0 group-hover:z-20 group-hover:opacity-100 transition-all duration-700 text-white text-[0.9rem] mb-2 font-medium ">
                     Type: {item.productType}
                     <br />
                     Requested: {item.requestCount} times

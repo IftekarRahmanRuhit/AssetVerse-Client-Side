@@ -28,13 +28,13 @@ const LimitedItems = () => {
   }
 
   return (
-    <div className="bg-[#1f1f1f] rounded-lg p-6">
-      <h2 className="text-2xl font-bold text-gray-100 mb-6">
+    <div className="bg-[#efedf0]  p-10 pb-16">
+      <h2 className="text-2xl md:text-3xl text-[#9538E2]  text-center font-bold  mt-5 mb-16">
         Limited Stock Items
       </h2>
 
       {limitedStockItems.length === 0 ? (
-        <div className="flex flex-col md:flex-row items-center justify-center bg-gray-800 rounded-lg p-6">
+        <div className="flex flex-col md:flex-row items-center justify-center rounded-lg p-6">
           <div className="md:w-1/2 mb-4 md:mb-0 md:mr-6">
             <img
               src={img1}
@@ -43,10 +43,10 @@ const LimitedItems = () => {
             />
           </div>
           <div className="md:w-1/2 text-center md:text-left">
-            <h3 className="text-xl font-semibold text-gray-100 mb-3">
+            <h3 className="text-3xl text-[#9538E2] font-semibold  mb-3">
               No Low Stock Items
             </h3>
-            <p className="text-gray-400">
+            <p className="text-gray-800 font-medium">
               Great job! All assets are currently well-stocked. Continue
               monitoring inventory levels to maintain optimal resources.
             </p>
@@ -69,14 +69,14 @@ const LimitedItems = () => {
                   <h1 className="text-[1.5rem] font-bold text-white text-center capitalize mb-2">
                     {item.productName}
                   </h1>
-                  <p className="text-center z-[1-] opacity-0 group-hover:z-20 group-hover:opacity-100 transition-all duration-700 text-white text-[0.9rem] mb-2">
+                  <p className="text-center z-[1-] opacity-0 group-hover:z-20 group-hover:opacity-100 transition-all duration-700 text-white text-[0.9rem] mb-2 font-medium">
                     Quantity Left: {item.productQuantity}
                     <br />
                     Type: {item.productType}
                   </p>
                   <Link to="/assetList">
                    
-                    <button className="z-[1-] opacity-0 group-hover:z-20 group-hover:opacity-100 px-6 py-2 mt-3 rounded-md text-[0.9rem] transition-all duration-1000 bg-red-600 hover:bg-red-700 text-white">
+                    <button className="z-[1-] opacity-0 group-hover:z-20 group-hover:opacity-100 px-6 py-2 mt-3 rounded-md text-[0.9rem] bg-gradient-to-r from-[#9538E2] to-[#9538e2d6] text-white hover:bg-gradient-to-l  transition-all duration-300 border-none font-semibold">
                       Restock Soon
                     </button>
                   </Link>
