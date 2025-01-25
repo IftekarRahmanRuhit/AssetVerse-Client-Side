@@ -94,7 +94,10 @@ const AddEmployee = () => {
   );
 
   return (
-    <div className="container mx-auto px-4 py-8">
+
+    <div className='bg-[#efedf0] '>
+
+    <div className="container mx-auto px-4 py-8 ">
        <Helmet> <title>AssetVerse | Add Employee</title> </Helmet>
       <div className="flex justify-between items-center mb-6 mt-28">
         <h2 className="text-2xl font-bold text-[#9538E2]">Add Employees</h2>
@@ -181,6 +184,9 @@ const AddEmployee = () => {
         </div>
       )}
     </div>
+    </div>
+
+
   );
 };
 

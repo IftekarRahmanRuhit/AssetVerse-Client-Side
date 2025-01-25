@@ -14,10 +14,10 @@ const Profile = () => {
     return (
         <div className="min-h-screen bg-base-200 py-8">
              <Helmet> <title>AssetVerse | Profile</title> </Helmet>
-            <div className="max-w-md mx-auto bg-base-100 rounded-lg shadow-xl">
-                <div className="card">
+            <div className="max-w-md mx-auto bg-base-100 rounded-lg shadow-xl mt-24 animate__animated animate__fadeInUp">
+                <div className="card ">
                     <div className="card-body">
-                        <h2 className="card-title text-2xl font-bold text-center mx-auto mb-5">My Profile</h2>
+                        <h2 className="card-title text-[#9538E2] text-2xl font-bold text-center mx-auto mb-5">My Profile</h2>
                         
                         <form onSubmit={handleSubmit} className="space-y-4">
                             {/* Profile Image */}
@@ -35,7 +35,7 @@ const Profile = () => {
 
                             {/* Full Name Input */}
                             <div className="form-control">
-                                <label className="label">
+                                <label className="label text-xl font-medium text-gray-800">
                                     <span className="label-text">Full Name</span>
                                 </label>
                                 <input
@@ -50,7 +50,7 @@ const Profile = () => {
 
                             {/* Email Input (Read-only) */}
                             <div className="form-control">
-                                <label className="label">
+                                <label className="label text-xl font-medium text-gray-800">
                                     <span className="label-text">Email</span>
                                 </label>
                                 <input
@@ -64,7 +64,7 @@ const Profile = () => {
 
                             {/* Update Button */}
                             <div className="form-control mt-6">
-                                <button type="submit" className="btn btn-primary">
+                                <button type="submit" className="btn font-bold bg-gradient-to-r from-[#9538E2] to-[#9538e2d6] text-white hover:bg-gradient-to-l  transition-all duration-300 border-none">
                                     Update Profile
                                 </button>
                             </div>

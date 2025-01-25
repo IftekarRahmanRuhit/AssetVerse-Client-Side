@@ -37,7 +37,7 @@ const FeedbackSection = () => {
                 {feedbackEntries.map((entry) => (
                     <div 
                         key={entry.id} 
-                        className="bg-gray-100 p-4 rounded-lg hover:shadow-md transition-all duration-300 border-l-4 border-blue-500"
+                        className="bg-gray-100 p-4 rounded-lg hover:shadow-md transition-all duration-300 border-l-4 border-[#9538E2]"
                     >
                         <div className="flex items-center mb-3">
                             <img 
