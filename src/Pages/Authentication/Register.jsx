@@ -60,12 +60,12 @@ const Register = () => {
             }
           })
           .catch((err) => {
-            console.error("Error sending data to server:", err);
+           
             toast.error("Failed to save user data to the server.");
           });
       })
       .catch((error) => {
-        console.error("Google sign-in error:", error);
+        
         toast.error("Unable to sign in with Google. Please try again.");
       })
       .finally(() => setLoading(false));
@@ -118,7 +118,7 @@ const Register = () => {
                 }
               })
               .catch((err) => {
-                console.error("Error saving employee data:", err);
+                
                 toast.error("Failed to register employee on one or more servers.");
               });
 

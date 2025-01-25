@@ -46,7 +46,7 @@ const Banner = () => {
       subtitle: "Efficient Asset Management Solutions for HR Professionals",
       buttonText: "Join as HR Manager",
       handleClick: () => navigate('/hrRegister'),
-      imgSrc: "/public/bannerImg1.jpg"
+      imgSrc: "https://i.ibb.co.com/PMwvkQw/Banner-Img1.jpg"
     },
     {
       id: 2,
@@ -54,7 +54,7 @@ const Banner = () => {
       subtitle: "Simple and Intuitive Asset Tracking for Employees",
       buttonText: "Join as Employee",
       handleClick: () => navigate('/register'),
-      imgSrc: "/public/bannerImg2.jpg"
+      imgSrc: "https://i.ibb.co.com/tbsbMrj/Banner-Img2.jpg"
     }
   ];
 

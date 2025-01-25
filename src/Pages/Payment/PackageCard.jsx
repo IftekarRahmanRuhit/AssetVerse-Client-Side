@@ -3,7 +3,7 @@
 const PackageCard = ({ pkg, isSelected, onSelect }) => (
   <div
     className={`p-6 rounded-lg border-2 transition-all ${
-      isSelected ? 'border-blue-500 bg-blue-50' : 'border-gray-200 hover:border-blue-300'
+      isSelected ? 'border-[#9538E2] bg-blue-50' : 'border-gray-200 hover:border-[#9538E2]'
     }`}
     onClick={onSelect}
   >
@@ -12,7 +12,7 @@ const PackageCard = ({ pkg, isSelected, onSelect }) => (
         <h4 className="text-lg font-semibold text-gray-900">{pkg.name}</h4>
         <p className="text-gray-600">{pkg.members} Team Members</p>
       </div>
-      <div className="text-2xl font-bold text-gray-900">${pkg.price}</div>
+      <div className="text-2xl font-bold text-[#9538E2] ">${pkg.price}</div>
     </div>
     <ul className="mt-4 space-y-2">
       {pkg.features.map((feature, index) => (

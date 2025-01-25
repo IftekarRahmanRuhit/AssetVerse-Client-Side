@@ -83,7 +83,7 @@ const HrRegister = () => {
         toast.error("Failed to save HR data to one or more servers.");
       }
     } catch (err) {
-      console.error("Error saving HR data:", err);
+      
       toast.error("Failed to register HR on one or more servers.");
     }
   };

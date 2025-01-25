@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { BsArrowLeft, BsArrowRight, BsStarFill } from 'react-icons/bs';
 
+
 const ClientFeedback = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -10,7 +11,7 @@ const ClientFeedback = () => {
       name: "Sarah Johnson",
       position: "Financial Director",
       company: "Tech Innovations Ltd",
-      image: "/public/client-3.jpg",
+      image: "https://i.ibb.co.com/wJ18SX7/client-3.jpg",
       rating: 5,
       feedback: "AssetVerse has transformed how we manage our company's assets. The platform's intuitive interface and comprehensive features have saved us countless hours and improved our efficiency by 40%."
     },
@@ -18,7 +19,7 @@ const ClientFeedback = () => {
       name: "Michael Chen",
       position: "Operations Manager",
       company: "Global Solutions Corp",
-      image: "/public/client-1.jpg",
+      image: "https://i.ibb.co.com/NT05Q0W/client-1.jpg",
       rating: 5,
       feedback: "The level of detail and control AssetVerse provides is outstanding. We've been able to track and optimize our asset utilization like never before. Their customer support is equally impressive."
     },
@@ -26,7 +27,7 @@ const ClientFeedback = () => {
       name: "Emily Rodriguez",
       position: "Asset Manager",
       company: "Investment Partners",
-      image: "/public/client-4.png",
+      image: "https://i.ibb.co.com/njVhdzL/client-4.png",
       rating: 5,
       feedback: "Since implementing AssetVerse, we've seen a 30% reduction in asset-related errors and significant improvement in our reporting accuracy. It's an indispensable tool for our operations."
     }

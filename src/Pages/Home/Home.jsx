@@ -44,6 +44,7 @@ const Home = () => {
         <div className="md:mt-10"><MostRequestedItems></MostRequestedItems></div>
        <div> <LimitedItems></LimitedItems></div>
         <div><Chart></Chart></div>
+        <div><PricingPackages></PricingPackages></div>
         <div><Events></Events></div>
        <div> <FeedbackSection></FeedbackSection></div>
 

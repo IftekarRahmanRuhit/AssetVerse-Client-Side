@@ -90,7 +90,7 @@ const CheckoutForm = ({ packageDetails }) => {
       }
     } catch (err) {
       setError('An error occurred during payment processing.');
-      console.error('Payment Error:', err);
+      // console.error('Payment Error:', err);
     } finally {
       setProcessing(false);
     }
@@ -114,7 +114,7 @@ const CheckoutForm = ({ packageDetails }) => {
 
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
-      <div className="p-4 bg-blue-50 rounded-md">
+      <div className="p-4 bg-purple-50 rounded-md">
         <div className="flex justify-between items-center">
           <span className="font-medium">{packageDetails.name}</span>
           <span className="text-lg font-bold">${packageDetails.price}</span>
@@ -133,7 +133,7 @@ const CheckoutForm = ({ packageDetails }) => {
         type="submit"
         disabled={!stripe || processing}
         className={`w-full py-3 px-4 rounded-md font-medium text-white ${
-          processing ? 'bg-gray-400' : 'bg-blue-600 hover:bg-blue-700'
+          processing ? 'bg-gray-400' : 'bg-[#9538E2] hover:bg-[#8f2fdf]'
         }`}
       >
         {processing ? 'Processing...' : `Pay $${packageDetails.price}`}

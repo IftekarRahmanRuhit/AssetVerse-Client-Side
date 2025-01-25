@@ -16,8 +16,7 @@ const Navbar = () => {
   const { companyInfo } = useCompanyInfo();
   const navigate = useNavigate()
 
-  console.log(user);
-  console.log(companyInfo);
+
 
   const handleSignOut = () => {
     signOutUser()

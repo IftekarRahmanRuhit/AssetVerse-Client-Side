@@ -49,17 +49,17 @@ const PaymentPage = () => {
        <Helmet> <title>AssetVerse | Payment page</title> </Helmet>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center">
-          <h2 className="text-3xl font-extrabold text-gray-900 sm:text-4xl">
+          <h2 className="text-3xl font-extrabold text-[#9538E2] sm:text-4xl mt-20">
             Choose Your Package & Complete Payment
           </h2>
-          <p className="mt-4 text-xl text-gray-600">
+          <p className="mt-4 text-xl text-gray-800">
             Select a package and process payment in one simple step
           </p>
         </div>
 
         <div className="mt-16 grid grid-cols-1 lg:grid-cols-2 gap-8">
           <div className="space-y-8">
-            <h3 className="text-2xl font-bold text-gray-900">Available Packages</h3>
+            <h3 className="text-2xl font-bold text-[#9538E2] ">Available Packages</h3>
             <div className="space-y-4">
               {PACKAGES.map((pkg) => (
                 <PackageCard
@@ -73,10 +73,10 @@ const PaymentPage = () => {
           </div>
 
           <div className="bg-white p-8 rounded-lg shadow-lg">
-            <h3 className="text-2xl font-bold text-gray-900 mb-6">Payment Details</h3>
+            <h3 className="text-2xl font-bold text-[#9538E2] mb-6">Payment Details</h3>
             {!selectedPackage ? (
               <div className="text-center py-12">
-                <p className="text-gray-600">Please select a package to proceed with payment</p>
+                <p className="text-gray-800 font-medium">Please select a package to proceed with payment</p>
               </div>
             ) : (
               <Elements stripe={stripePromise} options={options}>
