@@ -79,7 +79,9 @@ const AllRequests = () => {
   };
 
   return (
-    <section className='container px-4 mx-auto my-12'>
+<div className=" px-4 py-10 bg-[#efedf0] ">
+<div >
+<section className='container px-4 mx-auto my-12 '>
        <Helmet> <title>AssetVerse | All Requests</title> </Helmet>
       <div className='flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6 mt-36'>
         <div className='flex text-center items-center gap-x-3'>
@@ -102,7 +104,7 @@ const AllRequests = () => {
         <div className='-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8'>
           <div className='inline-block min-w-full py-2 align-middle md:px-6 lg:px-8'>
             <div className='overflow-hidden border border-gray-200 md:rounded-lg'>
-              <table className='min-w-full divide-y divide-gray-200'>
+              <table className='min-w-full divide-y divide-gray-200 animate__animated animate__fadeInUp'>
                 <thead className='bg-gray-300'>
                   <tr>
                     <th className='py-3.5 px-4 text-sm font-bold text-center text-gray-800 '>
@@ -239,6 +241,8 @@ const AllRequests = () => {
         </div>
       )}
     </section>
+</div>
+</div>
   );
 };
 
