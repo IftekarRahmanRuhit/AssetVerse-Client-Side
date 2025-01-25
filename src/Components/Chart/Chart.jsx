@@ -2,7 +2,7 @@
 import React from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { PieChart, Pie, Cell, Legend, ResponsiveContainer, Tooltip } from 'recharts';
-import img1 from "../../../public/NoDataImg-1.png";
+import img1 from "../../../public/NoDataImg-2.png";
 import useAuth from '../../Hooks/useAuth';
 import useAxiosSecure from '../../Hooks/useAxiosSecure';
 
@@ -44,7 +44,7 @@ const Chart = () => {
 
     if (items.length === 0) {
         return (
-            <div className="flex flex-col md:flex-row items-center justify-center bg-gray-800 rounded-lg p-6">
+            <div className="flex flex-col md:flex-row items-center justify-center  p-6">
                 <div className="md:w-1/2 mb-4 md:mb-0 md:mr-6">
                     <img
                         src={img1}
@@ -53,10 +53,10 @@ const Chart = () => {
                     />
                 </div>
                 <div className="md:w-1/2 text-center md:text-left">
-                    <h3 className="text-xl font-semibold text-gray-100 mb-3">
+                    <h3 className="text-3xl text-[#9538E2] font-semibold  mb-3">
                         No Items Available
                     </h3>
-                    <p className="text-gray-400">
+                    <p className="text-gray-800 font-medium">
                         There are currently no items in the system. Add some items to see the breakdown.
                     </p>
                 </div>
@@ -65,8 +65,8 @@ const Chart = () => {
     }
 
     return (
-        <div className="bg-white shadow-lg rounded-lg p-6">
-            <h2 className="text-2xl font-bold text-center mb-6">
+        <div className="bg-white shadow-lg rounded-lg p-6 pb-16">
+            <h2 className="text-2xl md:text-3xl text-[#9538E2] font-bold text-center mt-10 mb-6">
                 Returnable vs Non-Returnable Items
             </h2>
             <ResponsiveContainer width="100%" height={400}>
