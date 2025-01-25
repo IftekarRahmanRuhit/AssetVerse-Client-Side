@@ -94,9 +94,16 @@ const MyAssets = () => {
   };
 
   return (
+   
+    <div className='bg-[#efedf0] px-4 py-10'>
+
+    <div>
+
     <section className='container px-4 mx-auto my-12'>
        <Helmet> <title>AssetVerse | My Assets</title> </Helmet>
-      <div className='flex flex-col space-y-4 md:space-y-0 md:flex-row md:items-center justify-between gap-4 mb-6'>
+       
+      <div className='flex flex-col space-y-4 md:space-y-0 md:flex-row md:items-center justify-between gap-4 mb-8 mt-32'>
+      <h2 className='text-2xl font-bold text-[#9538E2]'>My Assets</h2>
         {/* Search and Filters */}
         <div className='flex flex-col md:flex-row gap-4'>
           <input
@@ -104,13 +111,13 @@ const MyAssets = () => {
             placeholder="Search by asset name..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            className="w-full md:w-64 p-2 rounded border border-gray-300 focus:outline-none focus:border-blue-500"
+            className="w-full md:w-64 p-2 bg-gray-300 rounded border border-gray-300 text-black font-semibold focus:outline-none focus:border-[#9538E2]"
           />
           
           <select
             value={statusFilter}
             onChange={(e) => setStatusFilter(e.target.value)}
-            className="w-full md:w-40 p-2 rounded border border-gray-300 focus:outline-none focus:border-blue-500"
+            className="w-full md:w-40 p-2 bg-gray-300 rounded border border-gray-300 text-black font-semibold focus:outline-none focus:border-[#9538E2]"
           >
             <option value="all">All Status</option>
             <option value="pending">Pending</option>
@@ -120,7 +127,7 @@ const MyAssets = () => {
           <select
             value={typeFilter}
             onChange={(e) => setTypeFilter(e.target.value)}
-            className="w-full md:w-40 p-2 rounded border border-gray-300 focus:outline-none focus:border-blue-500"
+            className="w-full md:w-40 p-2  bg-gray-300 rounded border border-gray-300 text-black font-semibold focus:outline-none focus:border-[#9538E2]"
           >
             <option value="all">All Types</option>
             <option value="Returnable">Returnable</option>
@@ -131,22 +138,22 @@ const MyAssets = () => {
 
       {/* Table */}
       <div className='overflow-x-auto'>
-        <table className='min-w-full divide-y divide-gray-200'>
-          <thead className='bg-gray-50'>
+        <table className='min-w-full divide-y divide-gray-200 border border-gray-300'>
+          <thead className='bg-gray-300 '>
             <tr>
-              <th className='px-4 py-3.5 text-sm font-normal text-left text-gray-500'>Asset Name</th>
-              <th className='px-4 py-3.5 text-sm font-normal text-left text-gray-500'>Type</th>
-              <th className='px-4 py-3.5 text-sm font-normal text-left text-gray-500'>Request Date</th>
-              <th className='px-4 py-3.5 text-sm font-normal text-left text-gray-500'>Approval Date</th>
-              <th className='px-4 py-3.5 text-sm font-normal text-left text-gray-500'>Status</th>
-              <th className='px-4 py-3.5 text-sm font-normal text-left text-gray-500'>Actions</th>
+              <th className='px-4 py-3.5 text-sm font-semibold text-center text-gray-800'>Asset Name</th>
+              <th className='px-4 py-3.5 text-sm font-semibold text-center text-gray-800'>Type</th>
+              <th className='px-4 py-3.5 text-sm font-semibold text-center text-gray-800'>Request Date</th>
+              <th className='px-4 py-3.5 text-sm font-semibold text-center text-gray-800'>Approval Date</th>
+              <th className='px-4 py-3.5 text-sm font-semibold text-center text-gray-800'>Status</th>
+              <th className='px-4 py-3.5 text-sm font-semibold text-center text-gray-800'>Actions</th>
             </tr>
           </thead>
           <tbody className='bg-white divide-y divide-gray-200'>
             {currentRequests.map((request) => (
               <tr key={request._id}>
-                <td className='px-4 py-4 text-sm text-gray-500'>{request.assetName}</td>
-                <td className='px-4 py-4 text-sm text-gray-500'>
+                <td className='px-4 py-4 text-sm text-center font-medium text-gray-800'>{request.assetName}</td>
+                <td className='px-4 py-4 text-sm text-center font-medium text-gray-800'>
                   <span className={`px-3 py-1 rounded-full text-xs
                     ${request.assetType === 'Returnable' 
                       ? 'bg-blue-100/60 text-blue-500' 
@@ -154,13 +161,13 @@ const MyAssets = () => {
                     {request.assetType}
                   </span>
                 </td>
-                <td className='px-4 py-4 text-sm text-gray-500'>
+                <td className='px-4 py-4 text-sm text-center font-medium text-gray-800'>
                   {format(new Date(request.requestDate), 'PP')}
                 </td>
-                <td className='px-4 py-4 text-sm text-gray-500'>
+                <td className='px-4 py-4 text-sm text-center font-medium text-gray-800'>
                   {request.approvalDate ? format(new Date(request.approvalDate), 'PP') : '-'}
                 </td>
-                <td className='px-4 py-4 text-sm'>
+                <td className='px-4 py-4 text-sm text-center'>
                   <span className={`px-3 py-1 rounded-full text-xs
                     ${request.status === 'pending' ? 'bg-yellow-100/60 text-yellow-500' :
                       request.status === 'approved' ? 'bg-green-100/60 text-green-500' :
@@ -169,30 +176,30 @@ const MyAssets = () => {
                     {request.status}
                   </span>
                 </td>
-                <td className='px-4 py-4 text-sm'>
+                <td className='px-4 py-4 text-sm text-center'>
                   {request.status === 'pending' && (
                     <button
                       onClick={() => handleCancel(request._id)}
-                      className="px-3 py-1 text-red-500 hover:bg-red-100 rounded-md"
+                      className="px-3 py-1 text-red-500 hover:bg-red-100 rounded-md "
                     >
                       Cancel
                     </button>
                   )}
                   
                   {request.status === 'approved' && (
-                    <div className="flex gap-2">
+                    <div className="flex gap-2 justify-center items-center text-center ">
                       <PDFDownloadLink
                         document={<AssetPDF request={request} />}
                         fileName={`asset-${request._id}.pdf`}
-                        className="px-3 py-1 text-blue-500 hover:bg-blue-100 rounded-md"
+                        className="px-3 py-1 text-center "
                       >
-                        Print
+                        <button className='btn btn-sm bg-purple-700 text-white '>Print</button>
                       </PDFDownloadLink>
                       
                       {request.assetType === 'Returnable' && request.status === 'approved' && (
                         <button
                           onClick={() => handleReturn(request._id)}
-                          className="px-3 py-1 text-green-500 hover:bg-green-100 rounded-md"
+                          className="px-3 py-1 btn btn-sm  text-center text-green-500 hover:bg-green-100 rounded-md"
                         >
                           Return
                         </button>
@@ -227,6 +234,9 @@ const MyAssets = () => {
         </div>
       )}
     </section>
+    </div>
+    </div>
+
   );
 };
 
