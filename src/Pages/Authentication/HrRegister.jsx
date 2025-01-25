@@ -91,20 +91,20 @@ const HrRegister = () => {
 
 
   return (
-    <div className="hero min-h-screen bg-[#191919] max-w-screen-2xl mx-auto">
+    <div className="hero min-h-screen bg-[#efedf0] max-w-screen-2xl mx-auto">
        <Helmet> <title>AssetVerse | Join As HR</title> </Helmet>
       <div className="hero-content flex-col lg:flex-row-reverse w-full mt-32">
-        <div className="card bg-gradient-to-r from-gray-950 via-gray-900 to-black w-full max-w-lg shrink-0 shadow-xl mb-16 mt-4">
+        <div className="card bg-white w-full max-w-lg shrink-0 shadow-xl mb-16 mt-4">
           <form onSubmit={handleRegister} className="card-body">
-            <h1 className="text-3xl font-bold text-center text-[#ff3700d7] mt-3">
+            <h1 className="text-3xl font-bold text-center text-[#9538E2] mt-3">
               Register HR
             </h1>
-            <p className="text-center text-base-300 font-medium">
+            <p className="text-center text-gray-700 font-medium">
               Fill in the details to register a new HR.
             </p>
             <div className="form-control mt-4">
               <label className="label">
-                <span className="label-text text-lg font-semibold text-base-300">
+                <span className="label-text text-lg font-semibold text-gray-700">
                   Full Name
                 </span>
               </label>
@@ -112,13 +112,13 @@ const HrRegister = () => {
                 type="text"
                 name="name"
                 placeholder="Full Name"
-                className="input input-bordered focus:outline-none focus:ring-2 focus:ring-gray-700 bg-gray-800 text-white"
+                className="input input-bordered focus:outline-none focus:ring-2 focus:ring-[#9538E2]  text-black"
                 required
               />
             </div>
             <div className="form-control mt-4">
               <label className="label">
-                <span className="label-text text-lg font-semibold text-base-300">
+                <span className="label-text text-lg font-semibold text-gray-700">
                   Company Name
                 </span>
               </label>
@@ -126,13 +126,13 @@ const HrRegister = () => {
                 type="text"
                 name="companyName"
                 placeholder="Company Name"
-                className="input input-bordered focus:outline-none focus:ring-2 focus:ring-gray-700 bg-gray-800 text-white"
+                className="input input-bordered focus:outline-none focus:ring-2 focus:ring-[#9538E2]  text-black"
                 required
               />
             </div>
             <div className="form-control mt-4">
               <label className="label">
-                <span className="label-text text-lg font-semibold text-base-300">
+                <span className="label-text text-lg font-semibold text-gray-700">
                   Company Logo URL
                 </span>
               </label>
@@ -140,26 +140,26 @@ const HrRegister = () => {
                 type="text"
                 name="companyLogo"
                 placeholder="Company Logo URL"
-                className="input input-bordered focus:outline-none focus:ring-2 focus:ring-gray-700 bg-gray-800 text-white"
+                className="input input-bordered focus:outline-none focus:ring-2 focus:ring-[#9538E2]  text-black"
                 required
               />
             </div>
             <div className="form-control mt-4">
               <label className="label">
-                <span className="label-text text-lg font-semibold text-base-300">
+                <span className="label-text text-lg font-semibold text-gray-700">
                   Date of Birth
                 </span>
               </label>
               <input
                 type="date"
                 name="dob"
-                className="input input-bordered focus:outline-none focus:ring-2 focus:ring-gray-700 bg-gray-800 text-white"
+                className="input input-bordered focus:outline-none focus:ring-2 focus:ring-[#9538E2]  text-black"
                 required
               />
             </div>
             <div className="form-control mt-4">
               <label className="label">
-                <span className="label-text text-lg font-semibold text-base-300">
+                <span className="label-text text-lg font-semibold text-gray-700">
                   Photo URL
                 </span>
               </label>
@@ -167,13 +167,13 @@ const HrRegister = () => {
                 type="text"
                 name="photoURL"
                 placeholder="Enter Photo URL"
-                className="input input-bordered focus:outline-none focus:ring-2 focus:ring-gray-700 bg-gray-800 text-white"
+                className="input input-bordered focus:outline-none focus:ring-2 focus:ring-[#9538E2]  text-black"
                 required
               />
             </div>
             <div className="form-control mt-4">
               <label className="label">
-                <span className="label-text text-lg font-semibold text-base-300">
+                <span className="label-text text-lg font-semibold text-gray-700">
                   Email
                 </span>
               </label>
@@ -181,13 +181,13 @@ const HrRegister = () => {
                 type="email"
                 name="email"
                 placeholder="Email"
-                className="input input-bordered focus:outline-none focus:ring-2 focus:ring-gray-700 bg-gray-800 text-white"
+                className="input input-bordered focus:outline-none focus:ring-2 focus:ring-[#9538E2]  text-black"
                 required
               />
             </div>
             <div className="form-control relative mt-4">
               <label className="label">
-                <span className="label-text text-lg font-semibold text-base-300">
+                <span className="label-text text-lg font-semibold text-gray-700">
                   Password
                 </span>
               </label>
@@ -195,25 +195,25 @@ const HrRegister = () => {
                 type={showPassword ? "text" : "password"}
                 name="password"
                 placeholder="Password"
-                className="input input-bordered focus:outline-none focus:ring-2 focus:ring-gray-700 bg-gray-800 text-white"
+                className="input input-bordered focus:outline-none focus:ring-2 focus:ring-[#9538E2]  text-black"
                 required
               />
               <button
                 type="button"
                 onClick={() => setShowPassword(!showPassword)}
-                className="absolute right-5 bottom-4 text-[#ff3700d7]"
+                className="absolute right-5 bottom-4 text-[#9538E2]"
               >
                 {showPassword ? <FaEyeSlash /> : <FaEye />}
               </button>
             </div>
             <div className="form-control mt-4">
               <label className="label">
-                <span className="label-text text-lg font-semibold text-base-300">
+                <span className="label-text text-lg font-semibold text-gray-700">
                   Select a Package
                 </span>
               </label>
               <select
-                className="select select-bordered focus:outline-none focus:ring-2 focus:ring-gray-700 bg-gray-800 text-white"
+                className="select select-bordered focus:outline-none focus:ring-2 focus:ring-[#9538E2]  text-black"
                 value={selectedPackage}
                 onChange={(e) => setSelectedPackage(e.target.value)}
                 required
@@ -227,7 +227,7 @@ const HrRegister = () => {
               </select>
             </div>
             <div className="form-control mt-6">
-              <button className="btn border-none bg-gradient-to-r from-[#FF3600] to-[#ff3700d7] text-white hover:bg-gradient-to-l transition-all duration-300 font-semibold">
+              <button className="btn bg-gradient-to-r from-[#9538E2] to-[#9538e2d6] text-white hover:bg-gradient-to-l  transition-all duration-300 border-none font-semibold">
                 Register
               </button>
             </div>
