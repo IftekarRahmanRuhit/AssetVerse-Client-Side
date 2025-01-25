@@ -173,7 +173,7 @@ const Navbar = () => {
               to="/myEmployeeList"
               className={({ isActive }) =>
                 isActive
-                  ? "text-[#9538E2#9538E2] font-semibold underline"
+                  ? "text-[#9538E2] font-semibold underline"
                   : "text-gray-900 font-semibold before:w-0 hover:before:w-full before:bg-[#9538E2] before:h-[2px] before:transition-all before:duration-300 before:absolute relative before:rounded-full before:bottom-[-2px] hover:text-[#9538E2] transition-all duration-300 before:left-0 cursor-pointer capitalize"
               }
             >
@@ -185,7 +185,7 @@ const Navbar = () => {
               to="/addEmployee"
               className={({ isActive }) =>
                 isActive
-                  ? "text-[#9538E2#9538E2] font-semibold underline"
+                  ? "text-[#9538E2] font-semibold underline"
                   : "text-gray-900 font-semibold before:w-0 hover:before:w-full before:bg-[#9538E2] before:h-[2px] before:transition-all before:duration-300 before:absolute relative before:rounded-full before:bottom-[-2px] hover:text-[#9538E2] transition-all duration-300 before:left-0 cursor-pointer capitalize"
               }
             >
@@ -197,7 +197,7 @@ const Navbar = () => {
               to="/profile"
               className={({ isActive }) =>
                 isActive
-                  ? "text-[#9538E2#9538E2] font-semibold underline"
+                  ? "text-[#9538E2] font-semibold underline"
                   : "text-gray-900 font-semibold before:w-0 hover:before:w-full before:bg-[#9538E2] before:h-[2px] before:transition-all before:duration-300 before:absolute relative before:rounded-full before:bottom-[-2px] hover:text-[#9538E2] transition-all duration-300 before:left-0 cursor-pointer capitalize"
               }
             >
@@ -249,7 +249,7 @@ const Navbar = () => {
                 </svg>
               </button>
               {isMenuOpen && (
-                <ul className="menu menu-sm dropdown-content bg-gray-800 rounded-box z-[1] mt-3 w-52 p-2 shadow">
+                <ul className="menu menu-sm dropdown-content bg-gray-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
                   {links}
                 </ul>
               )}

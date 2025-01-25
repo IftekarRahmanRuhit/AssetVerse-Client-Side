@@ -4,7 +4,8 @@ import { Link, useNavigate, useLocation } from "react-router-dom";
 import toast from "react-hot-toast";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { AuthContext } from "../../Provider/AuthProvider";
-
+import google from "../../../public/google.png"
+import {Helmet} from "react-helmet-async"
 
 
 const Login = () => {
@@ -58,22 +59,22 @@ const Login = () => {
   };
 
   return (
-    <div className="hero min-h-screen bg-[#191919] relative max-w-screen-2xl mx-auto">
-
+    <div className="hero min-h-screen bg-[#efedf0] relative max-w-screen-2xl mx-auto">
+     <Helmet> <title>AssetVerse | Login</title> </Helmet>
       <div className="hero-content flex-col lg:flex-row-reverse w-full z-10 relative mt-32">
-        <div className="card mt-4 bg-gradient-to-r from-gray-950 via-gray-900 to-black w-full max-w-lg shrink-0 shadow-lg  mb-16 ">
+        <div className="card mt-4 bg-white w-full max-w-lg shrink-0 shadow-lg  mb-16 ">
           <form onSubmit={handleLogin} className="card-body">
           
-            <h1 className="text-3xl font-bold text-center text-[#ff3700d7] ">
+            <h1 className="text-3xl font-bold text-center text-[#9538E2] ">
               Welcome Back
             </h1>
-            <p className="text-center text-base-300 font-medium ">
+            <p className="text-center text-gray-700 font-medium ">
               Please enter your details to sign in
             </p>
 
             <div className="form-control mt-4">
               <label className="label">
-                <span className="label-text text-lg font-semibold text-base-300  ">
+                <span className="label-text text-lg font-semibold text-gray-700  ">
                   Email
                 </span>
               </label>
@@ -82,14 +83,14 @@ const Login = () => {
                 name="email"
                 placeholder="Enter your email"
                 ref={emailRef}
-                className="input input-bordered focus:outline-none focus:ring-2 focus:ring-gray-700 bg-gray-800 text-white"
+                className="input input-bordered focus:outline-none focus:ring-2 focus:ring-[#9538E2]  text-black"
                 required
               />
             </div>
 
             <div className="form-control relative">
               <label className="label">
-                <span className="label-text text-lg font-semibold text-base-300 ">
+                <span className="label-text text-lg font-semibold text-gray-700 ">
                   Password
                 </span>
               </label>
@@ -97,38 +98,31 @@ const Login = () => {
                 type={showPassword ? "text" : "password"}
                 name="password"
                 placeholder="Enter your password"
-                className="input input-bordered focus:outline-none focus:ring-2 focus:ring-gray-700 bg-gray-800 text-white"
+                className="input input-bordered focus:outline-none focus:ring-2 focus:ring-[#9538E2]  text-black"
                 required
               />
               <button
                 type="button"
                 onClick={() => setShowPassword(!showPassword)}
-                className="absolute right-4 bottom-12 text-[#ff3700d7]"
+                className="absolute right-4 bottom-4 text-[#9538E2]"
               >
                 {showPassword ? <FaEyeSlash /> : <FaEye />}
               </button>
-              <label className="label">
-                <a
-                  onClick={handleForgetPassword}
-                  className="label-text-alt link link-hover text-base-300 text-sm font-medium "
-                >
-                  Forgot password?
-                </a>
-              </label>
+
             </div>
 
             <div className="form-control mt-6">
               <button
-                className="btn border-none bg-gradient-to-r from-[#FF3600] to-[#ff3700d7] text-white hover:bg-gradient-to-l  transition-all duration-300 font-semibold  "
+                className="btn bg-gradient-to-r from-[#9538E2] to-[#9538e2d6] text-white hover:bg-gradient-to-l  transition-all duration-300 border-none font-semibold  "
                 disabled={loading}
               >
                 {loading ? "Loading..." : "Login"}
               </button>
             </div>
 
-            <p className="text-center mt-4 font-medium text-base-300">
+            <p className="text-center mt-4 font-medium text-gray-700">
               Don't have an account? {" "}
-              <Link to="/register" className="text-[#ff3700d7] underline ">
+              <Link to="/register" className="text-[#9538E2] underline ">
                 Register
               </Link>
             </p>
@@ -137,11 +131,11 @@ const Login = () => {
           <div className="mb-5 text-center">
             <button
               onClick={handleGoogleSignIn}
-              className="btn btn-ghost text-gray-300 border-gray-300 hover:border-gray-600"
+              className="btn btn-ghost text-gray-700 border-gray-300 hover:border-[#9538E2]"
               disabled={loading}
             >
               <div className="flex justify-center items-center space-x-2">
-                {/* <img className="w-5 h-5" src={google} alt=" " /> */}
+                <img className="w-5 h-5" src={google} alt=" " />
                 <p className="font-bold">{loading ? "Loading..." : "Sign In with Google"}</p>
               </div>
             </button>
