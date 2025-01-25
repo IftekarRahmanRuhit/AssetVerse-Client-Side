@@ -71,7 +71,7 @@ const AssetList = () => {
           onClick={() => handlePageClick(i)}
           className={`mx-1 px-3 py-1 rounded ${
             currentPage === i 
-              ? "bg-gradient-to-r from-[#FF3600] to-[#ff3700d7] text-white" 
+              ? "bg-[#9538E2] text-white" 
               : "bg-gray-800 text-gray-300 hover:bg-gray-700"
           }`}
         >
@@ -172,23 +172,23 @@ const AssetList = () => {
   });
 
   return (
-    <div className="bg-[#191919] pb-28 max-w-screen-2xl mx-auto">
+    <div className="bg-[#efedf0]  pb-28 max-w-screen-2xl mx-auto ">
        <Helmet> <title>AssetVerse | AssetList</title> </Helmet>
       <section className="container mx-auto pt-12 px-4">
-        <h2 className="text-3xl font-bold text-gray-100 mb-6">Asset List</h2>
+        <h2 className="text-3xl font-bold text-[#9538E2] mb-6 mt-28">Asset List</h2>
 
-        <div className="flex flex-wrap gap-4 mb-6">
+        <div className="flex flex-wrap gap-4 mb-10">
           <input
             type="text"
             placeholder="Search by name"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            className="p-2 rounded bg-gray-800 text-white"
+            className="p-2 rounded bg-gray-300 text-black font-semibold"
           />
           <select
             value={stockFilter}
             onChange={(e) => setStockFilter(e.target.value)}
-            className="p-2 rounded bg-gray-800 text-white"
+            className="p-2 rounded bg-gray-300 text-black font-semibold"
           >
             <option value="">All Stock Status</option>
             <option value="available">Available</option>
@@ -197,7 +197,7 @@ const AssetList = () => {
           <select
             value={typeFilter}
             onChange={(e) => setTypeFilter(e.target.value)}
-            className="p-2 rounded bg-gray-800 text-white"
+            className="p-2 rounded bg-gray-300 text-black font-semibold"
           >
             <option value="">All Types</option>
             <option value="Returnable">Returnable</option>
@@ -206,7 +206,7 @@ const AssetList = () => {
           <select
             value={sortOption}
             onChange={(e) => setSortOption(e.target.value)}
-            className="p-2 rounded bg-gray-800 text-white"
+            className="p-2 rounded bg-gray-300 text-black font-semibold"
           >
             <option value="">Sort By</option>
             <option value="quantityAsc">Quantity (Lowest First)</option>
@@ -223,31 +223,31 @@ const AssetList = () => {
         ) : (
           <>
             <div className="overflow-x-auto">
-              <table className="table-auto w-full bg-black border border-gray-700 rounded-lg">
-                <thead className="bg-black">
+              <table className="table-auto w-full bg-white border border-gray-300 rounded-lg">
+                <thead className="bg-gray-300 text-gray-800">
                   <tr>
-                    <th className="px-4 py-4 text-white text-center">Image</th>
-                    <th className="px-4 py-4 text-white text-center">Product Name</th>
-                    <th className="px-4 py-4 text-white text-center">Product Type</th>
-                    <th className="px-4 py-4 text-white text-center">Quantity</th>
-                    <th className="px-4 py-4 text-white text-center">Date Added</th>
-                    <th className="px-4 py-4 text-white text-center">Actions</th>
+                    <th className="px-4 py-4  text-center">Product Image</th>
+                    <th className="px-4 py-4  text-center">Product Name</th>
+                    <th className="px-4 py-4  text-center">Product Type</th>
+                    <th className="px-4 py-4  text-center">Quantity</th>
+                    <th className="px-4 py-4  text-center">Date Added</th>
+                    <th className="px-4 py-4  text-center">Actions</th>
                   </tr>
                 </thead>
                 <tbody>
                   {currentAssets.map((asset) => (
-                    <tr key={asset._id} className="border-t border-gray-700 hover:bg-[#2C2C2C]">
+                    <tr key={asset._id} className="border-t border-gray-300 hover:bg-gray-50 ">
                       <td className="px-4 py-2 text-center">
                         <img
                           src={asset.image}
                           alt={asset.productName}
-                          className="w-16 h-16 object-cover rounded"
+                          className="w-16 h-16 object-cover mx-auto rounded"
                         />
                       </td>
-                      <td className="px-4 py-2 text-gray-300 text-center">{asset.productName}</td>
-                      <td className="px-4 py-2 text-gray-300 text-center">{asset.productType}</td>
-                      <td className="px-4 py-2 text-gray-300 text-center">{asset.productQuantity}</td>
-                      <td className="px-4 py-2 text-gray-300 text-center">
+                      <td className="px-4 py-2 text-gray-800 font-semibold text-center">{asset.productName}</td>
+                      <td className="px-4 py-2 text-gray-800 font-semibold text-center">{asset.productType}</td>
+                      <td className="px-4 py-2 text-gray-800 font-semibold text-center">{asset.productQuantity}</td>
+                      <td className="px-4 py-2 text-gray-800 font-semibold text-center">
                         {new Date(asset.dateAdded).toLocaleDateString()}
                       </td>
                       <td className="px-4 py-2 text-center">
@@ -296,43 +296,43 @@ const AssetList = () => {
         {/* Modal for editing product */}
         {selectedProduct && (
           <div className="modal modal-open">
-            <div className="modal-box max-w-lg bg-gradient-to-r from-gray-950 via-gray-900 to-black">
-              <h2 className="text-2xl text-center text-gray-100 font-bold mb-4">
+            <div className="modal-box max-w-lg bg-white">
+              <h2 className="text-2xl text-center text-[#9538E2] font-bold mb-4">
                 Update Asset Details
               </h2>
               <form onSubmit={handleUpdate} className="space-y-6">
                 <div>
-                  <label className="block text-lg font-medium text-gray-300 mb-2">Product Name</label>
+                  <label className="block text-lg font-medium text-gray-700 mb-2">Product Name</label>
                   <input
                     type="text"
                     name="productName"
                     defaultValue={selectedProduct.productName}
-                    className="w-full p-2 rounded-md bg-gray-800 text-white"
+                    className="w-full p-2 rounded-md input input-bordered focus:outline-none focus:ring-2 focus:ring-[#9538E2]  text-black"
                   />
                 </div>
                 <div>
-                  <label className="block text-lg font-medium text-gray-300 mb-2">Product Type</label>
+                  <label className="block text-lg font-medium text-gray-700 mb-2">Product Type</label>
                   <input
                     type="text"
                     name="productType"
                     defaultValue={selectedProduct.productType}
-                    className="w-full p-2 rounded-md bg-gray-800 text-white"
+                    className="w-full p-2 input input-bordered focus:outline-none focus:ring-2 focus:ring-[#9538E2]  text-black"
                   />
                 </div>
                 <div>
-                  <label className="block text-lg font-medium text-gray-300 mb-2">Product Quantity</label>
+                  <label className="block text-lg font-medium text-gray-700 mb-2">Product Quantity</label>
                   <input
                     type="number"
                     name="productQuantity"
                     defaultValue={selectedProduct.productQuantity}
-                    className="w-full p-2 rounded-md bg-gray-800 text-white"
+                    className="w-full p-2 input input-bordered focus:outline-none focus:ring-2 focus:ring-[#9538E2]  text-black"
                   />
                 </div>
                 <div>
-                  <label className="block text-lg font-medium text-gray-300 mb-2">Image</label>
+                  <label className="block text-lg font-medium text-gray-700 mb-2">Image</label>
                   <div {...getRootProps()} className="border-dashed border-2 px-4 py-8 text-center rounded-md">
                     <input {...getInputProps()} />
-                    <p className="text-gray-300 cursor-pointer">
+                    <p className="text-gray-700 cursor-pointer">
                       Drag and drop files here, or click to select a file
                     </p>
                   </div>
@@ -348,14 +348,14 @@ const AssetList = () => {
                 </div>
                 <button
                   type="submit"
-                  className="w-full bg-gradient-to-r from-[#FF3600] to-[#ff3700d7] text-white hover:bg-gradient-to-l py-2 rounded-md"
+                  className="w-full bg-gradient-to-r from-[#9538E2] to-[#9538e2d6] text-white hover:bg-gradient-to-l transition-all duration-300 border-none font-semibold py-2 rounded-md"
                 >
                   Save Changes
                 </button>
                 <button
                   type="button"
                   onClick={() => setSelectedProduct(null)}
-                  className="w-full bg-gray-500 text-black py-2 rounded-md hover:bg-gray-400 mt-2"
+                  className="w-full bg-gray-500 text-white py-2 rounded-md hover:bg-gray-400 mt-2"
                 >
                   Cancel
                 </button>
