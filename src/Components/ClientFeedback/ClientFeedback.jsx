@@ -132,7 +132,7 @@ const ClientFeedback = () => {
                 key={index}
                 onClick={() => setCurrentIndex(index)}
                 className={`w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full transition-all duration-300 ${
-                  index === currentIndex ? 'bg-blue-600 w-6 sm:w-8' : 'bg-gray-300'
+                  index === currentIndex ? 'bg-[#9538E2] w-6 sm:w-8' : 'bg-gray-300'
                 }`}
               />
             ))}
