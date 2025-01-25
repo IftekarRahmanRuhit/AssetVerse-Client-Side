@@ -224,7 +224,7 @@ const Navbar = () => {
   return (
     <div className="max-w-screen-2xl mx-auto">
       <div className={`w-full mx-auto 
-     bg-gradient-to-r from-[#f5f0fc] via-[#e6dbf7] to-[#d8c6f2]
+     bg-gradient-to-r from-[#d8c6f2] via-[#e6dbf7] to-[#d8c6f2]
          md:p-2 md:max-w-screen-2xl mx-auto fixed top-0 z-50 `}>
         <div className="navbar  md:w-11/12 mx-auto pt-4 pb-4 ">
           <div className="navbar-start">
