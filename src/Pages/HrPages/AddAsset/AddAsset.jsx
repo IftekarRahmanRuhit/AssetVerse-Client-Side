@@ -131,44 +131,44 @@ const AddAsset = () => {
   };
 
   return (
-    <div className="bg-[#191919] pb-20 max-w-screen-2xl mx-auto">
+    <div className="bg-[#efedf0] pb-20 max-w-screen-2xl mx-auto">
        <Helmet> <title>AssetVerse | AddAsset</title> </Helmet>
       <div>
         <div className="p-10">
-          <p className="mt-28 text-4xl font-bold text-center mb-4 text-[#ff3700d7] animate__animated animate__backInDown">
+          <p className="mt-28 text-4xl font-bold text-center mb-4 text-[#9538E2] animate__animated animate__backInDown">
             Add New Asset
           </p>
-          <p className="font-medium text-gray-300 text-center animate__animated animate__backInDown">
+          <p className="font-medium text-gray-700 text-center animate__animated animate__backInDown">
             Manage your inventory by adding new assets here!
           </p>
         </div>
       </div>
-      <div className="bg-gradient-to-r from-gray-950 via-gray-900 to-black p-8 max-w-4xl mx-auto rounded-lg shadow-xl animate__animated animate__fadeInUp border-2 border-[#ff37004b]">
-        <h2 className="text-3xl font-bold text-center text-[#ff3700d7] mb-5">
+      <div className="bg-white p-8 max-w-4xl mx-auto rounded-lg shadow-xl animate__animated animate__fadeInUp border-2 border-[#9538E2]">
+        <h2 className="text-3xl font-bold text-center text-[#9538E2] mb-5">
           Add Asset
         </h2>
         <form onSubmit={handleAddAsset} className="space-y-6">
           <div>
-            <label className="block text-lg font-medium text-gray-300 mb-2">
+            <label className="block text-lg font-medium text-gray-700 mb-2">
               Product Name
             </label>
             <input
               type="text"
               name="productName"
               placeholder="Enter product name"
-              className="w-full px-3 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-700 bg-gray-800 text-white"
+              className="w-full px-3 py-2 input input-bordered rounded-md focus:outline-none focus:ring-2 focus:ring-[#9538E2]  text-black"
               required
             />
           </div>
           <div>
-            <label className="block text-lg font-medium text-gray-300 mb-2">
+            <label className="block text-lg font-medium text-gray-700 mb-2">
               Product Type
             </label>
             <select
               name="productType"
               value={assetType}
               onChange={(e) => setAssetType(e.target.value)} 
-              className="w-full px-3 py-2 focus:outline-none focus:ring-2 focus:ring-gray-700 bg-gray-800 text-white rounded-md"
+              className="w-full px-3 py-2 input input-bordered focus:outline-none focus:ring-2 focus:ring-[#9538E2]  text-black rounded-md"
               required
             >
               <option value="Returnable">Returnable</option>
@@ -176,19 +176,19 @@ const AddAsset = () => {
             </select>
           </div>
           <div>
-            <label className="block text-lg font-medium text-gray-300 mb-2">
+            <label className="block text-lg font-medium text-gray-700 mb-2">
               Product Quantity
             </label>
             <input
               type="number"
               name="productQuantity"
               placeholder="Enter product quantity"
-              className="w-full px-3 py-2 focus:outline-none focus:ring-2 focus:ring-gray-700 bg-gray-800 text-white rounded-md"
+              className="w-full px-3 py-2 input input-bordered focus:outline-none focus:ring-2 focus:ring-[#9538E2]  text-black"
               required
             />
           </div>
           <div>
-            <label className="block text-lg font-medium text-gray-300 mb-2">
+            <label className="block text-lg font-medium text-gray-700 mb-2">
               Product Image
             </label>
             <div
@@ -196,7 +196,7 @@ const AddAsset = () => {
               className="border-dashed border-2 px-4 py-8 text-center rounded-md"
             >
               <input {...getInputProps()} />
-              <p className="text-gray-300">
+              <p className="text-gray-700">
                 Drag and drop files here, or click to select a file
               </p>
             </div>
@@ -212,7 +212,7 @@ const AddAsset = () => {
           </div>
           <button
             type="submit"
-            className="w-full bg-gradient-to-r from-[#FF3600] to-[#ff3700d7] text-white hover:bg-gradient-to-l font-semibold py-2 rounded-md"
+            className="w-full bg-gradient-to-r from-[#9538E2] to-[#9538e2d6] text-white hover:bg-gradient-to-l  transition-all duration-300 border-none font-semibold py-2 rounded-md"
           >
             Add Asset
           </button>
