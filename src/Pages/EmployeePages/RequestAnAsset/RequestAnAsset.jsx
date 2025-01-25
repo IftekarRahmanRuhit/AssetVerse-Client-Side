@@ -62,7 +62,7 @@ const RequestAnAsset = () => {
           key={i}
           onClick={() => handlePageClick(i)}
           className={`mx-1 px-3 py-1 rounded ${
-            currentPage === i ? "bg-blue-600 text-white" : "bg-gray-700 text-gray-300"
+            currentPage === i ? "bg-[#9538E2] text-white" : "bg-gray-700 text-gray-300"
           }`}
         >
           {i}
@@ -101,10 +101,10 @@ const RequestAnAsset = () => {
   };
 
   return (
-    <div className="bg-[#191919] min-h-screen pb-28">
+    <div className="bg-[#efedf0] min-h-screen pb-28">
        <Helmet> <title>AssetVerse | Request for an asset</title> </Helmet>
       <div className="container mx-auto pt-12 px-4">
-        <h2 className="text-3xl font-bold text-gray-100 mb-6">Request an Asset</h2>
+        <h2 className="text-3xl font-bold  text-[#9538E2] mb-6 mt-24">Request an Asset</h2>
 
         {/* Search and Filter Section */}
         <div className="flex flex-wrap gap-4 mb-10">
@@ -113,12 +113,12 @@ const RequestAnAsset = () => {
             placeholder="Search assets..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            className="p-2 rounded bg-gray-800 text-white"
+            className="p-2 rounded border border-gray-300 text-black font-semibold focus:outline-none focus:border-[#9538E2]"
           />
           <select
             value={stockFilter}
             onChange={(e) => setStockFilter(e.target.value)}
-            className="p-2 rounded bg-gray-800 text-white"
+            className="p-2 rounded border border-gray-300 text-black font-semibold focus:outline-none focus:border-[#9538E2]"
           >
             <option value="">All Availability</option>
             <option value="available">Available</option>
@@ -127,7 +127,7 @@ const RequestAnAsset = () => {
           <select
             value={typeFilter}
             onChange={(e) => setTypeFilter(e.target.value)}
-            className="p-2 rounded bg-gray-800 text-white"
+            className="p-2 rounded border border-gray-300 text-black font-semibold focus:outline-none focus:border-[#9538E2]"
           >
             <option value="">All Types</option>
             <option value="Returnable">Returnable</option>
@@ -156,7 +156,7 @@ const RequestAnAsset = () => {
                       <h1 className="text-[1.5rem] font-bold text-white text-center capitalize mb-2">
                         {asset.productName}
                       </h1>
-                      <p className="text-center z-[1-] opacity-0 group-hover:z-20 group-hover:opacity-100 transition-all duration-700 text-white text-[0.9rem] mb-2">
+                      <p className="text-center z-[1-] opacity-0 group-hover:z-20 group-hover:opacity-100 transition-all duration-700 text-white text-[0.9rem] mb-2 font-medium">
                         Type: {asset.productType}
                         <br />
                         Status: {asset.status ? 'Available' : 'Out of Stock'}
@@ -166,7 +166,7 @@ const RequestAnAsset = () => {
                         disabled={!asset.status}
                         className={`z-[1-] opacity-0 group-hover:z-20 group-hover:opacity-100 px-6 py-2 mt-3 rounded-md text-[0.9rem] transition-all duration-1000 ${
                           asset.status
-                            ? 'bg-blue-600 hover:bg-blue-700 text-white'
+                            ? 'bg-gradient-to-r from-[#9538E2] to-[#9538e2d6] text-white hover:bg-gradient-to-l  transition-all duration-300 border-none font-bold'
                             : 'bg-gray-600 text-gray-300 cursor-not-allowed'
                         }`}
                       >
@@ -221,7 +221,7 @@ const RequestAnAsset = () => {
               <div className="flex gap-4">
                 <button
                   onClick={handleRequest}
-                  className="flex-1 bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition-all duration-300"
+                  className="flex-1 bg-gradient-to-r from-[#9538E2] to-[#9538e2d6] text-white hover:bg-gradient-to-l  transition-all duration-300 border-none py-2 rounded-lg "
                 >
                   Submit Request
                 </button>

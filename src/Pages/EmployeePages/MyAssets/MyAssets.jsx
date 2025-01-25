@@ -111,13 +111,13 @@ const MyAssets = () => {
             placeholder="Search by asset name..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            className="w-full md:w-64 p-2 bg-gray-300 rounded border border-gray-300 text-black font-semibold focus:outline-none focus:border-[#9538E2]"
+            className="w-full md:w-64 p-2  rounded border border-gray-300 text-black font-semibold focus:outline-none focus:border-[#9538E2]"
           />
           
           <select
             value={statusFilter}
             onChange={(e) => setStatusFilter(e.target.value)}
-            className="w-full md:w-40 p-2 bg-gray-300 rounded border border-gray-300 text-black font-semibold focus:outline-none focus:border-[#9538E2]"
+            className="w-full md:w-40 p-2  rounded border border-gray-300 text-black font-semibold focus:outline-none focus:border-[#9538E2]"
           >
             <option value="all">All Status</option>
             <option value="pending">Pending</option>
@@ -127,7 +127,7 @@ const MyAssets = () => {
           <select
             value={typeFilter}
             onChange={(e) => setTypeFilter(e.target.value)}
-            className="w-full md:w-40 p-2  bg-gray-300 rounded border border-gray-300 text-black font-semibold focus:outline-none focus:border-[#9538E2]"
+            className="w-full md:w-40 p-2  rounded border border-gray-300 text-black font-semibold focus:outline-none focus:border-[#9538E2]"
           >
             <option value="all">All Types</option>
             <option value="Returnable">Returnable</option>
