@@ -158,6 +158,7 @@ const AllRequests = () => {
                         <div className={`inline-flex items-center px-3 py-1 rounded-full gap-x-2
                           ${request.status === 'pending' ? 'bg-yellow-100/60 text-yellow-500' :
                             request.status === 'approved' ? 'bg-green-100/60 text-green-500' :
+                            request.status === 'returned' ? 'bg-blue-100/60 text-blue-500' :
                             'bg-red-100/60 text-red-500'}`}>
                           <span className='h-1.5 w-1.5 rounded-full bg-current'></span>
                           <h2 className='text-sm font-normal capitalize'>{request.status}</h2>

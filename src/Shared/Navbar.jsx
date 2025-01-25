@@ -39,7 +39,7 @@ const Navbar = () => {
           className={({ isActive }) =>
             isActive
               ? "text-[#9538E2] font-semibold underline"
-              : "text-gray-800 font-semibold before:w-0 hover:before:w-full before:bg-[#9538E2] before:h-[2px] before:transition-all before:duration-300 before:absolute relative before:rounded-full before:bottom-[-2px] hover:text-[#9538E2] transition-all duration-300 before:left-0 cursor-pointer capitalize"
+              : "text-gray-900 font-semibold before:w-0 hover:before:w-full before:bg-[#9538E2] before:h-[2px] before:transition-all before:duration-300 before:absolute relative before:rounded-full before:bottom-[-2px] hover:text-[#9538E2] transition-all duration-300 before:left-0 cursor-pointer capitalize"
           }
         >
           Home
@@ -54,7 +54,7 @@ const Navbar = () => {
               className={({ isActive }) =>
                 isActive
                   ? "text-[#9538E2] font-semibold underline"
-                  : "text-gray-800 font-semibold before:w-0 hover:before:w-full before:bg-[#9538E2] before:h-[2px] before:transition-all before:duration-300 before:absolute relative before:rounded-full before:bottom-[-2px] hover:text-[#9538E2] transition-all duration-300 before:left-0 cursor-pointer capitalize"
+                  : "text-gray-900 font-semibold before:w-0 hover:before:w-full before:bg-[#9538E2] before:h-[2px] before:transition-all before:duration-300 before:absolute relative before:rounded-full before:bottom-[-2px] hover:text-[#9538E2] transition-all duration-300 before:left-0 cursor-pointer capitalize"
               }
             >
               Join as Employee
@@ -66,7 +66,7 @@ const Navbar = () => {
               className={({ isActive }) =>
                 isActive
                   ? "text-[#9538E2] font-semibold underline"
-                  : "text-gray-800 font-semibold before:w-0 hover:before:w-full before:bg-[#9538E2] before:h-[2px] before:transition-all before:duration-300 before:absolute relative before:rounded-full before:bottom-[-2px] hover:text-[#9538E2] transition-all duration-300 before:left-0 cursor-pointer capitalize"
+                  : "text-gray-900 font-semibold before:w-0 hover:before:w-full before:bg-[#9538E2] before:h-[2px] before:transition-all before:duration-300 before:absolute relative before:rounded-full before:bottom-[-2px] hover:text-[#9538E2] transition-all duration-300 before:left-0 cursor-pointer capitalize"
               }
             >
               Join as HR Manager
@@ -83,7 +83,7 @@ const Navbar = () => {
               className={({ isActive }) =>
                 isActive
                   ? "text-[#9538E2] font-semibold underline"
-                  : "text-gray-800 font-semibold before:w-0 hover:before:w-full before:bg-[#9538E2] before:h-[2px] before:transition-all before:duration-300 before:absolute relative before:rounded-full before:bottom-[-2px] hover:text-[#9538E2] transition-all duration-300 before:left-0 cursor-pointer capitalize"
+                  : "text-gray-900 font-semibold before:w-0 hover:before:w-full before:bg-[#9538E2] before:h-[2px] before:transition-all before:duration-300 before:absolute relative before:rounded-full before:bottom-[-2px] hover:text-[#9538E2] transition-all duration-300 before:left-0 cursor-pointer capitalize"
               }
             >
               My Assets
@@ -95,7 +95,7 @@ const Navbar = () => {
               className={({ isActive }) =>
                 isActive
                   ? "text-[#9538E2] font-semibold underline"
-                  : "text-gray-800 font-semibold before:w-0 hover:before:w-full before:bg-[#9538E2] before:h-[2px] before:transition-all before:duration-300 before:absolute relative before:rounded-full before:bottom-[-2px] hover:text-[#9538E2] transition-all duration-300 before:left-0 cursor-pointer capitalize"
+                  : "text-gray-900 font-semibold before:w-0 hover:before:w-full before:bg-[#9538E2] before:h-[2px] before:transition-all before:duration-300 before:absolute relative before:rounded-full before:bottom-[-2px] hover:text-[#9538E2] transition-all duration-300 before:left-0 cursor-pointer capitalize"
               }
             >
               My Team
@@ -107,7 +107,7 @@ const Navbar = () => {
               className={({ isActive }) =>
                 isActive
                   ? "text-[#9538E2] font-semibold underline"
-                  : "text-gray-800 font-semibold before:w-0 hover:before:w-full before:bg-[#9538E2] before:h-[2px] before:transition-all before:duration-300 before:absolute relative before:rounded-full before:bottom-[-2px] hover:text-[#9538E2] transition-all duration-300 before:left-0 cursor-pointer capitalize"
+                  : "text-gray-900 font-semibold before:w-0 hover:before:w-full before:bg-[#9538E2] before:h-[2px] before:transition-all before:duration-300 before:absolute relative before:rounded-full before:bottom-[-2px] hover:text-[#9538E2] transition-all duration-300 before:left-0 cursor-pointer capitalize"
               }
             >
               Request for an Asset
@@ -119,7 +119,7 @@ const Navbar = () => {
               className={({ isActive }) =>
                 isActive
                   ? "text-[#9538E2] font-semibold underline"
-                  : "text-gray-800 font-semibold before:w-0 hover:before:w-full before:bg-[#9538E2] before:h-[2px] before:transition-all before:duration-300 before:absolute relative before:rounded-full before:bottom-[-2px] hover:text-[#9538E2] transition-all duration-300 before:left-0 cursor-pointer capitalize"
+                  : "text-gray-900 font-semibold before:w-0 hover:before:w-full before:bg-[#9538E2] before:h-[2px] before:transition-all before:duration-300 before:absolute relative before:rounded-full before:bottom-[-2px] hover:text-[#9538E2] transition-all duration-300 before:left-0 cursor-pointer capitalize"
               }
             >
               Profile
@@ -136,7 +136,7 @@ const Navbar = () => {
               className={({ isActive }) =>
                 isActive
                   ? "text-[#9538E2] font-semibold underline"
-                  : "text-gray-800 font-semibold before:w-0 hover:before:w-full before:bg-[#9538E2] before:h-[2px] before:transition-all before:duration-300 before:absolute relative before:rounded-full before:bottom-[-2px] hover:text-[#9538E2] transition-all duration-300 before:left-0 cursor-pointer capitalize"
+                  : "text-gray-900 font-semibold before:w-0 hover:before:w-full before:bg-[#9538E2] before:h-[2px] before:transition-all before:duration-300 before:absolute relative before:rounded-full before:bottom-[-2px] hover:text-[#9538E2] transition-all duration-300 before:left-0 cursor-pointer capitalize"
               }
             >
               Asset List
@@ -148,7 +148,7 @@ const Navbar = () => {
               className={({ isActive }) =>
                 isActive
                   ? "text-[#9538E2] font-semibold underline"
-                  : "text-gray-800 font-semibold before:w-0 hover:before:w-full before:bg-[#9538E2] before:h-[2px] before:transition-all before:duration-300 before:absolute relative before:rounded-full before:bottom-[-2px] hover:text-[#9538E2] transition-all duration-300 before:left-0 cursor-pointer capitalize"
+                  : "text-gray-900 font-semibold before:w-0 hover:before:w-full before:bg-[#9538E2] before:h-[2px] before:transition-all before:duration-300 before:absolute relative before:rounded-full before:bottom-[-2px] hover:text-[#9538E2] transition-all duration-300 before:left-0 cursor-pointer capitalize"
               }
             >
               Add Asset
@@ -161,7 +161,7 @@ const Navbar = () => {
               className={({ isActive }) =>
                 isActive
                   ? "text-[#9538E2] font-semibold underline"
-                  : "text-gray-800 font-semibold before:w-0 hover:before:w-full before:bg-[#9538E2] before:h-[2px] before:transition-all before:duration-300 before:absolute relative before:rounded-full before:bottom-[-2px] hover:text-[#9538E2] transition-all duration-300 before:left-0 cursor-pointer capitalize"
+                  : "text-gray-900 font-semibold before:w-0 hover:before:w-full before:bg-[#9538E2] before:h-[2px] before:transition-all before:duration-300 before:absolute relative before:rounded-full before:bottom-[-2px] hover:text-[#9538E2] transition-all duration-300 before:left-0 cursor-pointer capitalize"
               }
             >
               All Requests
@@ -174,7 +174,7 @@ const Navbar = () => {
               className={({ isActive }) =>
                 isActive
                   ? "text-[#9538E2#9538E2] font-semibold underline"
-                  : "text-gray-800 font-semibold before:w-0 hover:before:w-full before:bg-[#9538E2] before:h-[2px] before:transition-all before:duration-300 before:absolute relative before:rounded-full before:bottom-[-2px] hover:text-[#9538E2] transition-all duration-300 before:left-0 cursor-pointer capitalize"
+                  : "text-gray-900 font-semibold before:w-0 hover:before:w-full before:bg-[#9538E2] before:h-[2px] before:transition-all before:duration-300 before:absolute relative before:rounded-full before:bottom-[-2px] hover:text-[#9538E2] transition-all duration-300 before:left-0 cursor-pointer capitalize"
               }
             >
               My Employees
@@ -186,7 +186,7 @@ const Navbar = () => {
               className={({ isActive }) =>
                 isActive
                   ? "text-[#9538E2#9538E2] font-semibold underline"
-                  : "text-gray-800 font-semibold before:w-0 hover:before:w-full before:bg-[#9538E2] before:h-[2px] before:transition-all before:duration-300 before:absolute relative before:rounded-full before:bottom-[-2px] hover:text-[#9538E2] transition-all duration-300 before:left-0 cursor-pointer capitalize"
+                  : "text-gray-900 font-semibold before:w-0 hover:before:w-full before:bg-[#9538E2] before:h-[2px] before:transition-all before:duration-300 before:absolute relative before:rounded-full before:bottom-[-2px] hover:text-[#9538E2] transition-all duration-300 before:left-0 cursor-pointer capitalize"
               }
             >
               Add Employee
@@ -198,7 +198,7 @@ const Navbar = () => {
               className={({ isActive }) =>
                 isActive
                   ? "text-[#9538E2#9538E2] font-semibold underline"
-                  : "text-gray-800 font-semibold before:w-0 hover:before:w-full before:bg-[#9538E2] before:h-[2px] before:transition-all before:duration-300 before:absolute relative before:rounded-full before:bottom-[-2px] hover:text-[#9538E2] transition-all duration-300 before:left-0 cursor-pointer capitalize"
+                  : "text-gray-900 font-semibold before:w-0 hover:before:w-full before:bg-[#9538E2] before:h-[2px] before:transition-all before:duration-300 before:absolute relative before:rounded-full before:bottom-[-2px] hover:text-[#9538E2] transition-all duration-300 before:left-0 cursor-pointer capitalize"
               }
             >
               Profile
@@ -223,8 +223,10 @@ const Navbar = () => {
 
   return (
     <div className="max-w-screen-2xl mx-auto">
-      <div className={`w-full mx-auto bg-gradient-to-r from-white via-[#E0F7F9] to-[#F0FCFC] md:p-2 max-w-screen-2xl`}>
-        <div className="navbar w-full md:w-11/12 mx-auto pt-4 pb-4 ">
+      <div className={`w-full mx-auto 
+     bg-gradient-to-r from-[#f5f0fc] via-[#e6dbf7] to-[#d8c6f2]
+         md:p-2 md:max-w-screen-2xl mx-auto fixed top-0 z-50 `}>
+        <div className="navbar  md:w-11/12 mx-auto pt-4 pb-4 ">
           <div className="navbar-start">
             <div className="dropdown lg:hidden">
               <button
@@ -233,7 +235,7 @@ const Navbar = () => {
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  className="h-5 w-5 text-white"
+                  className="h-5 w-5 text-black"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -260,7 +262,7 @@ const Navbar = () => {
               <div className="flex justify-center items-center">
                 {/* Display company logo if available, otherwise fallback to default logo */}
                 <img
-                  className="h-10 w-10 mr-2 object-cover rounded-full"
+                  className="h-10 w-10 md:mr-2 object-cover rounded-full"
                   src={companyInfo?.companyLogo || logo}
                   alt={companyInfo?.companyName || "Default Logo"}
                 />

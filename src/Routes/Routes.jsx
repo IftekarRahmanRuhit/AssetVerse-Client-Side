@@ -80,7 +80,8 @@ export const routes = createBrowserRouter([
             },
             {
                 path:'/payment',
-                element:<PaymentPage></PaymentPage>
+                element:<HrRoute><PrivateRoute><PaymentPage></PaymentPage></PrivateRoute></HrRoute>
+                
             }
 
        

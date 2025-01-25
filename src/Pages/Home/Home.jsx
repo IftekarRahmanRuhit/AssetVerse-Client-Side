@@ -13,6 +13,7 @@ import Events from "../../Components/Events/Events";
 import MostRequestedItems from "../../Components/MostRequestedItems/MostRequestedItems";
 import LimitedItems from "../../Components/LimitedItems/LimitedItems";
 import Chart from "../../Components/Chart/Chart";
+import FeedbackSection from "../../Components/FeedbackSection/FeedbackSection";
 
 const Home = () => {
   const [role, isLoading] = useRole();
@@ -27,29 +28,42 @@ const Home = () => {
       <Helmet> <title>AssetVerse | Home</title> </Helmet>
       {user && role === "employee" && (
         <>
-          <MyPendingRequest />
-          <MyMonthlyRequest />
-          <Events></Events>
+        <div className="max-w-screen-2xl mx-auto">
+        <div><MyPendingRequest /></div>
+          <div><MyMonthlyRequest /></div>
+          <div><Events></Events></div>
+        </div>
           
         </>
       )}
       {user && role === "hr" && (
         <>
-        <PendingRequest />
-        <MostRequestedItems></MostRequestedItems>
-        <LimitedItems></LimitedItems>
-        <Chart></Chart>
-        <Events></Events>
+        <div className="max-w-screen-2xl mx-auto">
+
+        <div><PendingRequest /></div>
+        <div><MostRequestedItems></MostRequestedItems></div>
+       <div> <LimitedItems></LimitedItems></div>
+        <div><Chart></Chart></div>
+        <div><Events></Events></div>
+       <div> <FeedbackSection></FeedbackSection></div>
+
+        </div>
         
         </>
       )
        }
       {!user && (
         <>
+         <div className="max-w-screen-2xl mx-auto">
+         <div className="max-w-screen-2xl mx-auto mt-20">
           <Banner />
+          </div>
+          <div>
           <About />
-          <PricingPackages></PricingPackages>
-          <ClientFeedback></ClientFeedback>
+          </div>
+          <div><PricingPackages></PricingPackages></div>
+          <div><ClientFeedback></ClientFeedback></div>
+         </div>
          
         </>
       )}

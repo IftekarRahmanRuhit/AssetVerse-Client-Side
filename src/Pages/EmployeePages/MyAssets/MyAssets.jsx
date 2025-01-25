@@ -75,7 +75,7 @@ const MyAssets = () => {
 
   const handleCancel = async (id) => {
     try {
-      await axiosSecure.patch(`/asset-request-status/${id}`, { status: 'cancelled' });
+      await axiosSecure.patch(`/assetRequestStatus/${id}`, { status: 'cancelled' });
       toast.success('Request cancelled successfully');
       refetch();
     } catch (error) {
@@ -85,7 +85,7 @@ const MyAssets = () => {
 
   const handleReturn = async (id) => {
     try {
-      await axiosSecure.patch(`/return-asset/${id}`);
+      await axiosSecure.patch(`/return-asset/${id}`, { status: 'returned' });
       toast.success('Asset returned successfully');
       refetch();
     } catch (error) {

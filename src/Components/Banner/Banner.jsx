@@ -101,7 +101,7 @@ const Banner = () => {
                 </p>
                 <button 
                   onClick={slide.handleClick}
-                  className="btn btn-primary btn-lg"
+                  className="btn bg-gradient-to-r from-[#9538E2] to-[#9538e2d6] text-white hover:bg-gradient-to-l  transition-all duration-300 border-none btn-lg"
                 >
                   {slide.buttonText}
                 </button>

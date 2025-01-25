@@ -85,7 +85,7 @@ const AssetList = () => {
 
   const handleDelete = async (id) => {
     try {
-      await axiosPublic.delete(`/assets/${id}`);
+      await axiosSecure.delete(`/assets/${id}`);
       toast.success("Asset deleted successfully!");
       refetch();
     } catch (error) {
@@ -215,7 +215,9 @@ const AssetList = () => {
         </div>
 
         {isLoading ? (
-          <p className="text-gray-100 text-center">Loading assets...</p>
+          <div className=" flex items-center justify-center min-h-screen text-center text-[#9538E2]">
+          <span className="loading loading-bars loading-lg"></span>
+        </div>
         ) : assets.length === 0 ? (
           <p className="text-gray-100 text-center">No assets found.</p>
         ) : (

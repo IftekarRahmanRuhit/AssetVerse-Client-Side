@@ -23,40 +23,40 @@ const AnimatedPricingCard = ({ pkg, onButtonClick }) => {
       onMouseMove={handleMouseMove}
       onMouseEnter={() => setIsHovering(true)}
       onMouseLeave={() => setIsHovering(false)}
-      className="relative overflow-hidden rounded-lg p-6 cursor-pointer bg-white"
+      className="relative overflow-hidden rounded-lg p-6 cursor-pointer bg-white "
     >
       {pkg.popular && (
         <div className="absolute top-4 right-4 z-10">
-          <span className="bg-blue-500 text-white text-sm font-semibold px-3 py-1 rounded-full">
+          <span className="bg-[#9538E2] text-white text-sm font-semibold px-3 py-1 rounded-full">
             Popular
           </span>
         </div>
       )}
 
       <div className="relative z-10">
-        <h3 className="text-2xl font-bold text-blue-600 mb-2">
+        <h3 className="text-2xl font-bold text-[#9538E2] mb-2">
           {pkg.name}
         </h3>
         <div className="text-4xl font-bold text-gray-900 mb-4">
           {pkg.price}
-          <span className="text-base font-normal text-gray-600">/month</span>
+          <span className="text-base font-medium text-gray-800">/month</span>
         </div>
-        <p className="text-gray-600 mb-6">
+        <p className="text-gray-800 font-medium mb-6">
           {pkg.description}
         </p>
 
         <div className="space-y-4 mb-6">
           {pkg.features.map((feature, idx) => (
             <div key={idx} className="flex items-center">
-              <Check className="h-5 w-5 text-blue-500 mr-2" />
-              <span className="text-gray-600">{feature}</span>
+              <Check className="h-5 w-5 text-[#9538E2] mr-2" />
+              <span className="text-gray-800 font-medium">{feature}</span>
             </div>
           ))}
         </div>
 
         <button 
           onClick={onButtonClick}
-          className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-4 rounded-lg transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+          className="w-full bg-gradient-to-r from-[#9538E2] to-[#9538e2d6] text-white hover:bg-gradient-to-l   border-none font-semibold py-3 px-4 rounded-lg transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-[#9538E2] focus:ring-offset-2"
         >
           Get Started
         </button>
@@ -66,7 +66,7 @@ const AnimatedPricingCard = ({ pkg, onButtonClick }) => {
         <div
           className="absolute inset-0 pointer-events-none blur-[50px]"
           style={{
-            background: `radial-gradient(circle 100px at ${mousePosition.x}px ${mousePosition.y}px, rgba(59, 130, 246, 0.3), transparent)`,
+            background: `radial-gradient(circle 100px at ${mousePosition.x}px ${mousePosition.y}px, rgba(149, 56, 226, 0.3), transparent)`,
           }}
         />
       )}
@@ -120,13 +120,13 @@ const PricingPackages = () => {
   ];
 
   return (
-    <div className="bg-gray-50 py-16">
+    <div className="bg-[#efedf0] py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold text-gray-900">
+          <h2 className="text-3xl font-bold text-[#9538E2]">
             Choose Your Plan
           </h2>
-          <p className="mt-4 text-lg text-gray-600">
+          <p className="mt-4 text-lg  text-gray-800">
             Select the perfect package for your business needs
           </p>
         </div>

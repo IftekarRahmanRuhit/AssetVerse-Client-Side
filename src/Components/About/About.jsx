@@ -7,22 +7,22 @@ import { FaUsers } from 'react-icons/fa';
 const About = () => {
   const features = [
     {
-      icon: <BiBuildingHouse size={32} className="text-blue-600" />,
+      icon: <BiBuildingHouse size={32} className="text-[#9538E2]" />,
       title: "Comprehensive Asset Management",
       description: "AssetVerse provides state-of-the-art solutions for managing diverse portfolios, from real estate to financial instruments, all in one unified platform."
     },
     {
-      icon: <BsGraphUp size={32} className="text-blue-600" />,
+      icon: <BsGraphUp size={32} className="text-[#9538E2]" />,
       title: "Data-Driven Insights",
       description: "Leverage advanced analytics and real-time reporting to make informed decisions about your assets and optimize your investment strategy."
     },
     {
-      icon: <MdSecurity size={32} className="text-blue-600" />,
+      icon: <MdSecurity size={32} className="text-[#9538E2]" />,
       title: "Secure & Reliable",
       description: "Your assets are protected by industry-leading security protocols, ensuring safe and confidential management of your valuable investments."
     },
     {
-      icon: <FaUsers size={32} className="text-blue-600" />,
+      icon: <FaUsers size={32} className="text-[#9538E2]" />,
       title: "Expert Support",
       description: "Our team of experienced professionals provides dedicated support and guidance to help you achieve your investment objectives."
     }
@@ -33,11 +33,11 @@ const About = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Main About Section */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">
+          <h2 className="text-2xl md:text-4xl font-bold text-[#9538E2] mb-4">
             Welcome to AssetVerse
           </h2>
           <div className="max-w-3xl mx-auto">
-            <p className="text-lg text-gray-600">
+            <p className="text-lg  text-gray-800">
               AssetVerse is a leading asset management platform that combines innovative technology with financial expertise to deliver exceptional investment solutions. We empower organizations and individuals to manage, track, and optimize their assets with precision and confidence.
             </p>
           </div>
@@ -48,7 +48,7 @@ const About = () => {
           {features.map((feature, index) => (
             <div 
               key={index} 
-              className="flex flex-col items-center text-center p-6 bg-gray-50 rounded-lg hover:shadow-lg transition-shadow duration-300"
+              className="flex flex-col items-center text-center p-6 bg-gray-100 rounded-lg hover:shadow-lg transition-shadow duration-300 cursor-pointer"
             >
               <div className="mb-4">
                 {feature.icon}
@@ -64,11 +64,11 @@ const About = () => {
         </div>
 
         {/* Mission Statement */}
-        <div className="mt-16 text-center bg-blue-50 p-8 rounded-lg">
-          <h3 className="text-2xl font-bold text-gray-900 mb-4">
+        <div className="mt-16 text-center bg-purple-50 p-8 rounded-lg">
+          <h3 className="text-2xl font-bold text-[#9538E2]  mb-4">
             Our Mission
           </h3>
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+          <p className="text-lg text-gray-800 max-w-3xl mx-auto">
             To revolutionize asset management through cutting-edge technology and exceptional service, enabling our clients to achieve their financial goals with confidence and peace of mind.
           </p>
         </div>
