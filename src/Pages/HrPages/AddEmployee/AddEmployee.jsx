@@ -96,15 +96,15 @@ const AddEmployee = () => {
   return (
     <div className="container mx-auto px-4 py-8">
        <Helmet> <title>AssetVerse | Add Employee</title> </Helmet>
-      <div className="flex justify-between items-center mb-6">
-        <h2 className="text-2xl font-semibold">Add Employees</h2>
+      <div className="flex justify-between items-center mb-6 mt-28">
+        <h2 className="text-2xl font-bold text-[#9538E2]">Add Employees</h2>
         <div className="text-right flex items-center gap-4">
-          <p className="text-sm text-gray-600">
+          <p className="text-sm font-medium text-gray-800">
             Member Limit: {companyInfo.currentMembers}/{companyInfo.memberLimit}
           </p>
           <a
             href="/payment"
-            className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded text-sm transition-colors duration-200"
+            className="bg-[#9538E2] font-semibold text-white px-4 py-2 rounded text-sm transition-colors duration-200"
           >
             Increase Limit
           </a>
@@ -114,7 +114,7 @@ const AddEmployee = () => {
       {selectedEmployees.length > 0 && (
         <button
           onClick={handleAddSelected}
-          className="mb-4 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
+          className="mb-4 bg-[#9538E2] text-white px-4 py-2 rounded hover:bg-[#9538E2] font-semibold"
         >
           Add Selected Members to Team ({selectedEmployees.length})
         </button>
@@ -125,23 +125,23 @@ const AddEmployee = () => {
           No employees available to add
         </div>
       ) : (
-        <div className="overflow-x-auto">
+        <div className="overflow-x-auto animate__animated animate__fadeInUp">
           <table className="min-w-full bg-white border border-gray-200">
-            <thead className="bg-gray-50">
+            <thead className="bg-gray-300">
               <tr>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <th className="px-6 py-3 text-center text-sm font-bold text-gray-800 uppercase tracking-wider">
                   Select
                 </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <th className="px-6 py-3 text-center text-sm font-bold text-gray-800 uppercase tracking-wider">
                   Image
                 </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <th className="px-6 py-3 text-center text-sm font-bold text-gray-800 uppercase tracking-wider">
                   Name
                 </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <th className="px-6 py-3 text-center text-sm font-bold text-gray-800 uppercase tracking-wider">
                   Email
                 </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <th className="px-6 py-3 text-center text-sm font-bold text-gray-800 uppercase tracking-wider">
                   Action
                 </th>
               </tr>
@@ -149,7 +149,7 @@ const AddEmployee = () => {
             <tbody className="divide-y divide-gray-200">
               {availableEmployees.map((employee) => (
                 <tr key={employee._id}>
-                  <td className="px-6 py-4">
+                  <td className="px-6 py-4 text-center">
                     <input
                       type="checkbox"
                       checked={selectedEmployees.some(e => e._id === employee._id)}
@@ -161,15 +161,15 @@ const AddEmployee = () => {
                     <img
                       src={employee.photoURL}
                       alt={employee.name}
-                      className="h-10 w-10 rounded-full"
+                      className="h-16 w-16 rounded-full mx-auto"
                     />
                   </td>
-                  <td className="px-6 py-4">{employee.name}</td>
-                  <td className="px-6 py-4">{employee.email}</td>
-                  <td className="px-6 py-4">
+                  <td className="px-6 py-4 text-center font-medium text-gray-800">{employee.name}</td>
+                  <td className="px-6 py-4 text-center font-medium text-gray-800">{employee.email}</td>
+                  <td className="px-6 py-4 text-center">
                     <button
                       onClick={() => handleSingleAdd(employee)}
-                      className="text-blue-600 hover:text-blue-800"
+                      className="btn btn-sm bg-[#9538E2] text-white"
                     >
                       Add to Team
                     </button>
