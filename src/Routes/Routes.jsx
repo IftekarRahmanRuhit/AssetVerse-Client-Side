@@ -16,6 +16,7 @@ import MyEmployees from "../Pages/HrPages/MyEmployees/MyEmployees"
 import AddEmployee from "../Pages/HrPages/AddEmployee/AddEmployee"
 import HrRoute from "./HrRoute";
 import PaymentPage from "../Pages/Payment/PaymentPage";
+import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 
 
 
@@ -23,6 +24,7 @@ export const routes = createBrowserRouter([
     {
         path: "/",
         element: <MainLayout></MainLayout>,
+        errorElement: <ErrorPage></ErrorPage>,
         children: [
             {
                 path:'/',

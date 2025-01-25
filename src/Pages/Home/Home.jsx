@@ -29,7 +29,7 @@ const Home = () => {
       {user && role === "employee" && (
         <>
         <div className="max-w-screen-2xl mx-auto">
-        <div><MyPendingRequest /></div>
+        <div className="mt-24"><MyPendingRequest /></div>
           <div><MyMonthlyRequest /></div>
           <div><Events></Events></div>
         </div>

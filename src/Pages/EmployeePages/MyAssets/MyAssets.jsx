@@ -62,7 +62,7 @@ const MyAssets = () => {
           onClick={() => handlePageClick(i)}
           className={`mx-1 px-3 py-1 rounded ${
             currentPage === i 
-              ? 'bg-blue-500 text-white' 
+              ? 'bg-[#9538E2] text-white' 
               : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
           }`}
         >

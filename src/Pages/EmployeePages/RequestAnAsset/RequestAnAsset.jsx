@@ -137,7 +137,9 @@ const RequestAnAsset = () => {
 
         {/* Assets List */}
         {isLoading ? (
-          <p className="text-center text-gray-300">Loading assets...</p>
+          <div className=" flex items-center justify-center min-h-screen text-center text-[#9538E2]">
+          <span className="loading loading-bars loading-lg"></span>
+        </div>
         ) : (
           <>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

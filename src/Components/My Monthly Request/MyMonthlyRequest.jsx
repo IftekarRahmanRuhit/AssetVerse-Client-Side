@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { format } from 'date-fns';
-import img1 from '../../../public/NoDataImg-1.png';
+import img1 from '../../../public/NoDataImg-2.png';
 import useAxiosSecure from '../../Hooks/useAxiosSecure';
 import useAuth from '../../Hooks/useAuth';
 import useCompanyInfo from '../../Hooks/useCompanyInfo';
@@ -41,11 +41,13 @@ const MyMonthlyRequest = () => {
   }
 
   return (
+    <div className='px-4 py-10 ' >
+
     <div className="container mx-auto px-4 py-8">
-      <h2 className="text-2xl font-bold text-center mb-6">My Monthly Requests</h2>
+      <h2 className="text-2xl font-bold text-[#9538E2] text-center mb-6">My Monthly Requests</h2>
 
       {companyInfo?.companyName === null ? (
-        <div className="flex items-center justify-center bg-yellow-50 rounded-lg p-8">
+        <div className="flex items-center justify-center  rounded-lg p-8">
           <div className="w-1/2 mr-8">
             <img 
               src={img1} 
@@ -54,8 +56,8 @@ const MyMonthlyRequest = () => {
             />
           </div>
           <div className="w-1/2">
-            <h3 className="text-xl font-semibold mb-4">Company Affiliation Needed</h3>
-            <p className="text-gray-600">
+            <h3 className="text-2xl font-bold text-[#9538E2] mb-4">Company Affiliation Needed</h3>
+            <p className="text-gray-800 font-medium">
               You are currently not affiliated with any company. 
               Please contact your HR department to get registered 
               and start submitting asset requests.
@@ -63,7 +65,7 @@ const MyMonthlyRequest = () => {
           </div>
         </div>
       ) : monthlyRequests.length === 0 ? (
-        <div className="flex items-center justify-center bg-gray-50 rounded-lg p-8">
+        <div className="flex items-center justify-center  rounded-lg p-8">
           <div className="w-1/2 mr-8">
             <img 
               src={img1} 
@@ -72,8 +74,8 @@ const MyMonthlyRequest = () => {
             />
           </div>
           <div className="w-1/2">
-            <h3 className="text-xl font-semibold mb-4">No Monthly Requests</h3>
-            <p className="text-gray-600">
+            <h3 className="text-xl font-bold text-[#9538E2] mb-4">No Monthly Requests</h3>
+            <p className="text-gray-800 font-medium">
               You have not made any asset requests this month. 
               Submit a new request when you need an asset for your work.
             </p>
@@ -84,14 +86,14 @@ const MyMonthlyRequest = () => {
           <div className="overflow-x-auto mb-6">
             <table className="min-w-full bg-white border border-gray-200 rounded-lg">
               <thead>
-                <tr className="bg-gray-100 text-gray-600 uppercase text-sm leading-normal">
-                  <th className="py-3 px-4 text-left">Asset Name</th>
-                  <th className="py-3 px-4 text-left">Type</th>
-                  <th className="py-3 px-4 text-left">Date</th>
-                  <th className="py-3 px-4 text-left">Status</th>
+                <tr className="bg-gray-300 text-gray-800 uppercase text-sm leading-normal">
+                  <th className="py-3 px-4 text-center">Asset Name</th>
+                  <th className="py-3 px-4 text-center">Type</th>
+                  <th className="py-3 px-4 text-center">Date</th>
+                  <th className="py-3 px-4 text-center">Status</th>
                 </tr>
               </thead>
-              <tbody className="text-gray-600 text-sm font-light">
+              <tbody className="text-gray-800 text-sm font-semibold text-center ">
                 {currentRequests.map((request) => (
                   <tr key={request._id} className="border-b border-gray-200 hover:bg-gray-50">
                     <td className="py-3 px-4 whitespace-nowrap">{request.assetName}</td>
@@ -129,7 +131,7 @@ const MyMonthlyRequest = () => {
                   onClick={() => handlePageChange(index + 1)}
                   className={`px-4 py-2 rounded ${
                     currentPage === index + 1 
-                      ? 'bg-blue-500 text-white' 
+                      ? 'bg-[#9538E2] text-white' 
                       : 'bg-gray-200 text-gray-700'
                   }`}
                 >
@@ -140,6 +142,7 @@ const MyMonthlyRequest = () => {
           )}
         </>
       )}
+    </div>
     </div>
   );
 };
