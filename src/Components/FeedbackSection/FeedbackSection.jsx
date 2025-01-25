@@ -28,12 +28,12 @@ const FeedbackSection = () => {
     ];
 
     return (
-        <div className="container mx-auto px-4 py-8 bg-white shadow-2xl rounded-xl w-11/12 md:w-4/5">
-            <h2 className="text-3xl font-bold text-gray-800 mb-6 text-center">
+        <div className="  px-4 py-8 bg-white pb-16">
+            <h2 className="text-2xl md:text-3xl text-[#9538E2] font-bold  mb-8 text-center mt-5 ">
                 Employee Asset Insights
             </h2>
 
-            <div className="space-y-4">
+            <div className="space-y-4 w-11/12 mx-auto cursor-pointer">
                 {feedbackEntries.map((entry) => (
                     <div 
                         key={entry.id} 
