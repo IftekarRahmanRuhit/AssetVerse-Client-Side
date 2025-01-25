@@ -4,6 +4,7 @@ import { format } from 'date-fns';
 import img1 from '../../../public/NoDataImg-1.png';
 import useAxiosSecure from '../../Hooks/useAxiosSecure';
 import useAuth from '../../Hooks/useAuth';
+import "animate.css";
 
 const PendingRequest = () => {
   const axiosSecure = useAxiosSecure();
@@ -27,11 +28,11 @@ const PendingRequest = () => {
   }
 
   return (
-    <div className="container mx-auto px-4 py-8">
-      <h2 className="text-2xl font-bold text-center mb-6">Recent Pending Requests</h2>
+    <div className=" mx-auto px-4 py-10 bg-[#efedf0] pb-16">
+      <h2 className="text-2xl md:text-3xl text-[#9538E2] font-bold text-center mb-6 animate__animated animate__backInDown">Recent Pending Requests</h2>
 
       {pendingRequests.length === 0 ? (
-        <div className="flex items-center justify-center bg-gray-50 rounded-lg p-8">
+        <div className="flex items-center justify-center  rounded-lg p-8 animate__animated animate__fadeInUp">
           <div className="w-1/2 mr-8">
             <img 
               src={img1} 
@@ -40,44 +41,44 @@ const PendingRequest = () => {
             />
           </div>
           <div className="w-1/2">
-            <h3 className="text-3xl font-semibold mb-4">No Pending Requests</h3>
-            <p className="text-gray-600">
+            <h3 className="text-3xl text-[#9538E2] font-semibold mb-4">No Pending Requests</h3>
+            <p className="text-gray-800 font-medium">
               Currently, there are no pending asset requests. As new requests come in, 
               they will appear here for your review.
             </p>
           </div>
         </div>
       ) : (
-        <div className="overflow-x-auto">
+        <div className="overflow-x-auto animate__animated animate__fadeInUp ">
           <table className="min-w-full bg-white border border-gray-200 rounded-lg">
             <thead>
-              <tr className="bg-gray-100 text-gray-600 uppercase text-sm leading-normal">
-                <th className="py-3 px-4 text-left">Asset Name</th>
-                <th className="py-3 px-4 text-left">Requester</th>
-                <th className="py-3 px-4 text-left">Date</th>
-                <th className="py-3 px-4 text-left">Status</th>
-                <th className="py-3 px-4 text-left">Actions</th>
+              <tr className="bg-gray-300 text-gray-800 font-bold uppercase text-sm leading-normal">
+                <th className="py-3 px-4 text-center ">Asset Name</th>
+                <th className="py-3 px-4 text-center">Requester</th>
+                <th className="py-3 px-4 text-center">Date</th>
+                <th className="py-3 px-4 text-center">Status</th>
+                <th className="py-3 px-4 text-center">Actions</th>
               </tr>
             </thead>
-            <tbody className="text-gray-600 text-sm font-light">
+            <tbody className="text-gray-600 text-sm font-light cursor-pointer">
               {pendingRequests.map((request) => (
                 <tr key={request._id} className="border-b border-gray-200 hover:bg-gray-50">
-                  <td className="py-3 px-4 whitespace-nowrap">{request.assetName}</td>
-                  <td className="py-3 px-4 whitespace-nowrap">{request.requesterName}</td>
-                  <td className="py-3 px-4 whitespace-nowrap">
+                  <td className="py-3 px-4 text-center text-gray-800 font-semibold whitespace-nowrap">{request.assetName}</td>
+                  <td className="py-3 px-4 text-center text-gray-800 font-semibold whitespace-nowrap">{request.requesterName}</td>
+                  <td className="py-3 px-4 text-center text-gray-800 font-semibold whitespace-nowrap">
                     {format(new Date(request.requestDate), 'PP')}
                   </td>
-                  <td className="py-3 px-4">
-                    <span className="bg-yellow-100 text-yellow-600 py-1 px-3 rounded-full text-xs">
+                  <td className="py-3 px-4 text-center">
+                    <span className="bg-yellow-100 font-bold  text-yellow-600 py-1 px-3 rounded-full text-xs">
                       {request.status}
                     </span>
                   </td>
-                  <td className="py-3 px-4">
+                  <td className="py-3 px-4 text-center">
                     <Link 
                       to="/allrequest" 
-                      className="text-blue-500 hover:text-blue-700 transition duration-300"
+                     
                     >
-                      View
+                      <button className='btn btn-sm bg-[#9538E2] hover:bg-[#a65ce3] text-white'>View</button>
                     </Link>
                   </td>
                 </tr>

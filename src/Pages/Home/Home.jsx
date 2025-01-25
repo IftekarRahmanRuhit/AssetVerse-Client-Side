@@ -40,8 +40,8 @@ const Home = () => {
         <>
         <div className="max-w-screen-2xl mx-auto">
 
-        <div><PendingRequest /></div>
-        <div><MostRequestedItems></MostRequestedItems></div>
+        <div className="mt-20 md:mt-24" ><PendingRequest /></div>
+        <div className="md:mt-10"><MostRequestedItems></MostRequestedItems></div>
        <div> <LimitedItems></LimitedItems></div>
         <div><Chart></Chart></div>
         <div><Events></Events></div>
