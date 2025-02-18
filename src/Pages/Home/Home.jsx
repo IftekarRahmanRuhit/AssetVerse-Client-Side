@@ -15,6 +15,7 @@ import LimitedItems from "../../Components/LimitedItems/LimitedItems";
 import Chart from "../../Components/Chart/Chart";
 import FeedbackSection from "../../Components/FeedbackSection/FeedbackSection";
 import IndustriesSection from "../../Components/IndustriesSection/IndustriesSection";
+import ClientShowcase from "../../Components/ClientShowcase/ClientShowcase";
 
 const Home = () => {
   const [role, isLoading] = useRole();
@@ -65,6 +66,7 @@ const Home = () => {
           </div>
           <div><IndustriesSection></IndustriesSection></div>
           <div><PricingPackages></PricingPackages></div>
+          <div><ClientShowcase></ClientShowcase></div>
           <div><ClientFeedback></ClientFeedback></div>
          </div>
          
