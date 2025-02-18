@@ -83,7 +83,7 @@ const HrRegister = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#efedf0]">
+    <div className="min-h-screen flex flex-col bg-[#efedf0] max-w-screen-2xl mx-auto">
       <Helmet>
         <title>AssetVerse | Join As HR</title>
       </Helmet>

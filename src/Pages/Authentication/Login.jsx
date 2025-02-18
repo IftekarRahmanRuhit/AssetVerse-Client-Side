@@ -1,20 +1,19 @@
 
-import { useContext, useRef, useState,  } from "react";
+import { useContext, useRef, useState } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import toast from "react-hot-toast";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { AuthContext } from "../../Provider/AuthProvider";
+import { Helmet } from "react-helmet-async";
 import google from "../../../public/google.png"
-import {Helmet} from "react-helmet-async"
-
 
 const Login = () => {
   const { signINUser, signInWithGoogle, loading, setLoading } = useContext(AuthContext);
   const [showPassword, setShowPassword] = useState(false);
   const emailRef = useRef();
   const navigate = useNavigate();
-  const location = useLocation()
-  const from = location?.state || '/'
+  const location = useLocation();
+  const from = location?.state || '/';
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -31,8 +30,7 @@ const Login = () => {
       .then(() => {
         toast.success("Welcome Back!");
         e.target.reset();
-        navigate('/')
-      
+        navigate('/');
       })
       .catch(() => {
         toast.error("Incorrect email or password. Please try again.");
@@ -50,7 +48,6 @@ const Login = () => {
 
   const handleForgetPassword = () => {
     const email = emailRef.current.value;
-
     if (!email) {
       toast.error("Please provide a valid email address");
     } else {
@@ -59,88 +56,149 @@ const Login = () => {
   };
 
   return (
-    <div className="hero min-h-screen bg-[#efedf0] relative max-w-screen-2xl mx-auto">
-     <Helmet> <title>AssetVerse | Login</title> </Helmet>
-      <div className="hero-content flex-col lg:flex-row-reverse w-full z-10 relative mt-32">
-        <div className="card mt-4 bg-white w-full max-w-lg shrink-0 shadow-lg  mb-16 ">
-          <form onSubmit={handleLogin} className="card-body">
-          
-            <h1 className="text-3xl font-bold text-center text-[#9538E2] ">
-              Welcome Back
-            </h1>
-            <p className="text-center text-gray-700 font-medium ">
-              Please enter your details to sign in
-            </p>
+    <div className=" bg-[#efedf0] relative overflow-hidden flex items-center justify-center mt-20 pt-10 pb-10 max-w-screen-2xl mx-auto">
+      <Helmet>
+        <title>AssetVerse | Login</title>
+      </Helmet>
 
-            <div className="form-control mt-4">
-              <label className="label">
-                <span className="label-text text-lg font-semibold text-gray-700  ">
-                  Email
-                </span>
-              </label>
-              <input
-                type="email"
-                name="email"
-                placeholder="Enter your email"
-                defaultValue="hr@gmail.com"
-                ref={emailRef}
-                className="input input-bordered focus:outline-none focus:ring-2 focus:ring-[#9538E2]  text-black"
-                required
-              />
-            </div>
+      {/* Decorative Elements */}
+      <div className="absolute inset-0">
+        <div className="absolute inset-0 bg-[radial-gradient(#9538E2_0.5px,transparent_0.5px)] [background-size:24px_24px] opacity-[0.15]"></div>
+      </div>
 
-            <div className="form-control relative">
-              <label className="label">
-                <span className="label-text text-lg font-semibold text-gray-700 ">
-                  Password
-                </span>
-              </label>
-              <input
-                type={showPassword ? "text" : "password"}
-                name="password"
-                placeholder="Enter your password"
-                defaultValue="Hr123456"
-                className="input input-bordered focus:outline-none focus:ring-2 focus:ring-[#9538E2]  text-black"
-                required
-              />
-              <button
-                type="button"
-                onClick={() => setShowPassword(!showPassword)}
-                className="absolute right-4 bottom-4 text-[#9538E2]"
-              >
-                {showPassword ? <FaEyeSlash /> : <FaEye />}
-              </button>
-
-            </div>
-
-            <div className="form-control mt-6">
-              <button
-                className="btn bg-gradient-to-r from-[#9538E2] to-[#9538e2d6] text-white hover:bg-gradient-to-l  transition-all duration-300 border-none font-semibold  "
-                disabled={loading}
-              >
-                {loading ? "Loading..." : "Login"}
-              </button>
-            </div>
-
-            <p className="text-center mt-4 font-medium text-gray-700">
-              Don't have an account? {" "}
-              <Link to="/register" className="text-[#9538E2] underline ">
-                Register
-              </Link>
-            </p>
-          </form>
-
-          <div className="mb-5 text-center">
-            <button
-              onClick={handleGoogleSignIn}
-              className="btn btn-ghost text-gray-700 border-gray-300 hover:border-[#9538E2]"
-              disabled={loading}
-            >
-              <div className="flex justify-center items-center space-x-2">
-                <img className="w-5 h-5" src={google} alt=" " />
-                <p className="font-bold">{loading ? "Loading..." : "Sign In with Google"}</p>
+      <div className="container px-4 mx-auto relative z-10">
+        <div className="max-w-6xl mx-auto">
+          <div className="flex flex-col lg:flex-row gap-8 items-center">
+            {/* Left Section */}
+            <div className="w-full lg:w-1/2 text-center lg:text-left hidden lg:block">
+              <div className="max-w-xl mx-auto lg:mx-0">
+                <h1 className="text-4xl lg:text-5xl font-bold text-[#9538E2]  mb-6">
+                  Welcome to AssetVerse
+                </h1>
+                <p className="text-lg text-gray-600 mb-8">
+                Your trusted partner in asset management excellence.
+                Optimize performance with precision and confidence.
+                </p>
+                <div className="hidden lg:block">
+                  <div className="flex gap-4 items-center justify-start">
+                    <div className="p-4 bg-white rounded-lg shadow-lg border border-gray-100">
+                      <p className="text-2xl font-bold text-gray-800 mb-1">10K+</p>
+                      <p className="text-sm text-gray-600">Active Users</p>
+                    </div>
+                    <div className="p-4 bg-white rounded-lg shadow-lg border border-gray-100">
+                      <p className="text-2xl font-bold text-gray-800 mb-1">50M+</p>
+                      <p className="text-sm text-gray-600">Assets Managed</p>
+                    </div>
+                  </div>
+                </div>
               </div>
-            </button>
+            </div>
+
+            {/* Right Section - Login Form */}
+            <div className="w-full lg:w-1/2 max-w-lg mx-auto">
+              <div className="bg-white rounded-2xl shadow-xl border border-gray-100">
+                <div className="p-8">
+                  <div className="text-center mb-8">
+                    <h2 className="text-2xl font-bold text-gray-800 mb-2">Sign in to your account</h2>
+                    <p className="text-gray-600">Access your secure asset management platform</p>
+                  </div>
+
+                  <form onSubmit={handleLogin} className="space-y-6">
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                        Email Address
+                      </label>
+                      <input
+                        type="email"
+                        name="email"
+                        placeholder="Enter your email"
+                        defaultValue="hr@gmail.com"
+                        ref={emailRef}
+                        className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition duration-200"
+                        required
+                      />
+                    </div>
+
+                    <div>
+                      <div className="flex justify-between items-center mb-2">
+                        <label className="block text-sm font-medium text-gray-700">
+                          Password
+                        </label>
+                        <button
+                          type="button"
+                          onClick={handleForgetPassword}
+                          className="text-sm text-purple-600 hover:text-purple-700 transition duration-200"
+                        >
+                          Forgot password?
+                        </button>
+                      </div>
+                      <div className="relative">
+                        <input
+                          type={showPassword ? "text" : "password"}
+                          name="password"
+                          placeholder="Enter your password"
+                          defaultValue="Hr123456"
+                          className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition duration-200"
+                          required
+                        />
+                        <button
+                          type="button"
+                          onClick={() => setShowPassword(!showPassword)}
+                          className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-500 hover:text-purple-600 transition duration-200"
+                        >
+                          {showPassword ? <FaEyeSlash size={20} /> : <FaEye size={20} />}
+                        </button>
+                      </div>
+                    </div>
+
+                    <button
+                      type="submit"
+                      className="w-full bg-purple-600 hover:bg-purple-700 text-white font-medium py-3 rounded-lg shadow-lg hover:shadow-xl transition duration-200 flex items-center justify-center"
+                      disabled={loading}
+                    >
+                      {loading ? (
+                        <div className="flex items-center space-x-2">
+                          <div className="w-5 h-5 border-t-2 border-b-2 border-white rounded-full animate-spin"></div>
+                          <span>Signing in...</span>
+                        </div>
+                      ) : (
+                        "Sign in"
+                      )}
+                    </button>
+
+                    <div className="relative flex items-center justify-center">
+                      <div className="border-t border-gray-200 w-full"></div>
+                      <div className="bg-white px-4 text-sm text-gray-500">or</div>
+                      <div className="border-t border-gray-200 w-full"></div>
+                    </div>
+
+                    <button
+                      type="button"
+                      onClick={handleGoogleSignIn}
+                      className="w-full bg-white hover:bg-gray-50 text-gray-700 font-medium py-3 rounded-lg border border-gray-200 shadow-md hover:shadow-lg transition duration-200 flex items-center justify-center space-x-2"
+                      disabled={loading}
+                    >
+                      <img
+                        src={google}
+                        alt="Google"
+                        className="w-5 h-5"
+                      />
+                      <span>Continue with Google</span>
+                    </button>
+                  </form>
+
+                  <p className="text-center mt-8 text-gray-600">
+                    Don't have an account?{" "}
+                    <Link
+                      to="/register"
+                      className="text-purple-600 hover:text-purple-700 font-medium transition duration-200"
+                    >
+                      Create an account
+                    </Link>
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -149,3 +207,5 @@ const Login = () => {
 };
 
 export default Login;
+
+
