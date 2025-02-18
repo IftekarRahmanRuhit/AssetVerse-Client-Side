@@ -1,44 +1,12 @@
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
-// import img1 from "../../../public/bannerImg1.jpeg"
-// import img2 from "../../../public/bannerImg2.jpeg"
-// Simple SVG arrow icons
-const ChevronLeft = () => (
-  <svg 
-    xmlns="http://www.w3.org/2000/svg" 
-    width="24" 
-    height="24" 
-    viewBox="0 0 24 24" 
-    fill="none" 
-    stroke="currentColor" 
-    strokeWidth="2" 
-    strokeLinecap="round" 
-    strokeLinejoin="round"
-  >
-    <path d="M15 18l-6-6 6-6" />
-  </svg>
-);
 
-const ChevronRight = () => (
-  <svg 
-    xmlns="http://www.w3.org/2000/svg" 
-    width="24" 
-    height="24" 
-    viewBox="0 0 24 24" 
-    fill="none" 
-    stroke="currentColor" 
-    strokeWidth="2" 
-    strokeLinecap="round" 
-    strokeLinejoin="round"
-  >
-    <path d="M9 18l6-6-6-6" />
-  </svg>
-);
-
+import React, { useState, useEffect } from 'react';
+import { MdChevronLeft, MdChevronRight } from 'react-icons/md';
+import { useNavigate } from "react-router-dom";
 const Banner = () => {
-  const [currentSlide, setCurrentSlide] = React.useState(0);
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [isAnimating, setIsAnimating] = useState(false);
+  const [direction, setDirection] = useState('right');
   const navigate = useNavigate();
-
   const slides = [
     {
       id: 1,
@@ -46,7 +14,7 @@ const Banner = () => {
       subtitle: "Efficient Asset Management Solutions for HR Professionals",
       buttonText: "Join as HR Manager",
       handleClick: () => navigate('/hrRegister'),
-      imgSrc: "https://i.ibb.co.com/PMwvkQw/Banner-Img1.jpg"
+      imgSrc: "https://i.ibb.co.com/s9p7QM2C/hr-specialist.webp"
     },
     {
       id: 2,
@@ -58,84 +26,136 @@ const Banner = () => {
     }
   ];
 
-  const nextSlide = () => {
-    setCurrentSlide((prev) => (prev === slides.length - 1 ? 0 : prev + 1));
+  useEffect(() => {
+    if (!isAnimating) {
+      const timer = setInterval(() => {
+        handleNextSlide();
+      }, 5000);
+      return () => clearInterval(timer);
+    }
+  }, [isAnimating]);
+
+  const handleNextSlide = () => {
+    if (!isAnimating) {
+      setIsAnimating(true);
+      setDirection('right');
+      setCurrentSlide((prev) => (prev + 1) % slides.length);
+      setTimeout(() => setIsAnimating(false), 1000);
+    }
   };
 
-  const prevSlide = () => {
-    setCurrentSlide((prev) => (prev === 0 ? slides.length - 1 : prev - 1));
+  const handlePrevSlide = () => {
+    if (!isAnimating) {
+      setIsAnimating(true);
+      setDirection('left');
+      setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
+      setTimeout(() => setIsAnimating(false), 1000);
+    }
   };
 
-  React.useEffect(() => {
-    const timer = setInterval(nextSlide, 5000);
-    return () => clearInterval(timer);
-  }, []);
+  const getSlideStyles = (index) => {
+    if (index === currentSlide) {
+      return {
+        transform: 'rotateY(0deg)',
+        transition: 'transform 1s ease',
+        transformStyle: 'preserve-3d',
+        backfaceVisibility: 'hidden',
+        zIndex: 1,
+      };
+    } else if (
+      (direction === 'right' && index === (currentSlide - 1 + slides.length) % slides.length) ||
+      (direction === 'left' && index === (currentSlide + 1) % slides.length)
+    ) {
+      return {
+        transform: `rotateY(${direction === 'right' ? '-90deg' : '90deg'})`,
+        transition: 'transform 1s ease',
+        transformStyle: 'preserve-3d',
+        backfaceVisibility: 'hidden',
+        zIndex: 0,
+      };
+    }
+    return {
+      transform: `rotateY(${direction === 'right' ? '90deg' : '-90deg'})`,
+      transition: 'transform 1s ease',
+      transformStyle: 'preserve-3d',
+      backfaceVisibility: 'hidden',
+      zIndex: 0,
+    };
+  };
 
   return (
-    <div className="relative w-full h-[500px] md:h-[600px] overflow-hidden">
-      {/* Slides */}
-      <div 
-        className="flex transition-transform duration-500 ease-in-out h-full"
-        style={{ transform: `translateX(-${currentSlide * 100}%)` }}
-      >
-        {slides.map((slide) => (
-          <div
-            key={slide.id}
-            className="min-w-full h-full relative "
-          >
-            {/* Placeholder image - replace src with your actual image path */}
-            <img
-              src={slide.imgSrc}
-              alt={slide.title}
-              className="w-full h-full object-cover"
-            />
-            
-            {/* Content Overlay */}
-            <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-              <div className="text-center text-white px-4">
-                <h1 className="text-4xl md:text-5xl font-bold mb-4">
-                  {slide.title}
-                </h1>
-                <p className="text-lg md:text-xl mb-8">
-                  {slide.subtitle}
-                </p>
-                <button 
-                  onClick={slide.handleClick}
-                  className="btn bg-gradient-to-r from-[#9538E2] to-[#9538e2d6] text-white hover:bg-gradient-to-l  transition-all duration-300 border-none btn-lg"
-                >
-                  {slide.buttonText}
-                </button>
+    <div className="relative overflow-hidden perspective w-full">
+      <div className="relative h-[500px] md:h-[600px]">
+        <div className="relative h-full" style={{ perspective: '1000px' }}>
+          {slides.map((slide, index) => (
+            <div
+              key={slide.id}
+              className="absolute top-0 left-0 w-full h-full"
+              style={getSlideStyles(index)}
+            >
+              <img
+                src={slide.imgSrc}
+                alt={slide.title}
+                className="w-full h-full object-fill md:object-fill "
+              />
+              <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                <div className="text-center text-white px-4">
+                  <h1 className="text-4xl md:text-5xl font-bold mb-4">
+                    {slide.title}
+                  </h1>
+                  <p className="text-lg md:text-xl mb-8">
+                    {slide.subtitle}
+                  </p>
+                  <button 
+                    onClick={slide.handleClick}
+                    className="btn bg-gradient-to-r from-[#9538E2] to-[#9538e2d6] text-white hover:bg-gradient-to-l transition-all duration-300 border-none btn-lg"
+                  >
+                    {slide.buttonText}
+                  </button>
+                </div>
               </div>
             </div>
-          </div>
-        ))}
-      </div>
+          ))}
+        </div>
 
-      {/* Navigation Buttons */}
-      <button
-        onClick={prevSlide}
-        className="btn btn-circle btn-ghost absolute left-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white"
-      >
-        <ChevronLeft />
-      </button>
-      <button
-        onClick={nextSlide}
-        className="btn btn-circle btn-ghost absolute right-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white"
-      >
-        <ChevronRight />
-      </button>
+        <button
+          onClick={handlePrevSlide}
+          disabled={isAnimating}
+          className="btn btn-circle btn-ghost hidden md:flex absolute left-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white"
+        >
+          <MdChevronLeft className="w-8 h-8" />
+        </button>
+        <button
+          onClick={handleNextSlide}
+          disabled={isAnimating}
+          className="btn btn-circle btn-ghost hidden md:flex absolute right-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white"
+        >
+          <MdChevronRight className="w-8 h-8" />
+        </button>
 
-      {/* Slide Indicators */}
-      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
-        {slides.map((_, index) => (
-          <button
-            key={index}
-            onClick={() => setCurrentSlide(index)}
-            className={`w-3 h-3 rounded-full transition-colors ${
-              currentSlide === index ? 'bg-white' : 'bg-white/50'
-            }`}
-          />
-        ))}
+        <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-3">
+          {slides.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => {
+                if (!isAnimating) {
+                  setIsAnimating(true);
+                  setDirection(index > currentSlide ? 'right' : 'left');
+                  setCurrentSlide(index);
+                  setTimeout(() => setIsAnimating(false), 1000);
+                }
+              }}
+              className={`w-3 h-3 rounded-full transition-all ${
+                index === currentSlide 
+                  ? 'bg-white' 
+                  : 'bg-white/50 hover:bg-white/75'
+              }`}
+              disabled={isAnimating}
+            >
+              <span className="sr-only">Slide {index + 1}</span>
+            </button>
+          ))}
+        </div>
       </div>
     </div>
   );
