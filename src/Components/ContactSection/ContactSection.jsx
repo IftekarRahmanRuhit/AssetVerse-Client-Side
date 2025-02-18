@@ -43,7 +43,7 @@ const ContactSection = () => {
     <section id="contact" className="py-20 bg-[#efedf0 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          <h2 className="text-3xl md:text-3xl font-bold text-[#9538E2] mb-4">
             Contact Us
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
@@ -109,7 +109,7 @@ const ContactSection = () => {
                   <p className="mt-1 text-sm text-gray-600">
                     1234 Asset Management Way<br />
                     Suite 500<br />
-                    New York, NY 10001
+                    Sylhet, Bangladesh 3100
                   </p>
                 </div>
               </div>
@@ -280,7 +280,7 @@ const ContactSection = () => {
                   <button
                     type="button"
                     onClick={toggleLiveChat}
-                    className="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm"
+                    className="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm"
                   >
                     Cancel
                   </button>
