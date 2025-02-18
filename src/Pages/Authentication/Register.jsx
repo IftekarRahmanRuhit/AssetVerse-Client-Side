@@ -1,14 +1,11 @@
-
 import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import toast from "react-hot-toast";
-import axios from "axios";
 import Swal from "sweetalert2";
-import {Helmet} from "react-helmet-async"
-import google from "../../../public/google.png"
-
+import { Helmet } from "react-helmet-async";
+import google from "../../../public/google.png";
 import useAxiosPublic from "../../Hooks/useAxiosPublic";
 
 const Register = () => {
@@ -21,7 +18,7 @@ const Register = () => {
   } = useContext(AuthContext);
   const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
-  const axiosPublic =useAxiosPublic()
+  const axiosPublic = useAxiosPublic();
 
   const handleGoogleSignIn = () => {
     setLoading(true);
@@ -36,11 +33,10 @@ const Register = () => {
         const userInfo = {
           name: result.user.displayName,
           email: result.user.email,
-          photoURL:result.user.photoURL,
-          companyName: null
+          photoURL: result.user.photoURL,
+          companyName: null,
         };
 
-        
         Promise.all([
           axiosPublic.post("/employee", userInfo),
           axiosPublic.post("/employee-register", userInfo),
@@ -60,12 +56,10 @@ const Register = () => {
             }
           })
           .catch((err) => {
-           
             toast.error("Failed to save user data to the server.");
           });
       })
       .catch((error) => {
-        
         toast.error("Unable to sign in with Google. Please try again.");
       })
       .finally(() => setLoading(false));
@@ -77,7 +71,7 @@ const Register = () => {
     const email = e.target.email.value;
     const password = e.target.password.value;
     const dob = e.target.dob.value;
-    const photoURL = e.target.photoURL.value; 
+    const photoURL = e.target.photoURL.value;
 
     const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{6,}$/;
 
@@ -95,11 +89,16 @@ const Register = () => {
 
     createUser(email, password)
       .then(() => {
-        updateUserProfile({ displayName: name , photoURL:photoURL })
+        updateUserProfile({ displayName: name, photoURL: photoURL })
           .then(() => {
-            const employeeInfo = { name, email, dob, photoURL, companyName: null }; 
+            const employeeInfo = {
+              name,
+              email,
+              dob,
+              photoURL,
+              companyName: null,
+            };
 
-        
             Promise.all([
               axiosPublic.post("/employee", employeeInfo),
               axiosPublic.post("/employee-register", employeeInfo),
@@ -114,12 +113,15 @@ const Register = () => {
                     timer: 1500,
                   });
                 } else {
-                  toast.error("Failed to save user data to one or more servers.");
+                  toast.error(
+                    "Failed to save user data to one or more servers."
+                  );
                 }
               })
               .catch((err) => {
-                
-                toast.error("Failed to register employee on one or more servers.");
+                toast.error(
+                  "Failed to register employee on one or more servers."
+                );
               });
 
             signOutUser();
@@ -135,122 +137,195 @@ const Register = () => {
   };
 
   return (
-    <div className="hero min-h-screen bg-[#efedf0] max-w-screen-2xl mx-auto">
-       <Helmet> <title>AssetVerse | Join As Employee</title> </Helmet>
-      <div className="hero-content flex-col lg:flex-row-reverse w-full mt-32">
-        <div className="card bg-white w-full max-w-lg shrink-0 shadow-xl mb-16 mt-4">
-          <form onSubmit={handleRegister} className="card-body">
-            <h1 className="text-3xl font-bold text-center text-[#9538E2] mt-3">
-              Register Employee
-            </h1>
-            <p className="text-center text-gray-700 font-medium">
-              Fill in the details to register a new employee.
+    <div className="min-h-screen flex flex-col bg-[#efedf0]">
+      <Helmet>
+        <title>AssetVerse | Join As Employee</title>
+      </Helmet>
+      
+      {/* Header with logo/brand */}
+      <div className="bg-white border-b border-gray-200 py-4">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h1 className="text-xl font-semibold text-[#9538E2]">AssetVerse</h1>
+        </div>
+      </div>
+      
+      <div className="flex-grow flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-3xl w-full">
+          {/* Card header with illustration */}
+          <div className="text-center mb-8">
+            <div className="inline-block p-3 rounded-full bg-purple-100 ">
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12 text-[#9538E2]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+              </svg>
+            </div>
+            <h2 className="mt-2 text-3xl font-extrabold text-gray-900">Create an employee account</h2>
+            <p className="mt-2 text-sm text-gray-600">
+              Join the AssetVerse platform to manage company resources efficiently
             </p>
-            <div className="form-control mt-4">
-              <label className="label">
-                <span className="label-text text-lg font-semibold text-gray-700">
-                  Full Name
-                </span>
-              </label>
-              <input
-                type="text"
-                name="name"
-                placeholder="Full Name"
-                className="input input-bordered focus:outline-none focus:ring-2 focus:ring-[#9538E2]  text-black"
-                required
-              />
+          </div>
+          
+          {/* Main card */}
+          <div className="bg-white shadow-lg rounded-lg overflow-hidden border border-[#9538E2]">
+            <div className="px-6 py-8">
+              <form onSubmit={handleRegister} className="space-y-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div>
+                    <label htmlFor="name" className="block text-sm font-medium text-gray-700">
+                      Full Name
+                    </label>
+                    <div className="mt-1">
+                      <input
+                        id="name"
+                        name="name"
+                        type="text"
+                        required
+                        placeholder="Iftekar Rahman"
+                        className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-[#9538E2] focus:border-[#9538E2] sm:text-sm"
+                      />
+                    </div>
+                  </div>
+                  
+                  <div>
+                    <label htmlFor="dob" className="block text-sm font-medium text-gray-700">
+                      Date of Birth
+                    </label>
+                    <div className="mt-1">
+                      <input
+                        id="dob"
+                        name="dob"
+                        type="date"
+                        required
+                        className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-[#9538E2] focus:border-[#9538E2] sm:text-sm"
+                      />
+                    </div>
+                  </div>
+                </div>
+                
+                <div>
+                  <label htmlFor="email" className="block text-sm font-medium text-gray-700">
+                    Email address
+                  </label>
+                  <div className="mt-1">
+                    <input
+                      id="email"
+                      name="email"
+                      type="email"
+                      autoComplete="email"
+                      required
+                      placeholder="iftekar@example.com"
+                      className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-[#9538E2] focus:border-[#9538E2] sm:text-sm"
+                    />
+                  </div>
+                </div>
+                
+                <div>
+                  <label htmlFor="password" className="block text-sm font-medium text-gray-700">
+                    Password
+                  </label>
+                  <div className="mt-1 relative rounded-md shadow-sm">
+                    <input
+                      id="password"
+                      name="password"
+                      type={showPassword ? "text" : "password"}
+                      autoComplete="new-password"
+                      required
+                      placeholder="••••••••"
+                      className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-[#9538E2] focus:border-[#9538E2] sm:text-sm pr-10"
+                    />
+                    <button
+                      type="button"
+                      onClick={() => setShowPassword(!showPassword)}
+                      className="absolute inset-y-0 right-0 pr-3 flex items-center"
+                    >
+                      {showPassword ? <FaEyeSlash className="h-5 w-5 text-gray-400" /> : <FaEye className="h-5 w-5 text-gray-400" />}
+                    </button>
+                  </div>
+                  <p className="mt-1 text-xs text-gray-500">
+                    Must be at least 6 characters with uppercase, lowercase, and number
+                  </p>
+                </div>
+                
+                <div>
+                  <label htmlFor="photoURL" className="block text-sm font-medium text-gray-700">
+                    Photo URL
+                  </label>
+                  <div className="mt-1">
+                    <input
+                      id="photoURL"
+                      name="photoURL"
+                      type="text"
+                      required
+                      placeholder="https://example.com/your-photo.jpg"
+                      className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-[#9538E2] focus:border-[#9538E2] sm:text-sm"
+                    />
+                  </div>
+                </div>
+                
+                <div>
+                  <button
+                    type="submit"
+                    className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-[#9538E2] hover:bg-[#802fd0] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#9538E2] transition duration-150"
+                  >
+                    Register
+                  </button>
+                </div>
+              </form>
+              
+              <div className="mt-6">
+                <div className="relative">
+                  <div className="absolute inset-0 flex items-center">
+                    <div className="w-full border-t border-gray-300"></div>
+                  </div>
+                  <div className="relative flex justify-center text-sm">
+                    <span className="px-2 bg-white text-gray-500">
+                      Or continue with
+                    </span>
+                  </div>
+                </div>
+                
+                <div className="mt-6">
+                  <button
+                    type="button"
+                    onClick={handleGoogleSignIn}
+                    className="w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition duration-150"
+                  >
+                    <img
+                      className="h-5 w-5 mr-2"
+                      src={google}
+                      alt="Google logo"
+                    />
+                    <span>Sign in with Google</span>
+                  </button>
+                </div>
+              </div>
             </div>
-            <div className="form-control mt-4">
-              <label className="label">
-                <span className="label-text text-lg font-semibold text-gray-700">
-                  Date of Birth
-                </span>
-              </label>
-              <input
-                type="date"
-                name="dob"
-                className="input input-bordered focus:outline-none focus:ring-2 focus:ring-[#9538E2]  text-black"
-                required
-              />
+            
+            <div className="px-6 py-4 bg-gray-50 border-t border-gray-200 sm:px-10 text-center">
+              <p className="text-xs text-gray-600">
+                By signing up, you agree to our{" "}
+                <a href="#" className="font-medium text-[#9538E2] hover:text-[#802fd0]">
+                  Terms of Service
+                </a>{" "}
+                and{" "}
+                <a href="#" className="font-medium text-[#9538E2] hover:text-[#802fd0]">
+                  Privacy Policy
+                </a>
+              </p>
             </div>
-            <div className="form-control mt-4">
-              <label className="label">
-                <span className="label-text text-lg font-semibold text-gray-700">
-                  Email
-                </span>
-              </label>
-              <input
-                type="email"
-                name="email"
-                placeholder="Email"
-                className="input input-bordered focus:outline-none focus:ring-2 focus:ring-[#9538E2]  text-black"
-                required
-              />
-            </div>
-            <div className="form-control relative mt-4">
-              <label className="label">
-                <span className="label-text text-lg font-semibold text-gray-700">
-                  Password
-                </span>
-              </label>
-              <input
-                type={showPassword ? "text" : "password"}
-                name="password"
-                placeholder="Password"
-                className="input input-bordered focus:outline-none focus:ring-2 focus:ring-[#9538E2]  text-black"
-                required
-              />
-              <button
-                type="button"
-                onClick={() => setShowPassword(!showPassword)}
-                className="absolute right-5 bottom-4 text-[#9538E2]"
-              >
-                {showPassword ? <FaEyeSlash /> : <FaEye />}
-              </button>
-            </div>
-
-            {/* Photo URL Input */}
-            <div className="form-control mt-4">
-              <label className="label">
-                <span className="label-text text-lg font-semibold text-gray-700">
-                  Photo URL
-                </span>
-              </label>
-              <input
-                type="text"
-                name="photoURL"
-                placeholder="Enter Photo URL"
-                className="input input-bordered focus:outline-none focus:ring-2 focus:ring-[#9538E2]  text-black"
-                required
-              />
-            </div>
-
-            <div className="form-control mt-6">
-              <button className="btn  bg-gradient-to-r from-[#9538E2] to-[#9538e2d6] text-white hover:bg-gradient-to-l  transition-all duration-300 border-none font-semibold">
-                Register
-              </button>
-            </div>
-            <p className="text-center mt-4 font-medium text-grey-700">
+          </div>
+          
+          <div className="text-center mt-8">
+            <p className="text-sm text-gray-600 text-center">
               Already have an account?{" "}
-              <Link to="/login" className="text-[#9538E2] underline">
-                Login
+              <Link to="/login" className="font-medium text-[#9538E2] hover:text-[#802fd0]">
+                Sign in
               </Link>
             </p>
-          </form>
-          <div className="mb-5 text-center">
-            <button
-              onClick={handleGoogleSignIn}
-              className="btn btn-ghost text-gray-300 border-gray-300 hover:border-gray-600"
-            >
-              <div className="flex justify-center items-center space-x-2">
-                <img className="w-5 h-5" src={google} alt=" " />
-                <p className="font-bold text-gray-700">Sign In with Google</p>
-              </div>
-            </button>
-            
           </div>
         </div>
       </div>
+  
+
     </div>
   );
 };
