@@ -1,6 +1,5 @@
-
 import React from 'react';
-import { FaLaptopCode, FaHospital, FaIndustry, FaGraduationCap,FaLandmark } from 'react-icons/fa';
+import { FaLaptopCode, FaHospital, FaIndustry, FaGraduationCap, FaLandmark, FaShoppingCart } from 'react-icons/fa';
 
 const IndustriesSection = () => {
   const industries = [
@@ -31,16 +30,22 @@ const IndustriesSection = () => {
     {
       title: 'Government & Public Sector',
       description: 'Ensure transparent and efficient management of public assets and resources.',
-      icon: FaLandmark ,
+      icon: FaLandmark,
       color: 'text-purple-600'
+    },
+    {
+      title: 'Retail & E-commerce',
+      description: 'Track inventory, manage store assets, and optimize your retail operations seamlessly.',
+      icon: FaShoppingCart,
+      color: 'text-pink-600'
     }
   ];
 
   return (
-    <section className="py-16 px-4 bg-gray-50">
+    <section className="py-16 px-4 bg-gray-100/80">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          <h2 className="text-2xl md:text-3xl font-bold text-[#9538E2] mb-4">
             Industries We Serve
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
@@ -49,7 +54,7 @@ const IndustriesSection = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 cursor-pointer">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {industries.map((industry, index) => (
             <div
               key={index}
