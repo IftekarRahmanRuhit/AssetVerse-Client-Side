@@ -82,6 +82,7 @@ const Login = () => {
                 type="email"
                 name="email"
                 placeholder="Enter your email"
+                defaultValue="hr@gmail.com"
                 ref={emailRef}
                 className="input input-bordered focus:outline-none focus:ring-2 focus:ring-[#9538E2]  text-black"
                 required
@@ -98,6 +99,7 @@ const Login = () => {
                 type={showPassword ? "text" : "password"}
                 name="password"
                 placeholder="Enter your password"
+                defaultValue="Hr123456"
                 className="input input-bordered focus:outline-none focus:ring-2 focus:ring-[#9538E2]  text-black"
                 required
               />
