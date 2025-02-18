@@ -14,6 +14,7 @@ import MostRequestedItems from "../../Components/MostRequestedItems/MostRequeste
 import LimitedItems from "../../Components/LimitedItems/LimitedItems";
 import Chart from "../../Components/Chart/Chart";
 import FeedbackSection from "../../Components/FeedbackSection/FeedbackSection";
+import IndustriesSection from "../../Components/IndustriesSection/IndustriesSection";
 
 const Home = () => {
   const [role, isLoading] = useRole();
@@ -62,6 +63,7 @@ const Home = () => {
           <div>
           <About />
           </div>
+          <div><IndustriesSection></IndustriesSection></div>
           <div><PricingPackages></PricingPackages></div>
           <div><ClientFeedback></ClientFeedback></div>
          </div>
