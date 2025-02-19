@@ -29,7 +29,7 @@ const Footer = () => {
 
           {/* Newsletter Section */}
           <div className="flex flex-col">
-            <h3 className="text-lg font-semibold text-[#9538E2] mb-2">Stay Connected</h3>
+            <h3 className="text-lg font-bold text-[#9538E2] mb-2">Stay Connected</h3>
             <p className="text-sm mb-4">Subscribe to our newsletter</p>
             <form className="flex flex-col space-y-2">
               <input
@@ -48,7 +48,7 @@ const Footer = () => {
 
           {/* Contact Section */}
           <div className="flex flex-col">
-            <h3 className="text-lg font-semibold text-[#9538E2] mb-2">Contact Us</h3>
+            <h3 className="text-lg font-bold text-[#9538E2] mb-2">Contact Us</h3>
             <p className="text-sm mb-2">Have suggestions or feedback? We'd love to hear from you.</p>
             <p className="text-lg font-bold text-[#9538E2]">+1 234 567 890</p>
             <div className="flex space-x-4 mt-4">
