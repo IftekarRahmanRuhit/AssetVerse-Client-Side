@@ -35,14 +35,14 @@ const BlogSection = () => {
   ];
 
   return (
-    <section className="py-20 bg-gray-100/80">
+    <section className="py-20 bg-[#212428]">
       <div className="max-w-7xl mx-auto px-4">
         <div className="flex justify-center items-center mb-12">
           <div>
             <h2 className="text-3xl md:text-4xl font-bold text-[#9538E2] mb-4 text-center">
               Latest Blog Posts
             </h2>
-            <p className="text-lg text-gray-600 max-w-2xl text-center">
+            <p className="text-lg text-gray-400 max-w-2xl text-center">
               Stay updated with the latest insights, trends, and best practices in asset management
             </p>
           </div>
@@ -53,7 +53,7 @@ const BlogSection = () => {
           {blogPosts.map((post, index) => (
             <article 
               key={index}
-              className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-md transition-shadow duration-300 cursor-pointer"
+              className="bg-[#0D0E10] rounded-xl overflow-hidden shadow-lg hover:shadow-md transition-shadow duration-300 cursor-pointer"
             >
               <div className="relative">
                 <img
@@ -73,18 +73,18 @@ const BlogSection = () => {
                     {post.category}
                   </span>
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">
+                <h3 className="text-xl font-bold text-gray-400 mb-3">
                   {post.title}
                 </h3>
-                <p className="text-gray-600 mb-4">
+                <p className="text-gray-400 mb-4">
                   {post.excerpt}
                 </p>
                 <div className="flex items-center justify-between pt-4 border-t border-gray-100">
-                  <div className="flex items-center text-sm text-gray-500">
+                  <div className="flex items-center text-sm text-gray-400">
                     <FiUser className="mr-2" />
                     {post.author}
                   </div>
-                  <div className="flex items-center text-sm text-gray-500">
+                  <div className="flex items-center text-sm text-gray-400">
                     <FiClock className="mr-2" />
                     {post.readTime}
                   </div>
