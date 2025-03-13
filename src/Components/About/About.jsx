@@ -29,7 +29,7 @@ const About = () => {
   ];
 
   return (
-    <div className="bg-white py-16">
+    <div className="bg-[#1B1D21] py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Main About Section */}
         <div className="text-center mb-16">
@@ -37,7 +37,7 @@ const About = () => {
             Welcome to AssetVerse
           </h2>
           <div className="max-w-3xl mx-auto">
-            <p className="text-lg  text-gray-800">
+            <p className="text-lg  text-gray-400">
               AssetVerse is a leading asset management platform that combines innovative technology with financial expertise to deliver exceptional investment solutions. We empower organizations and individuals to manage, track, and optimize their assets with precision and confidence.
             </p>
           </div>
@@ -48,15 +48,15 @@ const About = () => {
           {features.map((feature, index) => (
             <div 
               key={index} 
-              className="flex flex-col items-center text-center p-6 bg-gray-100 rounded-lg hover:shadow-lg transition-shadow duration-300 cursor-pointer"
+              className="flex flex-col items-center text-center p-6 bg-[#212428] rounded-lg hover:shadow-lg transition-shadow duration-300 cursor-pointer"
             >
               <div className="mb-4">
                 {feature.icon}
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">
+              <h3 className="text-xl font-semibold text-gray-300 mb-2">
                 {feature.title}
               </h3>
-              <p className="text-gray-600">
+              <p className="text-gray-400">
                 {feature.description}
               </p>
             </div>
@@ -64,11 +64,11 @@ const About = () => {
         </div>
 
         {/* Mission Statement */}
-        <div className="mt-16 text-center bg-purple-50 p-8 rounded-lg">
+        <div className="mt-16 text-center bg-[#212428] p-8 rounded-lg">
           <h3 className="text-2xl font-bold text-[#9538E2]  mb-4">
             Our Mission
           </h3>
-          <p className="text-lg text-gray-800 max-w-3xl mx-auto">
+          <p className="text-lg text-gray-400 max-w-3xl mx-auto">
             To revolutionize asset management through cutting-edge technology and exceptional service, enabling our clients to achieve their financial goals with confidence and peace of mind.
           </p>
         </div>
