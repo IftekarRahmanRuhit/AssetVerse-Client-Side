@@ -55,14 +55,14 @@ const ClientFeedback = () => {
   }, []);
 
   return (
-    <div className="bg-[#efedf0] py-10 sm:py-16">
+    <div className="bg-[#1B1D21] py-10 sm:py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-8 sm:mb-12">
           <h2 className="text-2xl sm:text-3xl font-bold text-[#9538E2] mb-3 sm:mb-4">
             What Our Clients Say
           </h2>
-          <p className="text-base sm:text-lg text-gray-800">
+          <p className="text-base sm:text-lg text-gray-400">
             Don't just take our word for it - hear from some of our satisfied clients
           </p>
         </div>
@@ -72,20 +72,20 @@ const ClientFeedback = () => {
           {/* Navigation Buttons - Hidden on mobile */}
           <button 
             onClick={handlePrevious}
-            className="hidden sm:block absolute left-0 top-1/2 -translate-y-1/2 -translate-x-8 sm:-translate-x-12 bg-white p-2 sm:p-3 rounded-full shadow-lg hover:bg-gray-50 transition-all z-10"
+            className="hidden sm:block absolute left-0 top-1/2 -translate-y-1/2 -translate-x-8 sm:-translate-x-12 bg-gray-300 p-2 sm:p-3 rounded-full shadow-lg hover:bg-gray-50 transition-all z-10"
           >
             <BsArrowLeft className="w-4 h-4 sm:w-6 sm:h-6 text-gray-600" />
           </button>
 
           <button 
             onClick={handleNext}
-            className="hidden sm:block absolute right-0 top-1/2 -translate-y-1/2 translate-x-8 sm:translate-x-12 bg-white p-2 sm:p-3 rounded-full shadow-lg hover:bg-gray-50 transition-all z-10"
+            className="hidden sm:block absolute right-0 top-1/2 -translate-y-1/2 translate-x-8 sm:translate-x-12 bg-gray-300 p-2 sm:p-3 rounded-full shadow-lg hover:bg-gray-50 transition-all z-10"
           >
             <BsArrowRight className="w-4 h-4 sm:w-6 sm:h-6 text-gray-600" />
           </button>
 
           {/* Testimonial Card */}
-          <div className="bg-white rounded-2xl shadow-xl p-6 sm:p-8 md:p-12 relative">
+          <div className="bg-[#212428] rounded-2xl shadow-xl p-6 sm:p-8 md:p-12 relative">
             {/* Mobile Navigation - Swipe Area */}
             <div 
               className="absolute inset-y-0 left-0 right-0 sm:hidden z-10"
@@ -107,16 +107,16 @@ const ClientFeedback = () => {
               </div>
 
               {/* Feedback Text */}
-              <p className="text-gray-800 font-medium text-base sm:text-lg mb-4 sm:mb-6 italic">
+              <p className="text-gray-300 font-medium text-base sm:text-lg mb-4 sm:mb-6 italic">
                 "{testimonials[currentIndex].feedback}"
               </p>
 
               {/* Client Info */}
               <div>
-                <h4 className="text-lg sm:text-xl font-semibold text-gray-900">
+                <h4 className="text-lg sm:text-xl font-semibold text-gray-400">
                   {testimonials[currentIndex].name}
                 </h4>
-                <p className="text-sm sm:text-base text-gray-600">
+                <p className="text-sm sm:text-base text-gray-300">
                   {testimonials[currentIndex].position}
                 </p>
                 <p className="text-sm sm:text-base text-[#9538E2] font-medium">
