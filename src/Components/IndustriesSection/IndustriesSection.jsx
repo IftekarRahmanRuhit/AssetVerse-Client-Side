@@ -42,13 +42,13 @@ const IndustriesSection = () => {
   ];
 
   return (
-    <section className="py-16 px-4 bg-gray-100/80">
+    <section className="py-16 px-4 bg-[#212428]">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-2xl md:text-3xl font-bold text-[#9538E2] mb-4">
             Industries We Serve
           </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          <p className="text-lg text-gray-400 max-w-2xl mx-auto">
             Our asset management solutions are tailored to meet the unique needs of various industries,
             providing specialized features for different sectors.
           </p>
@@ -58,15 +58,15 @@ const IndustriesSection = () => {
           {industries.map((industry, index) => (
             <div
               key={index}
-              className="bg-white p-6 rounded-lg shadow-lg transition-transform duration-300 hover:transform hover:-translate-y-2"
+              className="bg-[#1B1D21] p-6 rounded-lg shadow-lg transition-transform duration-300 hover:transform hover:-translate-y-2 cursor-pointer"
             >
               <div className={`w-14 h-14 rounded-full bg-opacity-10 flex items-center justify-center mb-4 ${industry.color.replace('text', 'bg')}`}>
                 <industry.icon className={`w-7 h-7 ${industry.color}`} />
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">
+              <h3 className="text-xl font-semibold text-gray-300 mb-3">
                 {industry.title}
               </h3>
-              <p className="text-gray-600">
+              <p className="text-gray-400">
                 {industry.description}
               </p>
             </div>

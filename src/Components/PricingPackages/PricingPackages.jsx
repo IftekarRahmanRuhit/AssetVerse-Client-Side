@@ -23,7 +23,7 @@ const AnimatedPricingCard = ({ pkg, onButtonClick }) => {
       onMouseMove={handleMouseMove}
       onMouseEnter={() => setIsHovering(true)}
       onMouseLeave={() => setIsHovering(false)}
-      className="relative overflow-hidden rounded-lg p-6 cursor-pointer bg-white "
+      className="relative overflow-hidden rounded-lg p-6 cursor-pointer bg-[#212428] "
     >
       {pkg.popular && (
         <div className="absolute top-4 right-4 z-10">
@@ -37,11 +37,11 @@ const AnimatedPricingCard = ({ pkg, onButtonClick }) => {
         <h3 className="text-2xl font-bold text-[#9538E2] mb-2">
           {pkg.name}
         </h3>
-        <div className="text-4xl font-bold text-gray-900 mb-4">
+        <div className="text-4xl font-bold text-gray-300 mb-4">
           {pkg.price}
-          <span className="text-base font-medium text-gray-800">/month</span>
+          <span className="text-base font-medium text-gray-400">/month</span>
         </div>
-        <p className="text-gray-800 font-medium mb-6">
+        <p className="text-gray-400 font-medium mb-6">
           {pkg.description}
         </p>
 
@@ -49,7 +49,7 @@ const AnimatedPricingCard = ({ pkg, onButtonClick }) => {
           {pkg.features.map((feature, idx) => (
             <div key={idx} className="flex items-center">
               <Check className="h-5 w-5 text-[#9538E2] mr-2" />
-              <span className="text-gray-800 font-medium">{feature}</span>
+              <span className="text-gray-400 font-medium">{feature}</span>
             </div>
           ))}
         </div>
@@ -120,13 +120,13 @@ const PricingPackages = () => {
   ];
 
   return (
-    <div className="bg-[#efedf0] py-16">
+    <div className="bg-[#1B1D21] py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 className="text-3xl font-bold text-[#9538E2]">
             Choose Your Plan
           </h2>
-          <p className="mt-4 text-lg  text-gray-800">
+          <p className="mt-4 text-lg  text-gray-400">
             Select the perfect package for your business needs
           </p>
         </div>
