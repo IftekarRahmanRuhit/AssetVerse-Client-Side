@@ -137,7 +137,7 @@ const Register = () => {
   };
 
   return (
-    <div className=" flex flex-col bg-[#efedf0] max-w-screen-2xl mx-auto">
+    <div className=" flex flex-col bg-[#212428] max-w-screen-2xl mx-auto">
       <Helmet>
         <title>AssetVerse | Join As Employee</title>
       </Helmet>
@@ -158,19 +158,19 @@ const Register = () => {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
               </svg>
             </div>
-            <h2 className="mt-2 text-3xl font-extrabold text-gray-900">Create an employee account</h2>
-            <p className="mt-2 text-sm text-gray-600">
+            <h2 className="mt-2 text-3xl font-extrabold text-gray-300">Create an employee account</h2>
+            <p className="mt-2 text-sm text-gray-400">
               Join the AssetVerse platform to manage company resources efficiently
             </p>
           </div>
           
           {/* Main card */}
-          <div className="bg-white shadow-lg rounded-lg overflow-hidden border border-[#9538E2]">
+          <div className="bg-[#1B1D21] shadow-lg rounded-lg overflow-hidden border border-[#9538e277]">
             <div className="px-6 py-8">
               <form onSubmit={handleRegister} className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-gray-700">
+                    <label htmlFor="name" className="block text-sm font-medium text-gray-400">
                       Full Name
                     </label>
                     <div className="mt-1">
@@ -179,14 +179,14 @@ const Register = () => {
                         name="name"
                         type="text"
                         required
-                        placeholder="Iftekar Rahman"
-                        className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-[#9538E2] focus:border-[#9538E2] sm:text-sm"
+                        placeholder="Enter your full name"
+                        className="appearance-none block w-full px-3 py-2 border border-gray-600 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-[#9538E2] focus:border-[#9538E2] sm:text-sm bg-[#1B1D21] text-gray-300"
                       />
                     </div>
                   </div>
                   
                   <div>
-                    <label htmlFor="dob" className="block text-sm font-medium text-gray-700">
+                    <label htmlFor="dob" className="block text-sm font-medium text-gray-400">
                       Date of Birth
                     </label>
                     <div className="mt-1">
@@ -195,14 +195,14 @@ const Register = () => {
                         name="dob"
                         type="date"
                         required
-                        className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-[#9538E2] focus:border-[#9538E2] sm:text-sm"
+                        className="appearance-none block w-full px-3 py-2 border border-gray-600 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-[#9538E2] focus:border-[#9538E2] sm:text-sm bg-[#1B1D21] text-gray-300"
                       />
                     </div>
                   </div>
                 </div>
                 
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-700">
+                  <label htmlFor="email" className="block text-sm font-medium text-gray-400">
                     Email address
                   </label>
                   <div className="mt-1">
@@ -212,14 +212,14 @@ const Register = () => {
                       type="email"
                       autoComplete="email"
                       required
-                      placeholder="iftekar@example.com"
-                      className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-[#9538E2] focus:border-[#9538E2] sm:text-sm"
+                      placeholder="Enter your email address"
+                      className="appearance-none block w-full px-3 py-2 border border-gray-600 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-[#9538E2] focus:border-[#9538E2] sm:text-sm bg-[#1B1D21] text-gray-300"
                     />
                   </div>
                 </div>
                 
                 <div>
-                  <label htmlFor="password" className="block text-sm font-medium text-gray-700">
+                  <label htmlFor="password" className="block text-sm font-medium text-gray-400">
                     Password
                   </label>
                   <div className="mt-1 relative rounded-md shadow-sm">
@@ -230,7 +230,7 @@ const Register = () => {
                       autoComplete="new-password"
                       required
                       placeholder="••••••••"
-                      className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-[#9538E2] focus:border-[#9538E2] sm:text-sm pr-10"
+                      className="appearance-none block w-full px-3 py-2 border border-gray-600 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-[#9538E2] focus:border-[#9538E2] sm:text-sm pr-10 bg-[#1B1D21] text-gray-300"
                     />
                     <button
                       type="button"
@@ -240,13 +240,13 @@ const Register = () => {
                       {showPassword ? <FaEyeSlash className="h-5 w-5 text-gray-400" /> : <FaEye className="h-5 w-5 text-gray-400" />}
                     </button>
                   </div>
-                  <p className="mt-1 text-xs text-gray-500">
+                  <p className="mt-1 text-xs text-gray-400">
                     Must be at least 6 characters with uppercase, lowercase, and number
                   </p>
                 </div>
                 
                 <div>
-                  <label htmlFor="photoURL" className="block text-sm font-medium text-gray-700">
+                  <label htmlFor="photoURL" className="block text-sm font-medium text-gray-400">
                     Photo URL
                   </label>
                   <div className="mt-1">
@@ -256,7 +256,7 @@ const Register = () => {
                       type="text"
                       required
                       placeholder="https://example.com/your-photo.jpg"
-                      className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-[#9538E2] focus:border-[#9538E2] sm:text-sm"
+                      className="appearance-none block w-full px-3 py-2 border border-gray-600 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-[#9538E2] focus:border-[#9538E2] sm:text-sm bg-[#1B1D21] text-gray-300"
                     />
                   </div>
                 </div>
@@ -277,7 +277,7 @@ const Register = () => {
                     <div className="w-full border-t border-gray-300"></div>
                   </div>
                   <div className="relative flex justify-center text-sm">
-                    <span className="px-2 bg-white text-gray-500">
+                    <span className="px-2 bg-[#1B1D21] text-gray-300 ">
                       Or continue with
                     </span>
                   </div>
@@ -287,7 +287,7 @@ const Register = () => {
                   <button
                     type="button"
                     onClick={handleGoogleSignIn}
-                    className="w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition duration-150"
+                    className="w-full inline-flex justify-center py-2 px-4 border border-gray-600 rounded-md shadow-sm bg-[#212428] text-sm font-medium text-gray-400 hover:bg-[#1D2124] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition duration-150"
                   >
                     <img
                       className="h-5 w-5 mr-2"
@@ -300,8 +300,8 @@ const Register = () => {
               </div>
             </div>
             
-            <div className="px-6 py-4 bg-gray-50 border-t border-gray-200 sm:px-10 text-center">
-              <p className="text-xs text-gray-600">
+            <div className="px-6 py-4 bg-[#1B1D21] border-t border-gray-600 sm:px-10 text-center">
+              <p className="text-xs text-gray-400">
                 By signing up, you agree to our{" "}
                 <a href="#" className="font-medium text-[#9538E2] hover:text-[#802fd0]">
                   Terms of Service
@@ -315,7 +315,7 @@ const Register = () => {
           </div>
           
           <div className="text-center mt-8">
-            <p className="text-sm text-gray-600 text-center">
+            <p className="text-sm text-gray-400 text-center">
               Already have an account?{" "}
               <Link to="/login" className="font-medium text-[#9538E2] hover:text-[#802fd0]">
                 Sign in
