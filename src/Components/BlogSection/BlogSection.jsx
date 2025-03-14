@@ -53,7 +53,7 @@ const BlogSection = () => {
           {blogPosts.map((post, index) => (
             <article 
               key={index}
-              className="bg-[#0D0E10] rounded-xl overflow-hidden shadow-lg hover:shadow-md transition-shadow duration-300 cursor-pointer"
+              className="bg-[#1B1D21] rounded-xl overflow-hidden shadow-lg hover:shadow-md transition-shadow duration-300 cursor-pointer"
             >
               <div className="relative">
                 <img
