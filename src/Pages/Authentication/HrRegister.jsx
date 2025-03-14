@@ -288,7 +288,7 @@ const HrRegister = () => {
           </div>
 
           <div className="text-center mt-8">
-            <p className="text-sm text-gray-600">
+            <p className="text-sm text-gray-400">
               Already have an account?{" "}
               <a href="/login" className="font-medium text-[#9538E2] hover:text-[#802fd0]">
                 Sign in

@@ -56,7 +56,7 @@ const Login = () => {
   };
 
   return (
-    <div className=" bg-[#efedf0] relative overflow-hidden flex items-center justify-center mt-20 pt-10 pb-10 max-w-screen-2xl mx-auto">
+    <div className=" bg-[#212428]  relative overflow-hidden flex items-center justify-center mt-20 pt-10 pb-10 max-w-screen-2xl mx-auto">
       <Helmet>
         <title>AssetVerse | Login</title>
       </Helmet>
@@ -75,19 +75,19 @@ const Login = () => {
                 <h1 className="text-4xl lg:text-5xl font-bold text-[#9538E2]  mb-6">
                   Welcome to AssetVerse
                 </h1>
-                <p className="text-lg text-gray-600 mb-8">
+                <p className="text-lg text-gray-400 mb-8">
                 Your trusted partner in asset management excellence.
                 Optimize performance with precision and confidence.
                 </p>
                 <div className="hidden lg:block">
                   <div className="flex gap-4 items-center justify-start">
-                    <div className="p-4 bg-white rounded-lg shadow-lg border border-gray-100">
-                      <p className="text-2xl font-bold text-gray-800 mb-1">10K+</p>
-                      <p className="text-sm text-gray-600">Active Users</p>
+                    <div className="p-4 bg-[#212428] rounded-lg shadow-xl border border-[#9538e277] ">
+                      <p className="text-2xl font-bold text-[#9538E2] mb-1">10K+</p>
+                      <p className="text-sm text-gray-400">Active Users</p>
                     </div>
-                    <div className="p-4 bg-white rounded-lg shadow-lg border border-gray-100">
-                      <p className="text-2xl font-bold text-gray-800 mb-1">50M+</p>
-                      <p className="text-sm text-gray-600">Assets Managed</p>
+                    <div className="p-4 bg-[#212428] rounded-lg shadow-xl border border-[#9538e277] ">
+                      <p className="text-2xl font-bold text-[#9538E2] mb-1">50M+</p>
+                      <p className="text-sm text-gray-400">Assets Managed</p>
                     </div>
                   </div>
                 </div>
@@ -96,16 +96,16 @@ const Login = () => {
 
             {/* Right Section - Login Form */}
             <div className="w-full lg:w-1/2 max-w-lg mx-auto">
-              <div className="bg-white rounded-2xl shadow-xl border border-gray-100">
+              <div className="bg-[#1B1D21] rounded-2xl shadow-xl border border-[#9538e277]">
                 <div className="p-8">
                   <div className="text-center mb-8">
-                    <h2 className="text-2xl font-bold text-gray-800 mb-2">Sign in to your account</h2>
-                    <p className="text-gray-600">Access your secure asset management platform</p>
+                    <h2 className="text-2xl font-bold text-gray-300 mb-2">Sign in to your account</h2>
+                    <p className="text-gray-400">Access your secure asset management platform</p>
                   </div>
 
                   <form onSubmit={handleLogin} className="space-y-6">
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                      <label className="block text-sm font-medium text-gray-400 mb-2">
                         Email Address
                       </label>
                       <input
@@ -114,14 +114,14 @@ const Login = () => {
                         placeholder="Enter your email"
                         defaultValue="hr@gmail.com"
                         ref={emailRef}
-                        className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition duration-200"
+                        className="w-full px-4 py-3 rounded-lg  border border-gray-600  placeholder-gray-500 focus:outline-none focus:ring-1 focus:ring-purple-500 focus:border-transparent transition duration-200 bg-[#1B1D21] text-gray-400"
                         required
                       />
                     </div>
 
                     <div>
                       <div className="flex justify-between items-center mb-2">
-                        <label className="block text-sm font-medium text-gray-700">
+                        <label className="block text-sm font-medium text-gray-400">
                           Password
                         </label>
                         <button
@@ -138,7 +138,7 @@ const Login = () => {
                           name="password"
                           placeholder="Enter your password"
                           defaultValue="Hr123456"
-                          className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition duration-200"
+                          className="w-full px-4 py-3 rounded-lg bg-[#1B1D21] text-gray-400 border border-gray-600 placeholder-gray-500 focus:outline-none focus:ring-1 focus:ring-purple-500 focus:border-transparent transition duration-200"
                           required
                         />
                         <button
@@ -168,14 +168,14 @@ const Login = () => {
 
                     <div className="relative flex items-center justify-center">
                       <div className="border-t border-gray-200 w-full"></div>
-                      <div className="bg-white px-4 text-sm text-gray-500">or</div>
+                      <div className="bg-[#1B1D21] px-4 text-sm text-gray-400">or</div>
                       <div className="border-t border-gray-200 w-full"></div>
                     </div>
 
                     <button
                       type="button"
                       onClick={handleGoogleSignIn}
-                      className="w-full bg-white hover:bg-gray-50 text-gray-700 font-medium py-3 rounded-lg border border-gray-200 shadow-md hover:shadow-lg transition duration-200 flex items-center justify-center space-x-2"
+                      className="w-full bg-[#212428]  hover:bg-[#1D2124] text-gray-400 font-medium py-3 rounded-lg border border-gray-600 shadow-md hover:shadow-lg transition duration-200 flex items-center justify-center space-x-2"
                       disabled={loading}
                     >
                       <img
@@ -187,7 +187,7 @@ const Login = () => {
                     </button>
                   </form>
 
-                  <p className="text-center mt-8 text-gray-600">
+                  <p className="text-center mt-8 text-gray-400">
                     Don't have an account?{" "}
                     <Link
                       to="/register"
