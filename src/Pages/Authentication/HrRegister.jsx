@@ -83,7 +83,7 @@ const HrRegister = () => {
   };
 
   return (
-    <div className="flex flex-col bg-[#efedf0] max-w-screen-2xl mx-auto">
+    <div className="flex flex-col bg-[#212428] max-w-screen-2xl mx-auto">
       <Helmet>
         <title>AssetVerse | Join As HR</title>
       </Helmet>
@@ -104,19 +104,19 @@ const HrRegister = () => {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
               </svg>
             </div>
-            <h2 className="mt-2 text-3xl font-extrabold text-gray-900">Register as HR Manager</h2>
-            <p className="mt-2 text-sm text-gray-600">
+            <h2 className="mt-2 text-3xl font-extrabold text-gray-300">Register as HR Manager</h2>
+            <p className="mt-2 text-sm text-gray-400">
               Create an HR account to manage assets and team members
             </p>
           </div>
 
           {/* Main card */}
-          <div className="bg-white shadow-lg rounded-lg overflow-hidden border border-[#9538E2]">
+          <div className="bg-[#1B1D21]  shadow-lg rounded-lg overflow-hidden border border-[#9538e277]">
             <div className="px-6 py-8">
               <form onSubmit={handleRegister} className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-gray-700">
+                    <label htmlFor="name" className="block text-sm font-medium text-gray-400">
                       Full Name
                     </label>
                     <div className="mt-1">
@@ -125,14 +125,14 @@ const HrRegister = () => {
                         name="name"
                         type="text"
                         required
-                        placeholder="John Doe"
-                        className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-[#9538E2] focus:border-[#9538E2] sm:text-sm"
+                        placeholder="Enter your full name"
+                        className="appearance-none block w-full px-3 py-2 border border-gray-600 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-[#9538E2] focus:border-[#9538E2] sm:text-sm bg-[#1B1D21] text-gray-300"
                       />
                     </div>
                   </div>
 
                   <div>
-                    <label htmlFor="companyName" className="block text-sm font-medium text-gray-700">
+                    <label htmlFor="companyName" className="block text-sm font-medium text-gray-400">
                       Company Name
                     </label>
                     <div className="mt-1">
@@ -142,7 +142,7 @@ const HrRegister = () => {
                         type="text"
                         required
                         placeholder="Acme Corp"
-                        className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-[#9538E2] focus:border-[#9538E2] sm:text-sm"
+                        className="appearance-none block w-full px-3 py-2 border border-gray-600 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-[#9538E2] focus:border-[#9538E2] sm:text-sm bg-[#1B1D21] text-gray-300"
                       />
                     </div>
                   </div>
@@ -150,7 +150,7 @@ const HrRegister = () => {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
-                    <label htmlFor="dob" className="block text-sm font-medium text-gray-700">
+                    <label htmlFor="dob" className="block text-sm font-medium text-gray-400">
                       Date of Birth
                     </label>
                     <div className="mt-1">
@@ -159,13 +159,13 @@ const HrRegister = () => {
                         name="dob"
                         type="date"
                         required
-                        className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-[#9538E2] focus:border-[#9538E2] sm:text-sm"
+                        className="appearance-none block w-full px-3 py-2 border border-gray-600 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-[#9538E2] focus:border-[#9538E2] sm:text-sm bg-[#1B1D21] text-gray-300"
                       />
                     </div>
                   </div>
 
                   <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-gray-700">
+                    <label htmlFor="email" className="block text-sm font-medium text-gray-400">
                       Email Address
                     </label>
                     <div className="mt-1">
@@ -176,14 +176,14 @@ const HrRegister = () => {
                         autoComplete="email"
                         required
                         placeholder="hr@yourcompany.com"
-                        className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-[#9538E2] focus:border-[#9538E2] sm:text-sm"
+                        className="appearance-none block w-full px-3 py-2 border border-gray-600 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-[#9538E2] focus:border-[#9538E2] sm:text-sm bg-[#1B1D21] text-gray-300"
                       />
                     </div>
                   </div>
                 </div>
 
                 <div>
-                  <label htmlFor="companyLogo" className="block text-sm font-medium text-gray-700">
+                  <label htmlFor="companyLogo" className="block text-sm font-medium text-gray-400">
                     Company Logo URL
                   </label>
                   <div className="mt-1">
@@ -193,13 +193,13 @@ const HrRegister = () => {
                       type="text"
                       required
                       placeholder="https://example.com/logo.png"
-                      className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-[#9538E2] focus:border-[#9538E2] sm:text-sm"
+                      className="appearance-none block w-full px-3 py-2 border border-gray-600 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-[#9538E2] focus:border-[#9538E2] sm:text-sm bg-[#1B1D21] text-gray-300"
                     />
                   </div>
                 </div>
 
                 <div>
-                  <label htmlFor="photoURL" className="block text-sm font-medium text-gray-700">
+                  <label htmlFor="photoURL" className="block text-sm font-medium text-gray-400">
                     Your Photo URL
                   </label>
                   <div className="mt-1">
@@ -209,13 +209,13 @@ const HrRegister = () => {
                       type="text"
                       required
                       placeholder="https://example.com/photo.jpg"
-                      className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-[#9538E2] focus:border-[#9538E2] sm:text-sm"
+                      className="appearance-none block w-full px-3 py-2 border border-gray-600 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-[#9538E2] focus:border-[#9538E2] sm:text-sm bg-[#1B1D21] text-gray-300"
                     />
                   </div>
                 </div>
 
                 <div>
-                  <label htmlFor="password" className="block text-sm font-medium text-gray-700">
+                  <label htmlFor="password" className="block text-sm font-medium text-gray-400">
                     Password
                   </label>
                   <div className="mt-1 relative rounded-md shadow-sm">
@@ -226,7 +226,7 @@ const HrRegister = () => {
                       autoComplete="new-password"
                       required
                       placeholder="••••••••"
-                      className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-[#9538E2] focus:border-[#9538E2] sm:text-sm pr-10"
+                      className="appearance-none block w-full px-3 py-2 border border-gray-600 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-[#9538E2] focus:border-[#9538E2] sm:text-sm pr-10 bg-[#1B1D21] text-gray-300"
                     />
                     <button
                       type="button"
@@ -242,7 +242,7 @@ const HrRegister = () => {
                 </div>
 
                 <div>
-                  <label htmlFor="package" className="block text-sm font-medium text-gray-700">
+                  <label htmlFor="package" className="block text-sm font-medium text-gray-400">
                     Select a Package
                   </label>
                   <div className="mt-1">
@@ -252,7 +252,7 @@ const HrRegister = () => {
                       value={selectedPackage}
                       onChange={(e) => setSelectedPackage(e.target.value)}
                       required
-                      className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-[#9538E2] focus:border-[#9538E2] sm:text-sm"
+                      className="appearance-none block w-full px-3 py-2 border border-gray-400 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-[#9538E2] focus:border-[#9538E2] sm:text-sm bg-[#1B1D21] text-gray-300"
                     >
                       <option value="" disabled>Select a package</option>
                       <option value="5 Members for $5">5 Members for $5</option>
@@ -273,8 +273,8 @@ const HrRegister = () => {
               </form>
             </div>
 
-            <div className="px-6 py-4 bg-gray-50 border-t border-gray-200 sm:px-10 text-center">
-              <p className="text-xs text-gray-600">
+            <div className="px-6 py-4 bg-[#1B1D21] border-t border-gray-600 sm:px-10 text-center">
+              <p className="text-xs text-gray-400">
                 By signing up, you agree to our{" "}
                 <a href="#" className="font-medium text-[#9538E2] hover:text-[#802fd0]">
                   Terms of Service
