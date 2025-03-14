@@ -7,7 +7,7 @@ const Footer = () => {
   const { companyInfo } = useCompanyInfo();
 
   return (
-    <footer className="bg-gradient-to-r from-[#d8c6f2] via-[#e6dbf7] to-[#d8c6f2] text-gray-800 py-8 max-w-screen-2xl mx-auto">
+    <footer className="bg-[#1D2124] text-gray-300 py-8 max-w-screen-2xl mx-auto">
       <div className="max-w-7xl mx-auto px-4 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
           {/* Brand Section */}
@@ -35,7 +35,7 @@ const Footer = () => {
               <input
                 type="email"
                 placeholder="Your E-mail"
-                className="w-full px-4 py-2 rounded bg-white text-gray-800 focus:outline-none focus:ring-2 focus:ring-[#9538E2]"
+                className="w-full px-4 py-2 rounded bg-[#1B1D21] text-gray-300 focus:outline-none focus:ring-1 focus:ring-[#9538E2] border border-gray-600"
               />
               <button
                 type="submit"
@@ -52,13 +52,13 @@ const Footer = () => {
             <p className="text-sm mb-2">Have suggestions or feedback? We'd love to hear from you.</p>
             <p className="text-lg font-bold text-[#9538E2]">+1 234 567 890</p>
             <div className="flex space-x-4 mt-4">
-              <a href="http://www.instagram.com/" className="text-gray-800 hover:text-[#9538E2]" aria-label="Follow us on Instagram">
+              <a href="http://www.instagram.com/" className="text-gray-300 hover:text-pink-500" aria-label="Follow us on Instagram">
                 <FaInstagram className="text-2xl" />
               </a>
-              <a href="https://www.facebook.com/" className="text-gray-800 hover:text-[#9538E2]" aria-label="Follow us on Facebook">
+              <a href="https://www.facebook.com/" className="text-gray-300 hover:text-blue-500" aria-label="Follow us on Facebook">
                 <FaFacebookF className="text-2xl" />
               </a>
-              <a href="https://www.twitter.com/" className="text-gray-800 hover:text-[#9538E2]" aria-label="Follow us on Twitter">
+              <a href="https://www.twitter.com/" className="text-gray-300 hover:text-blue-500" aria-label="Follow us on Twitter">
                 <FaTwitter className="text-2xl" />
               </a>
             </div>
@@ -66,7 +66,7 @@ const Footer = () => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-[#9538E2] pt-4 text-center text-sm text-gray-800">
+        <div className="border-t border-[#9538E2] pt-4 text-center text-sm text-gray-400">
           <p>
             © {new Date().getFullYear()} {companyInfo?.companyName || "ASSETVERSE"}. All Rights Reserved.
           </p>
