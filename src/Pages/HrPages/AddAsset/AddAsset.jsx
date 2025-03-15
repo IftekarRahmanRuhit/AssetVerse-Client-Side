@@ -131,44 +131,44 @@ const AddAsset = () => {
   };
 
   return (
-    <div className="bg-[#efedf0] pb-20 max-w-screen-2xl mx-auto">
+    <div className="bg-[#212428] pb-20 max-w-screen-2xl mx-auto">
        <Helmet> <title>AssetVerse | AddAsset</title> </Helmet>
       <div>
         <div className="p-10">
           <p className="mt-28 text-4xl font-bold text-center mb-4 text-[#9538E2] animate__animated animate__backInDown">
             Add New Asset
           </p>
-          <p className="font-medium text-gray-700 text-center animate__animated animate__backInDown">
+          <p className="font-medium text-gray-400 text-center animate__animated animate__backInDown">
             Manage your inventory by adding new assets here!
           </p>
         </div>
       </div>
-      <div className="bg-white p-8 max-w-4xl mx-auto rounded-lg shadow-xl animate__animated animate__fadeInUp border-2 border-[#9538E2]">
+      <div className="bg-[#1B1D21] p-8 max-w-4xl mx-auto rounded-lg shadow-xl animate__animated animate__fadeInUp border border-[#9538e277]">
         <h2 className="text-3xl font-bold text-center text-[#9538E2] mb-5">
           Add Asset
         </h2>
         <form onSubmit={handleAddAsset} className="space-y-6">
           <div>
-            <label className="block text-lg font-medium text-gray-700 mb-2">
+            <label className="block text-sm font-medium text-gray-400 mb-2">
               Product Name
             </label>
             <input
               type="text"
               name="productName"
               placeholder="Enter product name"
-              className="w-full px-3 py-2 input input-bordered rounded-md focus:outline-none focus:ring-2 focus:ring-[#9538E2]  text-black"
+              className="w-full px-3 py-2 input input-bordered rounded-md focus:outline-none focus:ring-1 focus:ring-[#9538E2]  bg-[#1B1D21] text-gray-400 border border-gray-600"
               required
             />
           </div>
           <div>
-            <label className="block text-lg font-medium text-gray-700 mb-2">
+            <label className="block text-sm font-medium text-gray-400 mb-2">
               Product Type
             </label>
             <select
               name="productType"
               value={assetType}
               onChange={(e) => setAssetType(e.target.value)} 
-              className="w-full px-3 py-2 input input-bordered focus:outline-none focus:ring-2 focus:ring-[#9538E2]  text-black rounded-md"
+              className="w-full px-3 py-2 input input-bordered focus:outline-none focus:ring-1 focus:ring-[#9538E2]  bg-[#1B1D21] text-gray-400 border border-gray-600 rounded-md"
               required
             >
               <option value="Returnable">Returnable</option>
@@ -176,19 +176,19 @@ const AddAsset = () => {
             </select>
           </div>
           <div>
-            <label className="block text-lg font-medium text-gray-700 mb-2">
+            <label className="block text-sm font-medium text-gray-400 mb-2">
               Product Quantity
             </label>
             <input
               type="number"
               name="productQuantity"
               placeholder="Enter product quantity"
-              className="w-full px-3 py-2 input input-bordered focus:outline-none focus:ring-2 focus:ring-[#9538E2]  text-black"
+              className="w-full px-3 py-2 input input-bordered focus:outline-none focus:ring-1 focus:ring-[#9538E2]  bg-[#1B1D21] text-gray-400 border border-gray-600"
               required
             />
           </div>
           <div>
-            <label className="block text-lg font-medium text-gray-700 mb-2">
+            <label className="block text-sm font-medium text-gray-400 mb-2">
               Product Image
             </label>
             <div
@@ -196,7 +196,7 @@ const AddAsset = () => {
               className="border-dashed border-2 px-4 py-8 text-center rounded-md"
             >
               <input {...getInputProps()} />
-              <p className="text-gray-700">
+              <p className="text-gray-400">
                 Drag and drop files here, or click to select a file
               </p>
             </div>

@@ -172,7 +172,7 @@ const AssetList = () => {
   });
 
   return (
-    <div className="bg-[#efedf0]  pb-28 max-w-screen-2xl mx-auto ">
+    <div className="bg-[#212428]  pb-28 max-w-screen-2xl mx-auto ">
        <Helmet> <title>AssetVerse | AssetList</title> </Helmet>
       <section className="container mx-auto pt-12 px-4">
         <h2 className="text-3xl font-bold text-[#9538E2] mb-6 mt-28">Asset List</h2>
@@ -183,12 +183,12 @@ const AssetList = () => {
             placeholder="Search by name"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            className="p-2 rounded bg-gray-300 text-black font-semibold"
+            className="p-2 rounded bg-gray-400 text-black font-semibold placeholder-gray-800 "
           />
           <select
             value={stockFilter}
             onChange={(e) => setStockFilter(e.target.value)}
-            className="p-2 rounded bg-gray-300 text-black font-semibold"
+            className="p-2 rounded bg-gray-400 text-black font-semibold"
           >
             <option value="">All Stock Status</option>
             <option value="available">Available</option>
@@ -197,7 +197,7 @@ const AssetList = () => {
           <select
             value={typeFilter}
             onChange={(e) => setTypeFilter(e.target.value)}
-            className="p-2 rounded bg-gray-300 text-black font-semibold"
+            className="p-2 rounded bg-gray-400 text-black font-semibold"
           >
             <option value="">All Types</option>
             <option value="Returnable">Returnable</option>
@@ -206,7 +206,7 @@ const AssetList = () => {
           <select
             value={sortOption}
             onChange={(e) => setSortOption(e.target.value)}
-            className="p-2 rounded bg-gray-300 text-black font-semibold"
+            className="p-2 rounded bg-gray-400 text-black font-semibold"
           >
             <option value="">Sort By</option>
             <option value="quantityAsc">Quantity (Lowest First)</option>
@@ -223,8 +223,8 @@ const AssetList = () => {
         ) : (
           <>
             <div className="overflow-x-auto">
-              <table className="table-auto w-full bg-white border border-gray-300 rounded-lg">
-                <thead className="bg-gray-300 text-gray-800">
+              <table className="table-auto w-full bg-[#1B1D21] border border-gray-500 rounded-lg">
+                <thead className="bg-gray-400 text-gray-800">
                   <tr>
                     <th className="px-4 py-4  text-center">Product Image</th>
                     <th className="px-4 py-4  text-center">Product Name</th>
@@ -236,7 +236,7 @@ const AssetList = () => {
                 </thead>
                 <tbody>
                   {currentAssets.map((asset) => (
-                    <tr key={asset._id} className="border-t border-gray-300 hover:bg-gray-50 ">
+                    <tr key={asset._id} className="border-t border-gray-500 hover:bg-[#212428] ">
                       <td className="px-4 py-2 text-center">
                         <img
                           src={asset.image}
@@ -244,10 +244,10 @@ const AssetList = () => {
                           className="w-16 h-16 object-cover mx-auto rounded"
                         />
                       </td>
-                      <td className="px-4 py-2 text-gray-800 font-semibold text-center">{asset.productName}</td>
-                      <td className="px-4 py-2 text-gray-800 font-semibold text-center">{asset.productType}</td>
-                      <td className="px-4 py-2 text-gray-800 font-semibold text-center">{asset.productQuantity}</td>
-                      <td className="px-4 py-2 text-gray-800 font-semibold text-center">
+                      <td className="px-4 py-2 text-gray-400 font-semibold text-center">{asset.productName}</td>
+                      <td className="px-4 py-2 text-gray-400 font-semibold text-center">{asset.productType}</td>
+                      <td className="px-4 py-2 text-gray-400 font-semibold text-center">{asset.productQuantity}</td>
+                      <td className="px-4 py-2 text-gray-400 font-semibold text-center">
                         {new Date(asset.dateAdded).toLocaleDateString()}
                       </td>
                       <td className="px-4 py-2 text-center">
@@ -296,43 +296,43 @@ const AssetList = () => {
         {/* Modal for editing product */}
         {selectedProduct && (
           <div className="modal modal-open">
-            <div className="modal-box max-w-lg bg-white">
+            <div className="modal-box max-w-lg bg-[#1B1D21]">
               <h2 className="text-2xl text-center text-[#9538E2] font-bold mb-4">
                 Update Asset Details
               </h2>
               <form onSubmit={handleUpdate} className="space-y-6">
                 <div>
-                  <label className="block text-lg font-medium text-gray-700 mb-2">Product Name</label>
+                  <label className="block text-lg font-medium text-gray-400 mb-2">Product Name</label>
                   <input
                     type="text"
                     name="productName"
                     defaultValue={selectedProduct.productName}
-                    className="w-full p-2 rounded-md input input-bordered focus:outline-none focus:ring-2 focus:ring-[#9538E2]  text-black"
+                    className="w-full p-2 rounded-md input input-bordered focus:outline-none focus:ring-2 focus:ring-[#9538E2]  bg-[#1B1D21] text-gray-400 border border-gray-600 "
                   />
                 </div>
                 <div>
-                  <label className="block text-lg font-medium text-gray-700 mb-2">Product Type</label>
+                  <label className="block text-lg font-medium text-gray-400 mb-2">Product Type</label>
                   <input
                     type="text"
                     name="productType"
                     defaultValue={selectedProduct.productType}
-                    className="w-full p-2 input input-bordered focus:outline-none focus:ring-2 focus:ring-[#9538E2]  text-black"
+                    className="w-full p-2 input input-bordered focus:outline-none focus:ring-2 focus:ring-[#9538E2]  bg-[#1B1D21] text-gray-400 border border-gray-600 "
                   />
                 </div>
                 <div>
-                  <label className="block text-lg font-medium text-gray-700 mb-2">Product Quantity</label>
+                  <label className="block text-lg font-medium text-gray-400 mb-2">Product Quantity</label>
                   <input
                     type="number"
                     name="productQuantity"
                     defaultValue={selectedProduct.productQuantity}
-                    className="w-full p-2 input input-bordered focus:outline-none focus:ring-2 focus:ring-[#9538E2]  text-black"
+                    className="w-full p-2 input input-bordered focus:outline-none focus:ring-2 focus:ring-[#9538E2]  bg-[#1B1D21] text-gray-400 border border-gray-600 "
                   />
                 </div>
                 <div>
-                  <label className="block text-lg font-medium text-gray-700 mb-2">Image</label>
+                  <label className="block text-lg font-medium text-gray-400 mb-2">Image</label>
                   <div {...getRootProps()} className="border-dashed border-2 px-4 py-8 text-center rounded-md">
                     <input {...getInputProps()} />
-                    <p className="text-gray-700 cursor-pointer">
+                    <p className="text-gray-400 cursor-pointer">
                       Drag and drop files here, or click to select a file
                     </p>
                   </div>

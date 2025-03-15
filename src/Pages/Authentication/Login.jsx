@@ -114,7 +114,7 @@ const Login = () => {
                         placeholder="Enter your email"
                         defaultValue="hr@gmail.com"
                         ref={emailRef}
-                        className="w-full px-4 py-3 rounded-lg  border border-gray-600  placeholder-gray-500 focus:outline-none focus:ring-1 focus:ring-purple-500 focus:border-transparent transition duration-200 bg-[#1B1D21] text-gray-400"
+                        className="w-full px-4 py-3 rounded-lg   placeholder-gray-500 focus:outline-none focus:ring-1 focus:ring-purple-500 focus:border-transparent transition duration-200 bg-[#1B1D21] text-gray-400 border border-gray-600  "
                         required
                       />
                     </div>
