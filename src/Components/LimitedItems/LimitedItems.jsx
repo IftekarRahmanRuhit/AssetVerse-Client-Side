@@ -28,7 +28,7 @@ const LimitedItems = () => {
   }
 
   return (
-    <div className="bg-[#efedf0]  p-10 pb-16">
+    <div className="bg-[#212428]  p-10 pb-16">
       <h2 className="text-2xl md:text-3xl text-[#9538E2]  text-center font-bold  mt-5 mb-16">
         Limited Stock Items
       </h2>
@@ -46,7 +46,7 @@ const LimitedItems = () => {
             <h3 className="text-3xl text-[#9538E2] font-semibold  mb-3">
               No Low Stock Items
             </h3>
-            <p className="text-gray-800 font-medium">
+            <p className="text-gray-400 font-medium">
               Great job! All assets are currently well-stocked. Continue
               monitoring inventory levels to maintain optimal resources.
             </p>
