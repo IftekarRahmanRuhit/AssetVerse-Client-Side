@@ -23,7 +23,7 @@ const AnimatedPricingCard = ({ pkg, onButtonClick }) => {
       onMouseMove={handleMouseMove}
       onMouseEnter={() => setIsHovering(true)}
       onMouseLeave={() => setIsHovering(false)}
-      className="relative overflow-hidden rounded-lg p-6 cursor-pointer bg-[#212428] "
+      className="relative overflow-hidden rounded-lg p-6 cursor-pointer bg-[#212428]  border border-[#9538e277] "
     >
       {pkg.popular && (
         <div className="absolute top-4 right-4 z-10">
@@ -120,7 +120,7 @@ const PricingPackages = () => {
   ];
 
   return (
-    <div className="bg-[#1B1D21] py-16">
+    <div className="bg-[#1B1D21] py-16 ">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 className="text-3xl font-bold text-[#9538E2]">

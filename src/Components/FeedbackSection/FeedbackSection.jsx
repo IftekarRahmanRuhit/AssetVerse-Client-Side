@@ -28,7 +28,7 @@ const FeedbackSection = () => {
     ];
 
     return (
-        <div className="  px-4 py-8 bg-white pb-16">
+        <div className="  px-4 py-8 bg-[#1B1D21] pb-16">
             <h2 className="text-2xl md:text-3xl text-[#9538E2] font-bold  mb-8 text-center mt-5 ">
                 Employee Asset Insights
             </h2>
@@ -37,7 +37,7 @@ const FeedbackSection = () => {
                 {feedbackEntries.map((entry) => (
                     <div 
                         key={entry.id} 
-                        className="bg-gray-100 p-4 rounded-lg hover:shadow-md transition-all duration-300 border-l-4 border-[#9538E2]"
+                        className="bg-[#212428] p-4 rounded-lg hover:shadow-md transition-all duration-300 border-l-4 border-[#9538E2]"
                     >
                         <div className="flex items-center mb-3">
                             <img 
@@ -46,8 +46,8 @@ const FeedbackSection = () => {
                                 className="w-12 h-12 rounded-full mr-4 object-cover"
                             />
                             <div>
-                                <h3 className="font-semibold text-gray-800">{entry.name}</h3>
-                                <p className="text-sm text-gray-600">{entry.role}</p>
+                                <h3 className="font-semibold text-gray-300">{entry.name}</h3>
+                                <p className="text-sm text-gray-400">{entry.role}</p>
                             </div>
                             <span className={`ml-auto text-xs px-2 py-1 rounded-full 
                                 ${entry.impact === 'Critical' ? 'bg-red-200 text-red-800' : 
@@ -56,13 +56,13 @@ const FeedbackSection = () => {
                                 {entry.impact}
                             </span>
                         </div>
-                        <p className="text-gray-700">{entry.message}</p>
+                        <p className="text-gray-400">{entry.message}</p>
                     </div>
                 ))}
             </div>
 
             <div className="mt-6 text-center">
-                <p className="text-gray-500 italic">
+                <p className="text-gray-400 italic">
                     Your insights drive continuous workplace improvement.
                 </p>
             </div>

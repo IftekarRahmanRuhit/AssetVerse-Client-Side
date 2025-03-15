@@ -211,7 +211,7 @@ const Navbar = () => {
   if (loading) {
     return (
       <div className="w-full h-screen flex items-center justify-center">
-        <div className="bg-base-100 w-full">
+        <div className="bg-[#1B1D21] w-full">
           <div className="text-center text-[#9538E2]">
             <span className="loading loading-bars loading-lg "></span>
           </div>

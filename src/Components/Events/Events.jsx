@@ -34,28 +34,28 @@ const staticEvents = [
 ];
 
 const EventCard = ({ event }) => (
-  <div className="bg-white border border-gray-200 rounded-lg p-4 hover:shadow-md transition-shadow duration-300 space-y-3">
+  <div className="bg-[#1B1D21]  border border-[#9538e277] rounded-lg p-4 hover:shadow-md transition-shadow duration-300 space-y-3">
     <div className="flex items-center justify-between">
-      <h3 className="text-lg font-semibold text-gray-800">{event.title}</h3>
+      <h3 className="text-lg font-semibold text-gray-300">{event.title}</h3>
     </div>
     
     <div className="space-y-2">
-      <div className="flex items-center text-gray-600 space-x-2">
+      <div className="flex items-center text-gray-400 space-x-2">
         <Calendar className="w-5 h-5 text-blue-500" />
         <span className="text-sm">{event.date}</span>
       </div>
       
-      <div className="flex items-center text-gray-600 space-x-2">
+      <div className="flex items-center text-gray-400 space-x-2">
         <Clock className="w-5 h-5 text-green-500" />
         <span className="text-sm">{event.time}</span>
       </div>
       
-      <div className="flex items-center text-gray-600 space-x-2">
+      <div className="flex items-center text-gray-400 space-x-2">
         <MapPin className="w-5 h-5 text-red-500" />
         <span className="text-sm">{event.location}</span>
       </div>
       
-      <div className="flex items-center text-gray-600 space-x-2">
+      <div className="flex items-center text-gray-400 space-x-2">
         <Users className="w-5 h-5 text-purple-500" />
         <span className="text-sm">{event.participants}</span>
       </div>
@@ -65,7 +65,7 @@ const EventCard = ({ event }) => (
 
 const Events = () => {
   return (
-    <div className="bg-[#efedf0]  p-6 pb-16">
+    <div className="bg-[#212428]  p-6 pb-16">
       <div className="flex justify-between items-center mt-10 mb-8">
         <h2 className="text-2xl md:text-3xl font-bold text-[#9538E2] text-center mx-auto">Upcoming Events</h2>
       </div>
