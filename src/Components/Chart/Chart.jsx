@@ -52,11 +52,11 @@ const Chart = () => {
                         className="max-w-full h-auto object-contain"
                     />
                 </div>
-                <div className="md:w-1/2 text-center md:text-left">
+                <div className="md:w-1/2 text-center md:text-left ">
                     <h3 className="text-3xl text-[#9538E2] font-semibold  mb-3">
                         No Items Available
                     </h3>
-                    <p className="text-gray-800 font-medium">
+                    <p className="text-gray-300 font-medium">
                         There are currently no items in the system. Add some items to see the breakdown.
                     </p>
                 </div>
@@ -65,7 +65,7 @@ const Chart = () => {
     }
 
     return (
-        <div className="bg-white shadow-lg rounded-lg p-6 pb-16">
+        <div className="bg-[#1B1D21] shadow-lg rounded-lg p-6 pb-16 border-b border-2 border-[#212428]">
             <h2 className="text-2xl md:text-3xl text-[#9538E2] font-bold text-center mt-10 mb-6">
                 Returnable vs Non-Returnable Items
             </h2>
