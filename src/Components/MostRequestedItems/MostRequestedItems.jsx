@@ -24,7 +24,7 @@ const MostRequestedItems = () => {
   }
 
   return (
-    <div className=" rounded-lg p-6 mb-20">
+    <div className=" rounded-lg p-6 mb-20 bg-[#1B1D21]">
       <h2 className="text-2xl md:text-3xl text-center font-bold text-[#9538E2] mb-6  md:mb-16 animate__animated animate__fadeInUp">Most Requested Items</h2>
       
       {mostRequestedItems.length === 0 ? (
@@ -38,7 +38,7 @@ const MostRequestedItems = () => {
           </div>
           <div className="md:w-1/2 text-center md:text-left">
             <h3 className="text-3xl text-[#9538E2] font-semibold  mb-3">No Top Requested Items</h3>
-            <p className="text-gray-800 font-medium">
+            <p className="text-gray-400 font-medium">
               Currently, there are no standout requested assets. 
               As the HR manager, you can track asset requests to understand team needs.
             </p>

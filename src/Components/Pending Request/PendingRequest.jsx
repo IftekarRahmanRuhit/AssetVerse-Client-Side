@@ -28,7 +28,7 @@ const PendingRequest = () => {
   }
 
   return (
-    <div className=" mx-auto px-4 py-10 bg-[#efedf0] pb-16">
+    <div className=" mx-auto px-4 py-10 bg-[#212428] pb-16">
       <h2 className="text-2xl md:text-3xl text-[#9538E2] font-bold text-center mb-6 animate__animated animate__backInDown">Recent Pending Requests</h2>
 
       {pendingRequests.length === 0 ? (
@@ -42,7 +42,7 @@ const PendingRequest = () => {
           </div>
           <div className="w-1/2">
             <h3 className="text-3xl text-[#9538E2] font-semibold mb-4">No Pending Requests</h3>
-            <p className="text-gray-800 font-medium">
+            <p className="text-gray-400 font-medium">
               Currently, there are no pending asset requests. As new requests come in, 
               they will appear here for your review.
             </p>
@@ -50,9 +50,9 @@ const PendingRequest = () => {
         </div>
       ) : (
         <div className="overflow-x-auto animate__animated animate__fadeInUp ">
-          <table className="min-w-full bg-white border border-gray-200 rounded-lg">
+          <table className="min-w-full bg-[#1B1D21] border border-gray-500 rounded-lg">
             <thead>
-              <tr className="bg-gray-300 text-gray-800 font-bold uppercase text-sm leading-normal">
+              <tr className="bg-gray-400 text-gray-800 font-bold uppercase text-sm leading-normal">
                 <th className="py-3 px-4 text-center ">Asset Name</th>
                 <th className="py-3 px-4 text-center">Requester</th>
                 <th className="py-3 px-4 text-center">Date</th>
@@ -60,12 +60,12 @@ const PendingRequest = () => {
                 <th className="py-3 px-4 text-center">Actions</th>
               </tr>
             </thead>
-            <tbody className="text-gray-600 text-sm font-light cursor-pointer">
+            <tbody className="text-gray-400 text-sm font-light cursor-pointer">
               {pendingRequests.map((request) => (
-                <tr key={request._id} className="border-b border-gray-200 hover:bg-gray-50">
-                  <td className="py-3 px-4 text-center text-gray-800 font-semibold whitespace-nowrap">{request.assetName}</td>
-                  <td className="py-3 px-4 text-center text-gray-800 font-semibold whitespace-nowrap">{request.requesterName}</td>
-                  <td className="py-3 px-4 text-center text-gray-800 font-semibold whitespace-nowrap">
+                <tr key={request._id} className="border-b border-gray-500 hover:bg-[#212428]">
+                  <td className="py-3 px-4 text-center text-gray-400 font-semibold whitespace-nowrap">{request.assetName}</td>
+                  <td className="py-3 px-4 text-center text-gray-400 font-semibold whitespace-nowrap">{request.requesterName}</td>
+                  <td className="py-3 px-4 text-center text-gray-400 font-semibold whitespace-nowrap">
                     {format(new Date(request.requestDate), 'PP')}
                   </td>
                   <td className="py-3 px-4 text-center">
@@ -78,7 +78,7 @@ const PendingRequest = () => {
                       to="/allrequest" 
                      
                     >
-                      <button className='btn btn-sm bg-[#9538E2] hover:bg-[#a65ce3] text-white'>View</button>
+                      <button className='btn btn-sm bg-[#9538E2] hover:bg-[#a65ce3] text-white border-none'>View</button>
                     </Link>
                   </td>
                 </tr>

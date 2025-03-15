@@ -6,7 +6,7 @@ import { Toaster } from "react-hot-toast";
 
 const MainLayout = () => {
     return (
-        <div>
+        <div className="bg-[#1B1D21]">
             <Toaster />
             <div><Navbar></Navbar></div>
             <div className="min-h-[calc(100vh-321px)]"><Outlet></Outlet></div>
