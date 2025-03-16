@@ -95,14 +95,14 @@ const AddEmployee = () => {
 
   return (
 
-    <div className='bg-[#efedf0] '>
+    <div className='bg-[#212428]  '>
 
     <div className="container mx-auto px-4 py-8 ">
        <Helmet> <title>AssetVerse | Add Employee</title> </Helmet>
       <div className="flex justify-between items-center mb-6 mt-28">
         <h2 className="text-2xl font-bold text-[#9538E2]">Add Employees</h2>
         <div className="text-right flex items-center gap-4">
-          <p className="text-sm font-medium text-gray-800">
+          <p className="text-sm font-medium text-gray-400">
             Member Limit: {companyInfo.currentMembers}/{companyInfo.memberLimit}
           </p>
           <a
@@ -129,8 +129,8 @@ const AddEmployee = () => {
         </div>
       ) : (
         <div className="overflow-x-auto animate__animated animate__fadeInUp">
-          <table className="min-w-full bg-white border border-gray-200">
-            <thead className="bg-gray-300">
+          <table className="min-w-full bg-[#1B1D21] border border-gray-500">
+            <thead className="bg-gray-400">
               <tr>
                 <th className="px-6 py-3 text-center text-sm font-bold text-gray-800 uppercase tracking-wider">
                   Select
@@ -149,7 +149,7 @@ const AddEmployee = () => {
                 </th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-gray-200">
+            <tbody className="divide-y divide-gray-500">
               {availableEmployees.map((employee) => (
                 <tr key={employee._id}>
                   <td className="px-6 py-4 text-center">
@@ -167,12 +167,12 @@ const AddEmployee = () => {
                       className="h-16 w-16 rounded-full mx-auto"
                     />
                   </td>
-                  <td className="px-6 py-4 text-center font-medium text-gray-800">{employee.name}</td>
-                  <td className="px-6 py-4 text-center font-medium text-gray-800">{employee.email}</td>
+                  <td className="px-6 py-4 text-center font-medium text-gray-400">{employee.name}</td>
+                  <td className="px-6 py-4 text-center font-medium text-gray-400">{employee.email}</td>
                   <td className="px-6 py-4 text-center">
                     <button
                       onClick={() => handleSingleAdd(employee)}
-                      className="btn btn-sm bg-[#9538E2] text-white"
+                      className="btn btn-sm bg-[#9538E2] text-white border-none"
                     >
                       Add to Team
                     </button>
