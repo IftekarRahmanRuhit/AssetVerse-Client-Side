@@ -95,7 +95,7 @@ const MyAssets = () => {
 
   return (
    
-    <div className='bg-[#efedf0] px-4 py-10'>
+    <div className='bg-[#212428]  px-4 py-10'>
 
     <div>
 
@@ -111,13 +111,13 @@ const MyAssets = () => {
             placeholder="Search by asset name..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            className="w-full md:w-64 p-2  rounded border border-gray-300 text-black font-semibold focus:outline-none focus:border-[#9538E2]"
+            className="w-full md:w-64 p-2  rounded border border-gray-400 text-black font-semibold focus:outline-none focus:border-[#9538E2] bg-gray-400 placeholder:text-black"
           />
           
           <select
             value={statusFilter}
             onChange={(e) => setStatusFilter(e.target.value)}
-            className="w-full md:w-40 p-2  rounded border border-gray-300 text-black font-semibold focus:outline-none focus:border-[#9538E2]"
+            className="w-full md:w-40 p-2  rounded border border-gray-400 text-black font-semibold focus:outline-none focus:border-[#9538E2] bg-gray-400"
           >
             <option value="all">All Status</option>
             <option value="pending">Pending</option>
@@ -127,7 +127,7 @@ const MyAssets = () => {
           <select
             value={typeFilter}
             onChange={(e) => setTypeFilter(e.target.value)}
-            className="w-full md:w-40 p-2  rounded border border-gray-300 text-black font-semibold focus:outline-none focus:border-[#9538E2]"
+            className="w-full md:w-40 p-2  rounded border border-gray-400 text-black font-semibold focus:outline-none focus:border-[#9538E2] bg-gray-400"
           >
             <option value="all">All Types</option>
             <option value="Returnable">Returnable</option>
@@ -138,8 +138,8 @@ const MyAssets = () => {
 
       {/* Table */}
       <div className='overflow-x-auto animate__animated animate__fadeInUp'>
-        <table className='min-w-full divide-y divide-gray-200 border border-gray-300'>
-          <thead className='bg-gray-300 '>
+        <table className='min-w-full divide-y divide-gray-500 border border-gray-500'>
+          <thead className='bg-gray-400 '>
             <tr>
               <th className='px-4 py-3.5 text-sm font-semibold text-center text-gray-800'>Asset Name</th>
               <th className='px-4 py-3.5 text-sm font-semibold text-center text-gray-800'>Type</th>
@@ -149,30 +149,30 @@ const MyAssets = () => {
               <th className='px-4 py-3.5 text-sm font-semibold text-center text-gray-800'>Actions</th>
             </tr>
           </thead>
-          <tbody className='bg-white divide-y divide-gray-200'>
+          <tbody className='bg-[#1B1D21] border border-gray-500 divide-y divide-gray-500'>
             {currentRequests.map((request) => (
               <tr key={request._id}>
-                <td className='px-4 py-4 text-sm text-center font-medium text-gray-800'>{request.assetName}</td>
-                <td className='px-4 py-4 text-sm text-center font-medium text-gray-800'>
+                <td className='px-4 py-4 text-sm text-center font-medium text-gray-400'>{request.assetName}</td>
+                <td className='px-4 py-4 text-sm text-center font-medium text-gray-400'>
                   <span className={`px-3 py-1 rounded-full text-xs
                     ${request.assetType === 'Returnable' 
-                      ? 'bg-blue-100/60 text-blue-500' 
-                      : 'bg-green-100/60 text-green-500'}`}>
+                      ? 'bg-blue-100 text-blue-500' 
+                      : 'bg-green-100 text-green-500'}`}>
                     {request.assetType}
                   </span>
                 </td>
-                <td className='px-4 py-4 text-sm text-center font-medium text-gray-800'>
+                <td className='px-4 py-4 text-sm text-center font-medium text-gray-400'>
                   {format(new Date(request.requestDate), 'PP')}
                 </td>
-                <td className='px-4 py-4 text-sm text-center font-medium text-gray-800'>
+                <td className='px-4 py-4 text-sm text-center font-medium text-gray-400'>
                   {request.approvalDate ? format(new Date(request.approvalDate), 'PP') : '-'}
                 </td>
                 <td className='px-4 py-4 text-sm text-center'>
                   <span className={`px-3 py-1 rounded-full text-xs
-                    ${request.status === 'pending' ? 'bg-yellow-100/60 text-yellow-500' :
-                      request.status === 'approved' ? 'bg-green-100/60 text-green-500' :
-                      request.status === 'returned' ? 'bg-blue-100/60 text-blue-500' :
-                      'bg-red-100/60 text-red-500'}`}>
+                    ${request.status === 'pending' ? 'bg-yellow-100 text-yellow-500' :
+                      request.status === 'approved' ? 'bg-green-100 text-green-500' :
+                      request.status === 'returned' ? 'bg-blue-100 text-blue-500' :
+                      'bg-red-100 text-red-500'}`}>
                     {request.status}
                   </span>
                 </td>
