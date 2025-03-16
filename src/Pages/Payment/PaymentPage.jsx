@@ -45,14 +45,14 @@ const PaymentPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 py-12">
+    <div className="min-h-screen bg-[#212428]  py-12">
        <Helmet> <title>AssetVerse | Payment page</title> </Helmet>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center">
           <h2 className="text-3xl font-extrabold text-[#9538E2] sm:text-4xl mt-20">
             Choose Your Package & Complete Payment
           </h2>
-          <p className="mt-4 text-xl text-gray-800">
+          <p className="mt-4 text-xl text-gray-400">
             Select a package and process payment in one simple step
           </p>
         </div>
@@ -72,11 +72,11 @@ const PaymentPage = () => {
             </div>
           </div>
 
-          <div className="bg-white p-8 rounded-lg shadow-lg">
+          <div className="bg-[#1B1D21] p-8 rounded-lg shadow-lg">
             <h3 className="text-2xl font-bold text-[#9538E2] mb-6">Payment Details</h3>
             {!selectedPackage ? (
               <div className="text-center py-12">
-                <p className="text-gray-800 font-medium">Please select a package to proceed with payment</p>
+                <p className="text-gray-400 font-medium">Please select a package to proceed with payment</p>
               </div>
             ) : (
               <Elements stripe={stripePromise} options={options}>

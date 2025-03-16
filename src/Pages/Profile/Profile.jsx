@@ -12,7 +12,7 @@ const Profile = () => {
     };
 
     return (
-        <div className="bg-[#efedf0] py-10  max-w-screen-2xl mx-auto">
+        <div className="bg-[#212428] py-10  max-w-screen-2xl mx-auto">
             <Helmet> 
                 <title>AssetVerse | Profile</title> 
             </Helmet>
@@ -23,7 +23,7 @@ const Profile = () => {
                     <div className="w-24 h-1 bg-purple-600 rounded-full"></div>
                 </div>
 
-                <div className="bg-white rounded-2xl shadow-xl overflow-hidden animate__animated animate__fadeInUp border border-purple-300">
+                <div className="bg-[#1B1D21] rounded-2xl shadow-xl overflow-hidden animate__animated animate__fadeInUp border border-[#9538e277]">
                     <div className="grid md:grid-cols-3 gap-8 p-8">
                         {/* Profile Image Section */}
                         <div className="md:col-span-1 flex flex-col items-center space-y-6">
@@ -31,36 +31,36 @@ const Profile = () => {
                                 <img 
                                     src={user?.photoURL || 'https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60'} 
                                     alt="Profile" 
-                                    className="w-48 h-48 rounded-full object-cover border-4 border-white shadow-lg transform transition duration-500 hover:scale-105"
+                                    className="w-48 h-48 rounded-full object-cover border-4 border-[#9538e277] shadow-lg transform transition duration-500 hover:scale-105"
                                 />
                                 <div className="absolute inset-0 rounded-full bg-purple-600 opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
                             </div>
                             
                             <div className="text-center">
-                                <h2 className="text-2xl font-bold text-gray-900">{user?.displayName}</h2>
-                                <p className="text-gray-600 mt-1">{user?.email}</p>
+                                <h2 className="text-2xl font-bold text-[#9538E2]">{user?.displayName}</h2>
+                                <p className="text-gray-400 mt-1">{user?.email}</p>
                             </div>
                         </div>
 
                         {/* Profile Form Section */}
                         <div className="md:col-span-2">
                             <form onSubmit={handleSubmit} className="space-y-6">
-                                <div className="grid grid-cols-1 gap-6">
+                                <div className="grid grid-cols-1 gap-6 ">
                                     <div>
-                                        <label className="block text-sm font-medium text-gray-700 mb-2">
+                                        <label className="block text-sm font-medium text-gray-400 mb-2">
                                             Full Name
                                         </label>
                                         <input
                                             type="text"
                                             name="fullName"
                                             value={user?.displayName}
-                                            className="w-full px-4 py-3 rounded-lg border border-gray-300  focus:ring-1 focus:outline-none focus:ring-[#9538E2] focus:border-[#9538E2]"
+                                            className="w-full px-4 py-3 rounded-lg border border-gray-600  focus:ring-1 focus:outline-none focus:ring-[#9538E2] focus:border-[#9538E2] bg-[#1B1D21] text-gray-300"
                                             placeholder="Enter your full name"
                                         />
                                     </div>
 
                                     <div>
-                                        <label className="block text-sm font-medium text-gray-700 mb-2">
+                                        <label className="block text-sm font-medium text-gray-400 mb-2">
                                             Email Address
                                         </label>
                                         <input
@@ -68,7 +68,7 @@ const Profile = () => {
                                             name="email"
                                             value={user?.email}
                                             readOnly
-                                            className="w-full px-4 py-3 rounded-lg border border-gray-300 bg-gray-50 cursor-not-allowed focus:ring-1 focus:outline-none focus:ring-[#9538E2] focus:border-[#9538E2]"
+                                            className="w-full px-4 py-3 rounded-lg border border-gray-600 cursor-not-allowed focus:ring-1 focus:outline-none focus:ring-[#9538E2] focus:border-[#9538E2] bg-[#1B1D21] text-gray-300"
                                         />
                                     </div>
                                 </div>
@@ -76,23 +76,23 @@ const Profile = () => {
 
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                     <div>
-                                        <label className="block text-sm font-medium text-gray-700 mb-2">
+                                        <label className="block text-sm font-medium text-gray-400 mb-2">
                                             Phone Number
                                         </label>
                                         <input
                                             type="tel"
-                                            className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-1 focus:outline-none focus:ring-[#9538E2] focus:border-[#9538E2]"
+                                            className="w-full px-4 py-3 rounded-lg border border-gray-600 focus:ring-1 focus:outline-none focus:ring-[#9538E2] focus:border-[#9538E2] bg-[#1B1D21] text-gray-300"
                                             placeholder="+880-00000000"
                                         />
                                     </div>
                                     
                                     <div>
-                                        <label className="block text-sm font-medium text-gray-700 mb-2">
+                                        <label className="block text-sm font-medium text-gray-400 mb-2">
                                             Position
                                         </label>
                                         <input
                                             type="text"
-                                            className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-1 focus:outline-none focus:ring-[#9538E2] focus:border-[#9538E2] "
+                                            className="w-full px-4 py-3 rounded-lg border border-gray-600 focus:ring-1 focus:outline-none focus:ring-[#9538E2] focus:border-[#9538E2] bg-[#1B1D21] text-gray-300 "
                                             placeholder="Your position"
                                         />
                                     </div>

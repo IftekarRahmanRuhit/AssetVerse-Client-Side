@@ -114,14 +114,14 @@ const CheckoutForm = ({ packageDetails }) => {
 
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
-      <div className="p-4 bg-purple-50 rounded-md">
+      <div className="p-4 bg-purple-100 rounded-md">
         <div className="flex justify-between items-center">
           <span className="font-medium">{packageDetails.name}</span>
           <span className="text-lg font-bold">${packageDetails.price}</span>
         </div>
       </div>
 
-      <div className="p-4 border rounded-md">
+      <div className="p-4 border rounded-md text-white">
         <CardElement options={cardElementOptions} />
       </div>
       
