@@ -32,7 +32,7 @@ const MyPendingRequest = () => {
 
   return (
 
-    <div className='px-4 py-10 bg-[#efedf0]'>
+    <div className='px-4 py-10 bg-[#212428] '>
 
     <div className="container mx-auto px-4 py-8">
       <h2 className="text-2xl font-bold text-[#9538E2] text-center mb-6">My Pending Requests</h2>
@@ -48,7 +48,7 @@ const MyPendingRequest = () => {
           </div>
           <div className="w-1/2">
             <h3 className="text-2xl text-[#9538E2] font-bold mb-4">Company Affiliation Needed</h3>
-            <p className="text-gray-800 font-medium">
+            <p className="text-gray-400 font-medium">
               You are currently not affiliated with any company. 
               Please contact your HR department to get registered 
               and start submitting asset requests.
@@ -66,7 +66,7 @@ const MyPendingRequest = () => {
           </div>
           <div className="w-1/2">
             <h3 className="text-2xl text-[#9538E2] font-bold mb-4">No Pending Requests</h3>
-            <p className="text-gray-800 font-medium">
+            <p className="text-gray-400 font-medium">
               You currently have no pending asset requests. Submit a new request 
               when you need an asset for your work.
             </p>
@@ -74,9 +74,9 @@ const MyPendingRequest = () => {
         </div>
       ) : (
         <div className="overflow-x-auto">
-          <table className="min-w-full bg-white border border-gray-200 rounded-lg">
+          <table className="min-w-full bg-white border border-gray-500 rounded-lg">
             <thead>
-              <tr className="bg-gray-300 text-gray-800 uppercase text-sm leading-normal">
+              <tr className="bg-gray-400 text-gray-800 uppercase text-sm leading-normal">
                 <th className="py-3 px-4 text-center">Asset Name</th>
                 <th className="py-3 px-4 text-center">Type</th>
                 <th className="py-3 px-4 text-center">Date</th>
@@ -84,15 +84,15 @@ const MyPendingRequest = () => {
                 <th className="py-3 px-4 text-center">Actions</th>
               </tr>
             </thead>
-            <tbody className="text-gray-600 text-sm font-semibold text-center ">
+            <tbody className="text-gray-400 text-sm font-semibold text-center ">
               {pendingRequests.map((request) => (
-                <tr key={request._id} className="border-b border-gray-200 hover:bg-gray-50">
+                <tr key={request._id} className="bg-[#1B1D21] border-b border-gray-500 hover:bg-[#212428]">
                   <td className="py-3 px-4 whitespace-nowrap">{request.assetName}</td>
                   <td className="py-3 px-4 whitespace-nowrap">
                     <span className={`px-3 py-1 rounded-full text-xs
                       ${request.assetType === 'Returnable' 
-                        ? 'bg-blue-100/60 text-blue-500' 
-                        : 'bg-green-100/60 text-green-500'}`}>
+                        ? 'bg-blue-100 text-blue-500' 
+                        : 'bg-green-100 text-green-500'}`}>
                       {request.assetType}
                     </span>
                   </td>
@@ -107,7 +107,7 @@ const MyPendingRequest = () => {
                   <td className="py-3 px-4">
                     <Link 
                       to="/myAssets" 
-                      className="btn btn-sm text-white hover:bg-purple-600 bg-purple-500  transition duration-300"
+                      className="btn btn-sm text-white hover:bg-purple-600 bg-purple-500  transition duration-300 border-none"
                     >
                       View
                     </Link>

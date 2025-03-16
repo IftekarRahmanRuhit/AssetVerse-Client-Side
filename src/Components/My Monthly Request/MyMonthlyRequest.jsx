@@ -57,7 +57,7 @@ const MyMonthlyRequest = () => {
           </div>
           <div className="w-1/2">
             <h3 className="text-2xl font-bold text-[#9538E2] mb-4">Company Affiliation Needed</h3>
-            <p className="text-gray-800 font-medium">
+            <p className="text-gray-400 font-medium">
               You are currently not affiliated with any company. 
               Please contact your HR department to get registered 
               and start submitting asset requests.
@@ -75,7 +75,7 @@ const MyMonthlyRequest = () => {
           </div>
           <div className="w-1/2">
             <h3 className="text-xl font-bold text-[#9538E2] mb-4">No Monthly Requests</h3>
-            <p className="text-gray-800 font-medium">
+            <p className="text-gray-400 font-medium">
               You have not made any asset requests this month. 
               Submit a new request when you need an asset for your work.
             </p>
@@ -84,24 +84,24 @@ const MyMonthlyRequest = () => {
       ) : (
         <>
           <div className="overflow-x-auto mb-6">
-            <table className="min-w-full bg-white border border-gray-200 rounded-lg">
+            <table className="min-w-full bg-[#212428] border border-gray-500 rounded-lg">
               <thead>
-                <tr className="bg-gray-300 text-gray-800 uppercase text-sm leading-normal">
+                <tr className="bg-gray-400 text-gray-800 uppercase text-sm leading-normal">
                   <th className="py-3 px-4 text-center">Asset Name</th>
                   <th className="py-3 px-4 text-center">Type</th>
                   <th className="py-3 px-4 text-center">Date</th>
                   <th className="py-3 px-4 text-center">Status</th>
                 </tr>
               </thead>
-              <tbody className="text-gray-800 text-sm font-semibold text-center ">
+              <tbody className="text-gray-400 text-sm font-semibold text-center ">
                 {currentRequests.map((request) => (
-                  <tr key={request._id} className="border-b border-gray-200 hover:bg-gray-50">
+                  <tr key={request._id} className="border-b border-gray-500 hover:bg-[#1B1D21]">
                     <td className="py-3 px-4 whitespace-nowrap">{request.assetName}</td>
                     <td className="py-3 px-4 whitespace-nowrap">
                       <span className={`px-3 py-1 rounded-full text-xs
                         ${request.assetType === 'Returnable' 
-                          ? 'bg-blue-100/60 text-blue-500' 
-                          : 'bg-green-100/60 text-green-500'}`}>
+                          ? 'bg-blue-100 text-blue-500' 
+                          : 'bg-green-100 text-green-500'}`}>
                         {request.assetType}
                       </span>
                     </td>
