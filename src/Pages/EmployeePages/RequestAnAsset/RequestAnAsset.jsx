@@ -101,7 +101,7 @@ const RequestAnAsset = () => {
   };
 
   return (
-    <div className="bg-[#efedf0] min-h-screen pb-28">
+    <div className="bg-[#212428]  min-h-screen pb-28">
        <Helmet> <title>AssetVerse | Request for an asset</title> </Helmet>
       <div className="container mx-auto pt-12 px-4">
         <h2 className="text-3xl font-bold  text-[#9538E2] mb-6 mt-24">Request an Asset</h2>
@@ -113,12 +113,12 @@ const RequestAnAsset = () => {
             placeholder="Search assets..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            className="p-2 rounded border border-gray-300 text-black font-semibold focus:outline-none focus:border-[#9538E2]"
+            className="p-2 rounded border border-gray-400 text-black font-semibold focus:outline-none focus:border-[#9538E2] bg-gray-400 placeholder:text-black"
           />
           <select
             value={stockFilter}
             onChange={(e) => setStockFilter(e.target.value)}
-            className="p-2 rounded border border-gray-300 text-black font-semibold focus:outline-none focus:border-[#9538E2]"
+            className="p-2 rounded border border-gray-400 text-black font-semibold focus:outline-none focus:border-[#9538E2] bg-gray-400"
           >
             <option value="">All Availability</option>
             <option value="available">Available</option>
@@ -127,7 +127,7 @@ const RequestAnAsset = () => {
           <select
             value={typeFilter}
             onChange={(e) => setTypeFilter(e.target.value)}
-            className="p-2 rounded border border-gray-300 text-black font-semibold focus:outline-none focus:border-[#9538E2]"
+            className="p-2 rounded border border-gray-400 text-black font-semibold focus:outline-none focus:border-[#9538E2] bg-gray-400"
           >
             <option value="">All Types</option>
             <option value="Returnable">Returnable</option>
