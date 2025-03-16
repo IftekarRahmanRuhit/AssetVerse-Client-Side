@@ -79,7 +79,7 @@ const AllRequests = () => {
   };
 
   return (
-<div className=" px-4 py-10 bg-[#efedf0] ">
+<div className=" px-4 py-10 bg-[#212428] ">
 <div >
 <section className='container px-4 mx-auto my-12 '>
        <Helmet> <title>AssetVerse | All Requests</title> </Helmet>
@@ -96,16 +96,16 @@ const AllRequests = () => {
           placeholder="Search by name or email..."
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
-          className="w-full md:w-64 p-2 rounded text-black bg-gray-200 border border-gray-300 focus:outline-none focus:border-[#9538E2]"
+          className="w-full md:w-64 p-2 rounded text-black bg-gray-400 placeholder-gray-800 border border-gray-400 focus:outline-none focus:border-[#9538E2]"
         />
       </div>
 
       <div className='flex flex-col mt-6'>
         <div className='-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8'>
           <div className='inline-block min-w-full py-2 align-middle md:px-6 lg:px-8'>
-            <div className='overflow-hidden border border-gray-200 md:rounded-lg'>
-              <table className='min-w-full divide-y divide-gray-200 animate__animated animate__fadeInUp'>
-                <thead className='bg-gray-300'>
+            <div className='overflow-hidden border border-gray-500 md:rounded-lg'>
+              <table className='min-w-full divide-y divide-gray-500 animate__animated animate__fadeInUp'>
+                <thead className='bg-gray-400'>
                   <tr>
                     <th className='py-3.5 px-4 text-sm font-bold text-center text-gray-800 '>
                       Asset Name
@@ -130,38 +130,38 @@ const AllRequests = () => {
                     </th>
                   </tr>
                 </thead>
-                <tbody className='bg-white divide-y divide-gray-200'>
+                <tbody className='bg-[#1B1D21] border border-gray-500 divide-y divide-gray-500'>
                   {currentRequests.map((request) => (
                     <tr key={request._id}>
-                      <td className='px-4 py-4 text-sm font-medium text-center text-gray-800 whitespace-nowrap'>
+                      <td className='px-4 py-4 text-sm font-medium text-center text-gray-400 whitespace-nowrap'>
                         {request.assetName}
                       </td>
-                      <td className='px-4 py-4 text-sm font-medium text-center text-gray-800 whitespace-nowrap'>
+                      <td className='px-4 py-4 text-sm font-medium text-center text-gray-400 whitespace-nowrap'>
                         <span className={`px-3 py-1 rounded-full text-xs
                           ${request.assetType === 'Returnable' 
-                            ? 'bg-blue-100/60 text-blue-500' 
-                            : 'bg-green-100/60 text-green-500'}`}>
+                            ? 'bg-blue-100 text-blue-500' 
+                            : 'bg-green-100 text-green-500'}`}>
                           {request.assetType}
                         </span>
                       </td>
-                      <td className='px-4 py-4 text-sm font-medium text-center text-gray-800 whitespace-nowrap'>
+                      <td className='px-4 py-4 text-sm font-medium text-center text-gray-400 whitespace-nowrap'>
                         <div>
                           <p>{request.requesterName}</p>
                           <p className="text-xs text-gray-400">{request.requesterEmail}</p>
                         </div>
                       </td>
-                      <td className='px-4 py-4 text-sm font-medium text-center text-gray-800 whitespace-nowrap'>
+                      <td className='px-4 py-4 text-sm font-medium text-center text-gray-400 whitespace-nowrap'>
                         {format(new Date(request.requestDate), 'PP')}
                       </td>
-                      <td className='px-4 py-4 text-sm font-medium text-center text-gray-800 max-w-xs truncate'>
+                      <td className='px-4 py-4 text-sm font-medium text-center text-gray-400 max-w-xs truncate'>
                         {request.additionalNotes}
                       </td>
                       <td className='px-4 py-4 text-sm text-center whitespace-nowrap'>
                         <div className={`inline-flex items-center px-3 py-1 rounded-full gap-x-2
-                          ${request.status === 'pending' ? 'bg-yellow-100/60 text-yellow-500' :
-                            request.status === 'approved' ? 'bg-green-100/60 text-green-500' :
-                            request.status === 'returned' ? 'bg-blue-100/60 text-blue-500' :
-                            'bg-red-100/60 text-red-500'}`}>
+                          ${request.status === 'pending' ? 'bg-yellow-100 text-yellow-500' :
+                            request.status === 'approved' ? 'bg-green-100 text-green-500' :
+                            request.status === 'returned' ? 'bg-blue-100 text-blue-500' :
+                            'bg-red-100 text-red-500'}`}>
                           <span className='h-1.5 w-1.5 rounded-full bg-current'></span>
                           <h2 className='text-sm font-normal capitalize'>{request.status}</h2>
                         </div>
@@ -171,7 +171,7 @@ const AllRequests = () => {
                           <button
                             disabled={request.status !== 'pending'}
                             onClick={() => handleStatusChange(request._id, 'approved')}
-                            className='disabled:opacity-50 disabled:cursor-not-allowed text-gray-800 transition-colors duration-200 hover:text-green-500 focus:outline-none'
+                            className='disabled:opacity-50 disabled:cursor-not-allowed text-gray-400 transition-colors duration-200 hover:text-green-500 focus:outline-none'
                           >
                             <svg
                               xmlns='http://www.w3.org/2000/svg'
@@ -192,7 +192,7 @@ const AllRequests = () => {
                           <button
                             disabled={request.status !== 'pending'}
                             onClick={() => handleStatusChange(request._id, 'rejected')}
-                            className='disabled:opacity-50 disabled:cursor-not-allowed text-gray-800 transition-colors duration-200 hover:text-red-500 focus:outline-none'
+                            className='disabled:opacity-50 disabled:cursor-not-allowed text-gray-400 transition-colors duration-200 hover:text-red-500 focus:outline-none'
                           >
                             <svg
                               xmlns='http://www.w3.org/2000/svg'
