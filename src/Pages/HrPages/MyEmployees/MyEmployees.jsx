@@ -48,19 +48,19 @@ const MyEmployees = () => {
   };
 
   return (
-    <div className="bg-[#efedf0] ">
+    <div className="bg-[#212428] ">
       <div className="max-w-7xl mx-auto p-8  ">
         <Helmet>
         
           <title>AssetVerse | My Employees</title>{" "}
         </Helmet>
-        <h2 className="text-3xl mt-24 font-bold mb-8 animate__animated animate__fadeInUp">
+        <h2 className="text-3xl mt-24 font-bold mb-8 animate__animated animate__fadeInUp text-[#9538E2]">
           My Team Members
         </h2>
 
         <div className="overflow-x-auto">
           <table className="min-w-full bg-white rounded-lg overflow-hidden shadow-lg animate__animated animate__fadeInUp">
-            <thead className="bg-gray-300">
+            <thead className="bg-gray-400 ">
               <tr>
                 <th className="px-6 py-3 text-center text-sm font-bold text-gray-800 uppercase tracking-wider">
                   Member
@@ -76,7 +76,7 @@ const MyEmployees = () => {
                 </th>
               </tr>
             </thead>
-            <tbody className="bg-white  divide-y divide-gray-200 border border-gray-200 ">
+            <tbody className="bg-[#1B1D21] border border-gray-500  divide-y divide-gray-500 ">
               {employees.map((employee) => (
                 <tr key={employee._id}>
                   <td className="px-6 py-4 whitespace-nowrap">
@@ -89,14 +89,14 @@ const MyEmployees = () => {
                         />
                       </div>
                       <div className="ml-4 text-center">
-                        <div className="text-sm text-center font-medium text-gray-900">
+                        <div className="text-sm text-center font-medium text-gray-400">
                           {employee.employeeName}
                         </div>
                       </div>
                     </div>
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap">
-                    <div className="text-sm text-center text-gray-900">
+                    <div className="text-sm text-center text-gray-400">
                       {employee.employeeEmail}
                     </div>
                   </td>
