@@ -18,26 +18,24 @@
 
 ## 📋 Table of Contents
 
-- [Overview](#overview)
+- [Description](#description)
 - [✨ Features](#-features)
 - [🚀 Live Demo](#-live-demo)
 - [🛠️ Tech Stack](#️-tech-stack)
 - [📦 Installation](#-installation)
 - [🔧 Configuration](#-configuration)
-- [📱 Screenshots](#-screenshots)
 - [🏗️ Architecture](#️-architecture)
 - [👥 User Roles](#-user-roles)
 - [🔐 Authentication](#-authentication)
 - [💳 Payment Integration](#-payment-integration)
 - [📊 API Endpoints](#-api-endpoints)
 - [🤝 Contributing](#-contributing)
-- [📄 License](#-license)
 
 ---
 
-## Overview
+## Description
 
-**AssetVerse** is a modern, full-stack asset management platform designed to streamline business operations through comprehensive asset tracking, employee management, and request handling. Built with React.js and Node.js, it provides a seamless experience for both HR managers and employees to manage company assets efficiently.
+**AssetVerse** is a modern solution for businesses to simplify and streamline their asset and employee management. Designed for both HR Managers and Employees, the platform offers a seamless experience for tracking company assets, handling requests, and managing teams. With secure authentication, responsive design, and intuitive navigation, AssetVerse empowers businesses to stay organized and efficient. Whether it's monitoring returnable items, managing team members, or visualizing data through analytics, AssetVerse provides everything needed for hassle-free asset management in one platform.
 
 ### 🎯 Key Benefits
 
@@ -225,19 +223,6 @@ npm run build
 
 ---
 
-## 📱 Screenshots
-
-### Dashboard Overview
-![Dashboard](https://via.placeholder.com/800x400/9538E2/FFFFFF?text=Dashboard+Overview)
-
-### Asset Management
-![Asset Management](https://via.placeholder.com/800x400/47A248/FFFFFF?text=Asset+Management)
-
-### Request Processing
-![Request Processing](https://via.placeholder.com/800x400/FFCA28/000000?text=Request+Processing)
-
----
-
 ## 🏗️ Architecture
 
 ```
@@ -366,26 +351,11 @@ We welcome contributions! Please follow these steps:
 
 ---
 
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
----
-
-## 📞 Support
-
-- **Email**: support@assetverse.com
-- **Documentation**: [docs.assetverse.com](https://docs.assetverse.com)
-- **Issues**: [GitHub Issues](https://github.com/IftekarRahmanRuhit/AssetVerse-Client-Side/issues)
-
----
-
 <div align="center">
 
 **Made with ❤️ by Iftekar Rahman Ruhit**
 
-[![GitHub stars](https://img.shields.io/github/stars/IftekarRahmanRuhit/AssetVerse-Client-Side?style=social)](https://github.com/IftekarRahmanRuhit/AssetVerse-Client-Side/stargazers)
-[![GitHub forks](https://img.shields.io/github/forks/IftekarRahmanRuhit/AssetVerse-Client-Side?style=social)](https://github.com/IftekarRahmanRuhit/AssetVerse-Client-Side/network)
-[![GitHub issues](https://img.shields.io/github/issues/IftekarRahmanRuhit/AssetVerse-Client-Side)](https://github.com/IftekarRahmanRuhit/AssetVerse-Client-Side/issues)
-
 </div>
+
+
+
